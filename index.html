@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inglés 2º ESO – Gramática U8, U9, U10</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background:#f4f4f4; }
+  header { background:#1b4965; color:white; padding:15px; text-align:center; }
+  main { max-width:1000px; margin:20px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+  .menu-buttons { display:grid; grid-template-columns:1fr; gap:10px; }
+  @media (min-width:700px){
+    .menu-buttons { grid-template-columns: repeat(3,1fr); }
+  }
+  .menu-buttons button { width:100%; padding:15px; margin:0; font-size:1.1rem; border:none; border-radius:6px; cursor:pointer; }
+  .practice { background:#ffd166; }
+  .diagnostic { background:#06d6a0; }
+  .final { background:#118ab2; color:white; }
+  #screen { margin-top:20px; }
+  .tema-btn { padding:8px 12px; margin:4px; border-radius:6px; border:1px solid #ccc; cursor:pointer; font-size:0.9rem; background:#f7f7f7; }
+  .tema-btn.active { background:#1b4965; color:white; }
+  .question { margin:15px 0; }
+  .options { margin:10px 0; }
+  .options button { display:block; width:100%; text-align:left; margin:5px 0; padding:8px; border-radius:4px; border:1px solid #ccc; background:#f9f9f9; cursor:pointer; }
+  .options button.correct { background:#c7f9cc; border-color:#2d6a4f; }
+  .options button.incorrect { background:#ffccd5; border-color:#d00000; }
+  .feedback { margin-top:10px; padding:10px; border-radius:4px; }
+  .feedback.ok { background:#c7f9cc; }
+  .feedback.error { background:#ffccd5; }
+  .controls { margin-top:15px; display:flex; gap:10px; flex-wrap:wrap; }
+  .controls button { padding:8px 12px; border-radius:4px; border:none; cursor:pointer; }
+  .small-info { font-size:0.9rem; color:#555; margin-top:8px; }
+  .tag { display:inline-block; padding:2px 6px; border-radius:4px; background:#edf2ff; font-size:0.75rem; margin-left:5px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Inglés 2º ESO – Gramática (U8, U9, U10)</h1>
+  <p>Reported speech · Modales de deducción · Future continuous & future perfect</p>
+</header>
+<main>
+  <div class="menu-buttons">
+    <button class="practice" onclick="showHome('practice')">📚 PRACTICAR POR TEMAS</button>
+    <button class="diagnostic" onclick="startDiagnostic()">🔍 EXAMEN DIAGNÓSTICO</button>
+    <button class="final" onclick="startFinal()">🏆 EXAMEN FINAL</button>
+  </div>
+
+  <div id="screen"></div>
+</main>
+
+<script>
+// ======================================================
+// BANCO DE PREGUNTAS
+// tema:
+//  "reported_aff"   – reported speech afirmaciones
+//  "reported_qo"    – reported speech preguntas / órdenes
+//  "modales_presente"
+//  "modales_pasado"
+//  "fut_cont"
+//  "fut_perf"
+// nivel: 1=fácil, 2=medio, 3=exigente pero apto
+// ======================================================
+
+const preguntas = [
+  // ========== REPORTED SPEECH – AFIRMACIONES ==========
+  {
+    id: 1,
+    tema: "reported_aff",
+    texto: "Elige el estilo indirecto correcto: She said, 'I am tired.'",
+    opciones: [
+      "She said she was tired.",
+      "She told she was tired.",
+      "She said she is tired."
+    ],
+    correcta: "She said she was tired.",
+    explicacion: "No usamos 'told' sin decir a quién hablamos y cambiamos 'am' a 'was' en pasado. La forma correcta es 'She said she was tired', igual que 'He said he was hungry'.",
+    nivel: 1
+  },
+  {
+    id: 2,
+    tema: "reported_aff",
+    texto: "Elige el estilo indirecto correcto: He said, 'The museum has been robbed.'",
+    opciones: [
+      "He said the museum had been robbed.",
+      "He said the museum has been robbed.",
+      "He told that the museum had been robbed."
+    ],
+    correcta: "He said the museum had been robbed.",
+    explicacion: "En estilo indirecto, 'has been robbed' pasa a 'had been robbed' para marcar pasado perfecto. Es como 'The police said the car had been stolen'.",
+    nivel: 2
+  },
+  {
+    id: 3,
+    tema: "reported_aff",
+    texto: "Elige el estilo indirecto correcto: 'We will go to the concert tomorrow,' they said.",
+    opciones: [
+      "They said they would go to the concert the next day.",
+      "They said they will go to the concert tomorrow.",
+      "They told they would go to the concert the next day."
+    ],
+    correcta: "They said they would go to the concert the next day.",
+    explicacion: "Cambiamos 'will' a 'would' y 'tomorrow' a 'the next day'. Por ejemplo: 'She said she would call me the next day'.",
+    nivel: 2
+  },
+  {
+    id: 4,
+    tema: "reported_aff",
+    texto: "Transforma: He said, 'I want to see the Mona Lisa.'",
+    opciones: [
+      "He said he wanted to see the Mona Lisa.",
+      "He said he wants to see the Mona Lisa.",
+      "He told he wanted to see the Mona Lisa."
+    ],
+    correcta: "He said he wanted to see the Mona Lisa.",
+    explicacion: "Pasamos 'want' a 'wanted' y mantenemos 'said' sin objeto. Igual que: 'She said she wanted to go home'.",
+    nivel: 1
+  },
+  {
+    id: 5,
+    tema: "reported_aff",
+    texto: "Elige la opción correcta: 'The news said, \"A masterpiece was stolen.\"'",
+    opciones: [
+      "The news said a masterpiece had been stolen.",
+      "The news said a masterpiece was stolen.",
+      "The news told a masterpiece had been stolen."
+    ],
+    correcta: "The news said a masterpiece had been stolen.",
+    explicacion: "El pasado simple 'was stolen' pasa a pasado perfecto 'had been stolen' en estilo indirecto. Es como 'They said the bike had been broken'.",
+    nivel: 2
+  },
+  {
+    id: 6,
+    tema: "reported_aff",
+    texto: "Completa: 'The FBI said, \"There will be an international investigation.\"' → The FBI said there ____ an international investigation.",
+    opciones: [
+      "would be",
+      "will be",
+      "was being"
+    ],
+    correcta: "would be",
+    explicacion: "En reported speech 'will' normalmente cambia a 'would'. Igual que: 'She said there would be a party'.",
+    nivel: 2
+  },
+  {
+    id: 7,
+    tema: "reported_aff",
+    texto: "Elige el estilo indirecto correcto: 'I didn't see anything,' he said.",
+    opciones: [
+      "He said he hadn't seen anything.",
+      "He said he didn't see anything.",
+      "He told he hadn't seen anything."
+    ],
+    correcta: "He said he hadn't seen anything.",
+    explicacion: "Cambiamos 'didn't see' a 'hadn't seen' para mostrar pasado perfecto. Igual que: 'She said she hadn't done her homework'.",
+    nivel: 2
+  },
+  {
+    id: 8,
+    tema: "reported_aff",
+    texto: "Completa: 'She said, \"I will try to be on time.\"' → She said she ____ to be on time.",
+    opciones: [
+      "would try",
+      "will try",
+      "tried"
+    ],
+    correcta: "would try",
+    explicacion: "'Will' pasa a 'would' en estilo indirecto. Por ejemplo: 'He said he would help me later'.",
+    nivel: 1
+  },
+  {
+    id: 9,
+    tema: "reported_aff",
+    texto: "Completa: 'They said, \"We are studying for the exam.\"' → They said they ____ for the exam.",
+    opciones: [
+      "were studying",
+      "are studying",
+      "had studied"
+    ],
+    correcta: "were studying",
+    explicacion: "El presente continuo 'are studying' cambia a pasado continuo 'were studying'. Igual que: 'She said she was sleeping'.",
+    nivel: 1
+  },
+  {
+    id: 10,
+    tema: "reported_aff",
+    texto: "Elige la opción correcta: 'She said, \"I have finished my homework.\"'",
+    opciones: [
+      "She said she had finished her homework.",
+      "She said she has finished her homework.",
+      "She told she had finished her homework."
+    ],
+    correcta: "She said she had finished her homework.",
+    explicacion: "El presente perfecto 'have finished' pasa a pasado perfecto 'had finished'. Es como 'He said he had eaten'.",
+    nivel: 2
+  },
+
+  // ========== REPORTED SPEECH – PREGUNTAS / ÓRDENES ==========
+  {
+    id: 20,
+    tema: "reported_qo",
+    texto: "Transforma al estilo indirecto: 'Do you like mystery books?' she asked.",
+    opciones: [
+      "She asked if I liked mystery books.",
+      "She asked if I like mystery books.",
+      "She told if I liked mystery books."
+    ],
+    correcta: "She asked if I liked mystery books.",
+    explicacion: "En preguntas sí/no usamos 'asked if' y ponemos el verbo en pasado: 'liked'. Igual que: 'He asked if I wanted pizza'.",
+    nivel: 1
+  },
+  {
+    id: 21,
+    tema: "reported_qo",
+    texto: "Elige la opción correcta: His mum said, 'Go to your room.'",
+    opciones: [
+      "His mum told him to go to his room.",
+      "His mum said him to go to his room.",
+      "His mum told to go to his room."
+    ],
+    correcta: "His mum told him to go to his room.",
+    explicacion: "Para órdenes usamos 'told + persona + to + verbo'. Por ejemplo: 'The teacher told us to sit down'.",
+    nivel: 1
+  },
+  {
+    id: 22,
+    tema: "reported_qo",
+    texto: "Transforma: 'Put the phone down!' he told his brother.",
+    opciones: [
+      "He told his brother to put the phone down.",
+      "He told his brother put the phone down.",
+      "He said his brother to put the phone down."
+    ],
+    correcta: "He told his brother to put the phone down.",
+    explicacion: "En órdenes, siempre usamos 'to' antes del verbo: 'to put'. Igual que: 'She told me to be quiet'.",
+    nivel: 1
+  },
+  {
+    id: 23,
+    tema: "reported_qo",
+    texto: "Transforma: 'Please let me stay, Dad,' he begged.",
+    opciones: [
+      "He begged his dad to let him stay.",
+      "He begged his dad let him stay.",
+      "He begged to his dad to let him stay."
+    ],
+    correcta: "He begged his dad to let him stay.",
+    explicacion: "Con 'beg' también usamos 'begged + persona + to + verbo'. Igual que: 'She begged her mum to go to the party'.",
+    nivel: 2
+  },
+  {
+    id: 24,
+    tema: "reported_qo",
+    texto: "Transforma: 'Can I go back home?' I asked him.",
+    opciones: [
+      "I asked him if I could go back home.",
+      "I asked him if could I go back home.",
+      "I told him if I could go back home."
+    ],
+    correcta: "I asked him if I could go back home.",
+    explicacion: "En preguntas sí/no usamos 'asked him if' y el orden normal sujeto-verbo: 'I could go'.",
+    nivel: 2
+  },
+  {
+    id: 25,
+    tema: "reported_qo",
+    texto: "Transforma: 'Do I have to wake up early?' he asked.",
+    opciones: [
+      "He asked if he had to wake up early.",
+      "He asked did he have to wake up early.",
+      "He asked if had he to wake up early."
+    ],
+    correcta: "He asked if he had to wake up early.",
+    explicacion: "Quitamos el auxiliar 'do' y usamos 'asked if' + sujeto + verbo: 'he had to'.",
+    nivel: 2
+  },
+  {
+    id: 26,
+    tema: "reported_qo",
+    texto: "Transforma: 'Has he heard the news yet?' she asked.",
+    opciones: [
+      "She asked if he had heard the news yet.",
+      "She asked if he has heard the news yet.",
+      "She said if he had heard the news yet."
+    ],
+    correcta: "She asked if he had heard the news yet.",
+    explicacion: "El presente perfecto 'has heard' se cambia a 'had heard'. Igual que: 'He asked if she had finished'.",
+    nivel: 2
+  },
+  {
+    id: 27,
+    tema: "reported_qo",
+    texto: "Transforma: 'Everyone stand up,' she said.",
+    opciones: [
+      "She told everyone to stand up.",
+      "She told everyone stand up.",
+      "She said everyone to stand up."
+    ],
+    correcta: "She told everyone to stand up.",
+    explicacion: "Para instrucciones colectivas también usamos 'told + objeto + to + verbo'. Por ejemplo: 'She told the class to listen'.",
+    nivel: 1
+  },
+  {
+    id: 28,
+    tema: "reported_qo",
+    texto: "Elige la opción correcta: 'Can you get me some tea, please?' he asked.",
+    opciones: [
+      "He asked if I could get him some tea.",
+      "He told I could get him some tea.",
+      "He asked could I get him some tea."
+    ],
+    correcta: "He asked if I could get him some tea.",
+    explicacion: "En reported questions usamos 'asked if' y el orden normal 'I could get'.",
+    nivel: 2
+  },
+  {
+    id: 29,
+    tema: "reported_qo",
+    texto: "Transforma: 'Don't talk in class,' the teacher said.",
+    opciones: [
+      "The teacher told us not to talk in class.",
+      "The teacher told us to not talk in class.",
+      "The teacher said us not talk in class."
+    ],
+    correcta: "The teacher told us not to talk in class.",
+    explicacion: "Para órdenes negativas usamos 'told + persona + not to + verbo'. Igual que: 'Mum told me not to shout'.",
+    nivel: 2
+  },
+
+  // ========== MODALES DEDUCCIÓN – PRESENTE ==========
+  {
+    id: 40,
+    tema: "modales_presente",
+    texto: "Completa: 'He always wears a Real Madrid T-shirt. He ____ a football fan.'",
+    opciones: [
+      "must be",
+      "might be",
+      "cant be"
+    ],
+    correcta: "must be",
+    explicacion: "'Must be' se usa cuando estamos casi seguros de algo en el presente. Es como decir: 'She must be tired' cuando ves que casi se duerme.",
+    nivel: 1
+  },
+  {
+    id: 41,
+    tema: "modales_presente",
+    texto: "Completa: 'I've heard Mary has bought a dress which cost 5,000 euros. It ____ that much!'",
+    opciones: [
+      "cant cost",
+      "must cost",
+      "might cost"
+    ],
+    correcta: "cant cost",
+    explicacion: "'Cant' se usa cuando pensamos que algo es casi imposible. Aquí el hablante no cree que cueste tanto, igual que 'This phone can't be that expensive'.",
+    nivel: 2
+  },
+  {
+    id: 42,
+    tema: "modales_presente",
+    texto: "Completa: 'They have an enormous garden. They ____ their own vegetables.'",
+    opciones: [
+      "might grow",
+      "cant grow",
+      "must have grown"
+    ],
+    correcta: "might grow",
+    explicacion: "'Might' indica posibilidad pero no seguridad. Es como decir 'He might be at home' cuando no estás seguro.",
+    nivel: 1
+  },
+  {
+    id: 43,
+    tema: "modales_presente",
+    texto: "Completa: 'He's got a Ferrari. He ____ rich.'",
+    opciones: [
+      "must be",
+      "might be",
+      "cant be"
+    ],
+    correcta: "must be",
+    explicacion: "Con una pista muy fuerte usamos 'must be' para decir que casi seguro es rico. Es parecido a 'She must be very smart, she gets top marks'.",
+    nivel: 1
+  },
+  {
+    id: 44,
+    tema: "modales_presente",
+    texto: "Completa: 'They are vegans. They ____ a lot of fruit and vegetables.'",
+    opciones: [
+      "must eat",
+      "cant eat",
+      "might have eaten"
+    ],
+    correcta: "must eat",
+    explicacion: "Si son veganos, es muy probable que coman mucha fruta y verdura, por eso usamos 'must eat'.",
+    nivel: 1
+  },
+  {
+    id: 45,
+    tema: "modales_presente",
+    texto: "Completa: 'I always see her carrying a lot of books. She ____ to university.'",
+    opciones: [
+      "must go",
+      "might have gone",
+      "cant go"
+    ],
+    correcta: "must go",
+    explicacion: "Verla siempre con libros hace que parezca muy probable que vaya a la universidad, por eso usamos 'must go'.",
+    nivel: 2
+  },
+  {
+    id: 46,
+    tema: "modales_presente",
+    texto: "Completa: 'I don't see any lights on in the house. They ____ at home.'",
+    opciones: [
+      "cant be",
+      "must be",
+      "might be"
+    ],
+    correcta: "cant be",
+    explicacion: "Si todas las luces están apagadas, parece casi imposible que estén en casa, así que usamos 'can't be'.",
+    nivel: 2
+  },
+  {
+    id: 47,
+    tema: "modales_presente",
+    texto: "Completa: 'The teacher is smiling. The exam ____ very difficult.'",
+    opciones: [
+      "cant be",
+      "must be",
+      "might have been"
+    ],
+    correcta: "cant be",
+    explicacion: "Si el profesor sonríe, parece que el examen no es muy difícil, por eso usamos 'can't be'.",
+    nivel: 2
+  },
+  {
+    id: 48,
+    tema: "modales_presente",
+    texto: "Completa: 'She's wearing football boots and a team shirt. She ____ football after school.'",
+    opciones: [
+      "might play",
+      "cant play",
+      "must have played"
+    ],
+    correcta: "might play",
+    explicacion: "Aquí solo sabemos que es posible que juegue fútbol después del colegio, por eso usamos 'might play'.",
+    nivel: 1
+  },
+  {
+    id: 49,
+    tema: "modales_presente",
+    texto: "Completa: 'He never studies and he always sleeps in class. He ____ a good mark in the exam.'",
+    opciones: [
+      "cant get",
+      "must get",
+      "might get"
+    ],
+    correcta: "cant get",
+    explicacion: "Con toda esa información, parece casi imposible que saque buena nota, así que usamos 'can't get'.",
+    nivel: 2
+  },
+
+  // ========== MODALES DEDUCCIÓN – PASADO + SHOULD HAVE ==========
+  {
+    id: 60,
+    tema: "modales_pasado",
+    texto: "Completa: 'I can't find my keys. I ____ (leave) them at school.'",
+    opciones: [
+      "must have left",
+      "cant have left",
+      "must left"
+    ],
+    correcta: "must have left",
+    explicacion: "No podemos decir 'must left'; en pasado usamos 'must have' + participio. La forma correcta es 'must have left', como 'He must have lost his bag'.",
+    nivel: 2
+  },
+  {
+    id: 61,
+    tema: "modales_pasado",
+    texto: "Completa: 'The lights are off. They ____ (go) to bed already.'",
+    opciones: [
+      "must have gone",
+      "cant have gone",
+      "might go"
+    ],
+    correcta: "must have gone",
+    explicacion: "Las luces apagadas son una pista fuerte, por eso usamos 'must have gone', igual que 'She must have gone home'.",
+    nivel: 1
+  },
+  {
+    id: 62,
+    tema: "modales_pasado",
+    texto: "Completa: 'The test was so easy. You ____ (fail) it.'",
+    opciones: [
+      "cant have failed",
+      "must have failed",
+      "might have failed"
+    ],
+    correcta: "cant have failed",
+    explicacion: "'Can't have' se usa para decir que algo en el pasado es casi imposible. Aquí casi seguro que no suspendiste.",
+    nivel: 2
+  },
+  {
+    id: 63,
+    tema: "modales_pasado",
+    texto: "Completa: 'I think I've hurt my knee running. You ____ (buy) better trainers.'",
+    opciones: [
+      "should have bought",
+      "shouldnt have bought",
+      "must have bought"
+    ],
+    correcta: "should have bought",
+    explicacion: "'Should have' + participio se usa para decir que algo habría sido una buena idea. Es como 'You should have studied more'.",
+    nivel: 2
+  },
+  {
+    id: 64,
+    tema: "modales_pasado",
+    texto: "Completa: 'My electricity bill is so high. You ____ (use) the heating so much.'",
+    opciones: [
+      "shouldnt have used",
+      "must have used",
+      "cant have used"
+    ],
+    correcta: "shouldnt have used",
+    explicacion: "Con 'shouldn't have' + participio criticamos algo del pasado que no fue buena idea, como 'You shouldn't have gone to bed so late'.",
+    nivel: 2
+  },
+  {
+    id: 65,
+    tema: "modales_pasado",
+    texto: "Completa: 'We ran out of petrol! We ____ (stop) at the petrol station.'",
+    opciones: [
+      "should have stopped",
+      "must have stopped",
+      "cant have stopped"
+    ],
+    correcta: "should have stopped",
+    explicacion: "Miramos atrás y pensamos que habría sido mejor parar: 'should have stopped'. Igual que 'We should have brought some water'.",
+    nivel: 1
+  },
+  {
+    id: 66,
+    tema: "modales_pasado",
+    texto: "Completa: 'I couldn't remember your address. I ____ (write) it down.'",
+    opciones: [
+      "should have written",
+      "shouldnt have written",
+      "must have written"
+    ],
+    correcta: "should have written",
+    explicacion: "Otra vez, es un consejo sobre el pasado: habría sido buena idea escribirla, 'should have written'.",
+    nivel: 1
+  },
+  {
+    id: 67,
+    tema: "modales_pasado",
+    texto: "Completa: 'He looks very happy. He ____ (pass) the exam.'",
+    opciones: [
+      "must have passed",
+      "cant have passed",
+      "might pass"
+    ],
+    correcta: "must have passed",
+    explicacion: "Su cara es una pista fuerte, por eso usamos 'must have passed'. Es similar a 'She must have won the match'.",
+    nivel: 1
+  },
+  {
+    id: 68,
+    tema: "modales_pasado",
+    texto: "Completa: 'The classroom is empty. The students ____ (leave).' ",
+    opciones: [
+      "must have left",
+      "cant have left",
+      "might leave"
+    ],
+    correcta: "must have left",
+    explicacion: "Si la clase está vacía, casi seguro que ya se han ido, así que usamos 'must have left'.",
+    nivel: 1
+  },
+  {
+    id: 69,
+    tema: "modales_pasado",
+    texto: "Completa: 'The bus is completely full. You ____ (find) a seat.'",
+    opciones: [
+      "cant have found",
+      "must have found",
+      "should have found"
+    ],
+    correcta: "cant have found",
+    explicacion: "Si el bus está lleno, parece casi imposible que encontraras asiento: 'can't have found'.",
+    nivel: 2
+  },
+
+  // ========== FUTURE CONTINUOUS ==========
+  {
+    id: 80,
+    tema: "fut_cont",
+    texto: "Elige la frase correcta en futuro continuo: 'Ella estará durmiendo a esa hora.'",
+    opciones: [
+      "She will be sleeping at that time.",
+      "She will sleeping at that time.",
+      "She is be sleeping at that time."
+    ],
+    correcta: "She will be sleeping at that time.",
+    explicacion: "El future continuous es 'will be' + verbo con -ing. Por ejemplo: 'I will be studying at 8pm'.",
+    nivel: 1
+  },
+  {
+    id: 81,
+    tema: "fut_cont",
+    texto: "Completa: 'What ____ you ____ at 6pm this evening?'",
+    opciones: [
+      "will / be doing",
+      "will / doing",
+      "are / be doing"
+    ],
+    correcta: "will / be doing",
+    explicacion: "En preguntas usamos 'will + sujeto + be + -ing': 'What will you be doing?'.",
+    nivel: 2
+  },
+  {
+    id: 82,
+    tema: "fut_cont",
+    texto: "Completa: 'This time tomorrow, we ____ at the beach.'",
+    opciones: [
+      "will be swimming",
+      "will have swum",
+      "must be swim"
+    ],
+    correcta: "will be swimming",
+    explicacion: "Hablamos de una acción en progreso mañana a esa hora, por eso usamos 'will be swimming'.",
+    nivel: 1
+  },
+  {
+    id: 83,
+    tema: "fut_cont",
+    texto: "Completa: 'On Saturday afternoon, I ____ lunch with my family.'",
+    opciones: [
+      "will be having",
+      "will have had",
+      "must be having"
+    ],
+    correcta: "will be having",
+    explicacion: "'Will be having' muestra la acción en ese momento futuro. Es como 'I'll be watching TV at 10pm'.",
+    nivel: 1
+  },
+  {
+    id: 84,
+    tema: "fut_cont",
+    texto: "Completa: 'At 10pm tonight, he ____ his favourite series.'",
+    opciones: [
+      "will be watching",
+      "will have watched",
+      "might watching"
+    ],
+    correcta: "will be watching",
+    explicacion: "Otra acción en progreso en un momento futuro concreto, por eso usamos 'will be watching'.",
+    nivel: 1
+  },
+  {
+    id: 85,
+    tema: "fut_cont",
+    texto: "Completa: 'Where ____ you ____ in ten years?'",
+    opciones: [
+      "will / be living",
+      "will / living",
+      "are / be living"
+    ],
+    correcta: "will / be living",
+    explicacion: "La estructura correcta es 'will be living', igual que 'What will you be doing tomorrow?'.",
+    nivel: 2
+  },
+  {
+    id: 86,
+    tema: "fut_cont",
+    texto: "Completa: 'Will you ____ to any concerts this summer?'",
+    opciones: [
+      "be going",
+      "going",
+      "be go"
+    ],
+    correcta: "be going",
+    explicacion: "En future continuous usamos 'will you be going...?' con el verbo en -ing. Igual que 'Will you be travelling next month?'.",
+    nivel: 1
+  },
+  {
+    id: 87,
+    tema: "fut_cont",
+    texto: "Completa: 'Tomorrow afternoon, they ____ basketball in the park.'",
+    opciones: [
+      "will be playing",
+      "will have played",
+      "must be playing"
+    ],
+    correcta: "will be playing",
+    explicacion: "Es una acción en progreso mañana por la tarde, así que usamos future continuous.",
+    nivel: 1
+  },
+  {
+    id: 88,
+    tema: "fut_cont",
+    texto: "Completa: 'Don't call me at 9pm. I ____ for the maths test.'",
+    opciones: [
+      "will be studying",
+      "will have studied",
+      "must be study"
+    ],
+    correcta: "will be studying",
+    explicacion: "En ese momento futuro estarás en medio de la acción, por eso 'will be studying'.",
+    nivel: 1
+  },
+  {
+    id: 89,
+    tema: "fut_cont",
+    texto: "Completa: 'Next week at this time, we ____ on our school trip.'",
+    opciones: [
+      "will be travelling",
+      "will have travelled",
+      "might have travelling"
+    ],
+    correcta: "will be travelling",
+    explicacion: "Durante ese momento de la semana que viene estaréis viajando, así que usamos 'will be travelling'.",
+    nivel: 1
+  },
+
+  // ========== FUTURE PERFECT ==========
+  {
+    id: 100,
+    tema: "fut_perf",
+    texto: "Completa: 'He ____ the car by tomorrow.'",
+    opciones: [
+      "will have repaired",
+      "will be repairing",
+      "must have repaired"
+    ],
+    correcta: "will have repaired",
+    explicacion: "El future perfect es 'will have' + participio para algo terminado antes de un momento futuro. Por ejemplo: 'I will have finished my homework by 8pm'.",
+    nivel: 1
+  },
+  {
+    id: 101,
+    tema: "fut_perf",
+    texto: "Completa: 'By the time they get here, the concert ____.'",
+    opciones: [
+      "will have finished",
+      "will be finishing",
+      "must have finished"
+    ],
+    correcta: "will have finished",
+    explicacion: "El concierto estará terminado antes de que ellos lleguen, por eso usamos 'will have finished'.",
+    nivel: 2
+  },
+  {
+    id: 102,
+    tema: "fut_perf",
+    texto: "Completa: 'By next year, I ____ my English exam.'",
+    opciones: [
+      "will have passed",
+      "will be passing",
+      "must pass"
+    ],
+    correcta: "will have passed",
+    explicacion: "El examen estará aprobado antes de ese momento futuro, así que usamos future perfect.",
+    nivel: 1
+  },
+  {
+    id: 103,
+    tema: "fut_perf",
+    texto: "Completa: 'By 2030, he ____ school.'",
+    opciones: [
+      "will have finished",
+      "will be finishing",
+      "must have finished"
+    ],
+    correcta: "will have finished",
+    explicacion: "Hablamos de algo completado antes de 2030: 'will have finished'. Igual que 'She will have left home by then'.",
+    nivel: 1
+  },
+  {
+    id: 104,
+    tema: "fut_perf",
+    texto: "Completa: 'Call after 9am – he ____ of bed by then.'",
+    opciones: [
+      "will have got out",
+      "will be getting out",
+      "must have got out"
+    ],
+    correcta: "will have got out",
+    explicacion: "Para decir que ya se habrá levantado a esa hora usamos 'will have got out'.",
+    nivel: 2
+  },
+  {
+    id: 105,
+    tema: "fut_perf",
+    texto: "Completa: 'By the end of the day, we ____ all our homework.'",
+    opciones: [
+      "will have done",
+      "will be doing",
+      "must have done"
+    ],
+    correcta: "will have done",
+    explicacion: "Todo el trabajo estará terminado antes de que acabe el día, por eso 'will have done'.",
+    nivel: 1
+  },
+  {
+    id: 106,
+    tema: "fut_perf",
+    texto: "Completa: 'By 2025, they ____ in their new house.'",
+    opciones: [
+      "will have lived",
+      "will be living",
+      "must be living"
+    ],
+    correcta: "will have lived",
+    explicacion: "Aquí hablamos del tiempo acumulado viviendo allí, así que usamos 'will have lived'.",
+    nivel: 2
+  },
+  {
+    id: 107,
+    tema: "fut_perf",
+    texto: "Completa: 'By next week, she ____ all the episodes of that series.'",
+    opciones: [
+      "will have watched",
+      "will be watching",
+      "must have watching"
+    ],
+    correcta: "will have watched",
+    explicacion: "Para decir que habrá terminado la serie antes de la semana siguiente usamos 'will have watched'.",
+    nivel: 1
+  },
+  {
+    id: 108,
+    tema: "fut_perf",
+    texto: "Completa: 'By the time you arrive, I ____ dinner.'",
+    opciones: [
+      "will have cooked",
+      "will be cooking",
+      "must have cooked"
+    ],
+    correcta: "will have cooked",
+    explicacion: "La cena ya estará hecha cuando llegues, por eso usamos future perfect 'will have cooked'.",
+    nivel: 1
+  },
+  {
+    id: 109,
+    tema: "fut_perf",
+    texto: "Completa: 'By 18 years old, she ____ her driving test.'",
+    opciones: [
+      "will have passed",
+      "will be passing",
+      "must passed"
+    ],
+    correcta: "will have passed",
+    explicacion: "El examen de conducir estará aprobado antes o en ese momento, por eso 'will have passed'.",
+    nivel: 1
+  }
+];
+
+// ======================================================
+// ESTADO GENERAL
+// ======================================================
+let currentMode = null;
+let currentTema = null;
+let currentQuestion = null;
+
+let diagnosticSet = [];
+let diagnosticIndex = 0;
+let diagnosticScore = 0;
+let diagnosticAttempts = 0;
+
+let finalSet = [];
+let finalIndex = 0;
+let finalScore = 0;
+let lastFinalIds = new Set();
+
+// ======================================================
+// UTILIDADES
+// ======================================================
+function shuffle(array) {
+  return array
+    .map(v => ({ v, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ v }) => v);
+}
+
+function getRandomQuestionByTema(tema) {
+  const filtered = preguntas.filter(p => p.tema === tema);
+  if (filtered.length === 0) return null;
+  return filtered[Math.floor(Math.random() * filtered.length)];
+}
+
+function chooseRandomQuestionsByTema(tema, count, excludeIds = new Set()) {
+  const filtered = preguntas.filter(p => p.tema === tema && !excludeIds.has(p.id));
+  const shuffled = shuffle(filtered);
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+}
+
+// ======================================================
+// PANTALLA INICIO
+// ======================================================
+function showHome(mode) {
+  currentMode = mode || null;
+  const screen = document.getElementById("screen");
+  if (mode === "practice") {
+    screen.innerHTML = renderPracticeHome();
+  } else {
+    screen.innerHTML = `
+      <h2>Bienvenido</h2>
+      <p>Elige una opción:</p>
+      <ul>
+        <li><strong>PRACTICAR POR TEMAS</strong>: entrena cada punto de gramática con feedback inmediato.</li>
+        <li><strong>EXAMEN DIAGNÓSTICO</strong>: 10 preguntas para saber tu nivel actual.</li>
+        <li><strong>EXAMEN FINAL</strong>: 30 preguntas para comprobar que dominas las tres unidades.</li>
+      </ul>
+    `;
+  }
+}
+
+function renderPracticeHome() {
+  return `
+    <h2>📚 Practicar por temas</h2>
+    <p>Elige un tema de gramática. Verás una pregunta cada vez y recibirás feedback inmediato.</p>
+    <div>
+      <button class="tema-btn" data-tema="reported_aff" onclick="selectTema('reported_aff', this)">Reported speech (afirmaciones)</button>
+      <button class="tema-btn" data-tema="reported_qo" onclick="selectTema('reported_qo', this)">Reported speech (preguntas y órdenes)</button>
+      <button class="tema-btn" data-tema="modales_presente" onclick="selectTema('modales_presente', this)">Modales de deducción (presente)</button>
+      <button class="tema-btn" data-tema="modales_pasado" onclick="selectTema('modales_pasado', this)">Modales de deducción (pasado) + should have</button>
+      <button class="tema-btn" data-tema="fut_cont" onclick="selectTema('fut_cont', this)">Future continuous</button>
+      <button class="tema-btn" data-tema="fut_perf" onclick="selectTema('fut_perf', this)">Future perfect</button>
+    </div>
+    <div id="practice-area" class="small-info">Selecciona un tema para empezar.</div>
+  `;
+}
+
+// ======================================================
+// PRÁCTICA POR TEMAS
+// ======================================================
+function selectTema(tema, btn) {
+  currentTema = tema;
+  document.querySelectorAll(".tema-btn").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+  loadPracticeQuestion();
+}
+
+function loadPracticeQuestion() {
+  const area = document.getElementById("practice-area");
+  if (!currentTema) {
+    area.innerHTML = "Primero elige un tema.";
+    return;
+  }
+  currentQuestion = getRandomQuestionByTema(currentTema);
+  if (!currentQuestion) {
+    area.innerHTML = "Todavía no hay preguntas para este tema.";
+    return;
+  }
+  const shuffledOptions = shuffle(currentQuestion.opciones.slice());
+  const etiquetasTema = {
+    "reported_aff": "Reported speech (afirmaciones)",
+    "reported_qo": "Reported speech (preguntas y órdenes)",
+    "modales_presente": "Modales de deducción (presente)",
+    "modales_pasado": "Modales de deducción (pasado) + should have",
+    "fut_cont": "Future continuous",
+    "fut_perf": "Future perfect"
+  };
+  area.innerHTML = `
+    <div class="question">
+      <strong>Pregunta</strong>
+      <span class="tag">${etiquetasTema[currentQuestion.tema] || ""}</span>
+      <p>${currentQuestion.texto}</p>
+      <div class="options">
+        ${shuffledOptions.map(o => `
+          <button onclick="answerPractice('${o.replace(/'/g, "&apos;")}')">${o}</button>
+        `).join("")}
+      </div>
+      <div id="practice-feedback"></div>
+      <div class="controls">
+        <button onclick="loadPracticeQuestion()">Siguiente</button>
+        <button onclick="showHome('practice')">Cambiar de tema</button>
+      </div>
+    </div>
+  `;
+}
+
+function answerPractice(answer) {
+  const fb = document.getElementById("practice-feedback");
+  const optionButtons = document.querySelectorAll("#practice-area .options button");
+  optionButtons.forEach(btn => {
+    if (btn.textContent === currentQuestion.correcta) {
+      btn.classList.add("correct");
+    } else if (btn.textContent === answer && answer !== currentQuestion.correcta) {
+      btn.classList.add("incorrect");
+    }
+    btn.disabled = true;
+  });
+  if (answer === currentQuestion.correcta) {
+    fb.className = "feedback ok";
+    fb.textContent = "✅ Correcto. ¡Bien hecho!";
+  } else {
+    fb.className = "feedback error";
+    fb.textContent = "❌ Incorrecto. " + currentQuestion.explicacion;
+  }
+}
+
+// ======================================================
+// EXAMEN DIAGNÓSTICO (10 PREGUNTAS)
+// ======================================================
+function startDiagnostic() {
+  currentMode = "diagnostic";
+  diagnosticAttempts++;
+  // Intentamos no repetir del intento justo anterior (simple)
+  const exclude = new Set(diagnosticSet.map(q => q.id));
+  const available = preguntas.filter(p => !exclude.has(p.id));
+  const base = available.length >= 10 ? available : preguntas.slice();
+  diagnosticSet = shuffle(base).slice(0, 10);
+  diagnosticIndex = 0;
+  diagnosticScore = 0;
+  renderDiagnosticQuestion();
+}
+
+function renderDiagnosticQuestion() {
+  const screen = document.getElementById("screen");
+  if (diagnosticIndex >= diagnosticSet.length) {
+    const passed = diagnosticScore >= 7;
+    const msg = passed
+      ? `<p>Has sacado <strong>${diagnosticScore}/10</strong>. ¡Muy bien! Puedes pasar al examen final.</p>
+         <button onclick="startFinal()">Ir al examen final</button>`
+      : `<p>Has sacado <strong>${diagnosticScore}/10</strong>. Necesitas estudiar un poco más.</p>
+         <p>Vamos a generar otro examen diagnóstico con preguntas diferentes.</p>
+         <button onclick="startDiagnostic()">Nuevo examen diagnóstico</button>`;
+    screen.innerHTML = `
+      <h2>🔍 Resultado examen diagnóstico</h2>
+      <p>Intentos realizados: ${diagnosticAttempts}</p>
+      ${msg}
+      <button onclick="showHome()">Volver al inicio</button>
+    `;
+    return;
+  }
+
+  const q = diagnosticSet[diagnosticIndex];
+  const options = shuffle(q.opciones.slice());
+  screen.innerHTML = `
+    <h2>🔍 Examen diagnóstico</h2>
+    <p>Pregunta ${diagnosticIndex + 1} de ${diagnosticSet.length}</p>
+    <p class="small-info">Intento nº ${diagnosticAttempts}</p>
+    <div class="question">
+      <p>${q.texto}</p>
+      <div class="options">
+        ${options.map(o => `
+          <button onclick="answerDiagnostic('${o.replace(/'/g,"&apos;")}')">${o}</button>
+        `).join("")}
+      </div>
+      <div id="diagnostic-feedback"></div>
+    </div>
+    <div class="controls">
+      <button onclick="showHome()">Cancelar y volver al inicio</button>
+    </div>
+  `;
+}
+
+function answerDiagnostic(answer) {
+  const q = diagnosticSet[diagnosticIndex];
+  const fb = document.getElementById("diagnostic-feedback");
+  const optionButtons = document.querySelectorAll("#screen .options button");
+  optionButtons.forEach(btn => {
+    if (btn.textContent === q.correcta) {
+      btn.classList.add("correct");
+    } else if (btn.textContent === answer && answer !== q.correcta) {
+      btn.classList.add("incorrect");
+    }
+    btn.disabled = true;
+  });
+  if (answer === q.correcta) {
+    diagnosticScore++;
+    fb.className = "feedback ok";
+    fb.textContent = "✅ Correcto.";
+  } else {
+    fb.className = "feedback error";
+    fb.textContent = "❌ Incorrecto. " + q.explicacion;
+  }
+  setTimeout(() => {
+    diagnosticIndex++;
+    renderDiagnosticQuestion();
+  }, 1400);
+}
+
+// ======================================================
+// EXAMEN FINAL (30 PREGUNTAS – 5 DE CADA SUBTEMA)
+// ======================================================
+function startFinal() {
+  currentMode = "final";
+  finalIndex = 0;
+  finalScore = 0;
+
+  // Intentamos no repetir las del último examen final
+  const exclude = lastFinalIds;
+  const temas = ["reported_aff", "reported_qo", "modales_presente", "modales_pasado", "fut_cont", "fut_perf"];
+  let nuevoSet = [];
+  temas.forEach(t => {
+    const bloque = chooseRandomQuestionsByTema(t, 5, exclude);
+    nuevoSet = nuevoSet.concat(bloque);
+  });
+
+  // Si por falta de banco no llegamos a 30, rellenamos con cualquiera
+  if (nuevoSet.length < 30) {
+    const extraNecesario = 30 - nuevoSet.length;
+    const extra = shuffle(preguntas.filter(p => !nuevoSet.some(q => q.id === p.id))).slice(0, extraNecesario);
+    nuevoSet = nuevoSet.concat(extra);
+  }
+
+  finalSet = shuffle(nuevoSet).slice(0, 30);
+  lastFinalIds = new Set(finalSet.map(q => q.id));
+  renderFinalQuestion();
+}
+
+function renderFinalQuestion() {
+  const screen = document.getElementById("screen");
+  if (finalIndex >= finalSet.length) {
+    let msg;
+    if (finalScore <= 10) msg = "Sigue practicando.";
+    else if (finalScore <= 20) msg = "Bien, pero repasa.";
+    else msg = "¡Excelente! Dominas la gramática.";
+    screen.innerHTML = `
+      <h2>🏆 Resultado examen final</h2>
+      <p>Has sacado <strong>${finalScore}</strong> / ${finalSet.length}</p>
+      <p>${msg}</p>
+      <button onclick="startFinal()">Repetir examen final</button>
+      <button onclick="showHome()">Volver al inicio</button>
+    `;
+    return;
+  }
+
+  const q = finalSet[finalIndex];
+  const options = shuffle(q.opciones.slice());
+  const etiquetasTema = {
+    "reported_aff": "Reported speech (afirmaciones)",
+    "reported_qo": "Reported speech (preguntas y órdenes)",
+    "modales_presente": "Modales presente",
+    "modales_pasado": "Modales pasado + should have",
+    "fut_cont": "Future continuous",
+    "fut_perf": "Future perfect"
+  };
+  screen.innerHTML = `
+    <h2>🏆 Examen final</h2>
+    <p>Pregunta ${finalIndex + 1} de ${finalSet.length}</p>
+    <p class="small-info">Tema: ${etiquetasTema[q.tema] || ""}</p>
+    <div class="question">
+      <p>${q.texto}</p>
+      <div class="options">
+        ${options.map(o => `
+          <button onclick="answerFinal('${o.replace(/'/g,"&apos;")}')">${o}</button>
+        `).join("")}
+      </div>
+      <div id="final-feedback"></div>
+    </div>
+    <div class="controls">
+      <button onclick="showHome()">Cancelar y volver al inicio</button>
+    </div>
+  `;
+}
+
+function answerFinal(answer) {
+  const q = finalSet[finalIndex];
+  const fb = document.getElementById("final-feedback");
+  const optionButtons = document.querySelectorAll("#screen .options button");
+  optionButtons.forEach(btn => {
+    if (btn.textContent === q.correcta) {
+      btn.classList.add("correct");
+    } else if (btn.textContent === answer && answer !== q.correcta) {
+      btn.classList.add("incorrect");
+    }
+    btn.disabled = true;
+  });
+  if (answer === q.correcta) {
+    finalScore++;
+    fb.className = "feedback ok";
+    fb.textContent = "✅ Correcto.";
+  } else {
+    fb.className = "feedback error";
+    fb.textContent = "❌ Incorrecto. " + q.explicacion;
+  }
+  setTimeout(() => {
+    finalIndex++;
+    renderFinalQuestion();
+  }, 1400);
+}
+
+// Inicial
+showHome();
+</script>
+</body>
+</html>
