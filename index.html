@@ -101,12 +101,20 @@
   }
   .feedback {
     margin-top: 10px;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 600;
   }
-  .feedback.ok { background: #c7f9cc; }
-  .feedback.error { background: #ffccd5; }
+  .feedback.ok {
+    background: #c7f9cc;
+    border: 2px solid #2d6a4f;
+  }
+  .feedback.error {
+    background: #ffccd5;
+    border: 2px solid #d00000;
+  }
   .controls {
     margin-top: 12px;
     display: flex;
@@ -343,7 +351,6 @@ function loadPracticeQuestion() {
       </div>
       <div id="practice-feedback"></div>
       <div class="controls">
-        <button onclick="loadPracticeQuestion()">Siguiente</button>
         <button onclick="showHome('practice')">Cambiar de tema</button>
       </div>
     </div>
@@ -362,10 +369,16 @@ function answerPractice(answer) {
   });
   if (answer === currentQuestion.correcta) {
     fb.className = "feedback ok";
-    fb.textContent = "✅ Correcto. ¡Bien hecho!";
+    fb.innerHTML = `
+      ✅ Correcto. ¡Bien hecho!<br>
+      <button onclick="loadPracticeQuestion()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   } else {
     fb.className = "feedback error";
-    fb.textContent = "❌ Incorrecto. " + currentQuestion.explicacion;
+    fb.innerHTML = `
+      ❌ Incorrecto. ${currentQuestion.explicacion}<br>
+      <button onclick="loadPracticeQuestion()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   }
 }
 
@@ -434,15 +447,21 @@ function answerDiagnostic(answer) {
   if (answer === q.correcta) {
     diagnosticScore++;
     fb.className = "feedback ok";
-    fb.textContent = "✅ Correcto.";
+    fb.innerHTML = `
+      ✅ Correcto.<br>
+      <button onclick="diagnosticNext()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   } else {
     fb.className = "feedback error";
-    fb.textContent = "❌ Incorrecto. " + q.explicacion;
+    fb.innerHTML = `
+      ❌ Incorrecto. ${q.explicacion}<br>
+      <button onclick="diagnosticNext()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   }
-  setTimeout(() => {
-    diagnosticIndex++;
-    renderDiagnosticQuestion();
-  }, 1400);
+}
+function diagnosticNext() {
+  diagnosticIndex++;
+  renderDiagnosticQuestion();
 }
 
 // ===================== EXAMEN FINAL =====================
@@ -528,15 +547,21 @@ function answerFinal(answer) {
   if (answer === q.correcta) {
     finalScore++;
     fb.className = "feedback ok";
-    fb.textContent = "✅ Correcto.";
+    fb.innerHTML = `
+      ✅ Correcto.<br>
+      <button onclick="finalNext()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   } else {
     fb.className = "feedback error";
-    fb.textContent = "❌ Incorrecto. " + q.explicacion;
+    fb.innerHTML = `
+      ❌ Incorrecto. ${q.explicacion}<br>
+      <button onclick="finalNext()" style="margin-top:8px;padding:6px 10px;border-radius:4px;border:none;background:#1b4965;color:white;cursor:pointer;">Siguiente pregunta</button>
+    `;
   }
-  setTimeout(() => {
-    finalIndex++;
-    renderFinalQuestion();
-  }, 1400);
+}
+function finalNext() {
+  finalIndex++;
+  renderFinalQuestion();
 }
 
 // Inicial
