@@ -1,1599 +1,1488 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Practice – 2º ESO</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<title>English B1+ · 2º ESO</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #f5f3ff;
-  --bg2: #ede9fe;
-  --card: #ffffff;
-  --purple: #7c3aed;
-  --purple2: #6d28d9;
-  --purple-light: #ddd6fe;
-  --pink: #db2777;
-  --pink-light: #fce7f3;
-  --teal: #0d9488;
-  --teal-light: #ccfbf1;
-  --amber: #d97706;
-  --amber-light: #fef3c7;
-  --text: #1e1b4b;
-  --muted: #6b7280;
-  --green: #059669;
-  --green-light: #d1fae5;
-  --red: #dc2626;
-  --red-light: #fee2e2;
-  --border: #e5e7eb;
-  --shadow: 0 4px 24px rgba(124,58,237,0.10);
+/* ═══════════════════════════════ TOKENS ═══════════════════════════════ */
+:root{
+  --ink:#12111a;--paper:#faf9f6;--card:#ffffff;
+  --grape:#5b21b6;--grape2:#7c3aed;--grape3:#a78bfa;--grape-pale:#f3f0ff;
+  --coral:#e85d3c;--coral-pale:#fff1ee;
+  --teal:#0e9f8c;--teal-pale:#e8faf8;
+  --amber:#d97706;--amber-pale:#fffbeb;
+  --lime:#4d7c0f;--lime-pale:#f1f8e8;
+  --muted:#6b7280;--border:#e5e4e2;
+  --radius:16px;--radius-sm:10px;
+  --shadow:0 2px 16px rgba(91,33,182,.09);
+  --shadow-lg:0 8px 40px rgba(91,33,182,.14);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Nunito Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  font-size: 16px;
-  line-height: 1.6;
-}
-h1,h2,h3 { font-family: 'Nunito', sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh}
+h1,h2,h3,h4{font-family:'Sora',sans-serif}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit}
 
-/* ── LAYOUT ── */
-#app { max-width: 800px; margin: 0 auto; padding: 20px 16px 60px; }
+/* ═══════════════════════════════ LAYOUT ════════════════════════════════ */
+#app{max-width:780px;margin:0 auto;padding:20px 16px 80px}
 
-/* ── HOME SCREEN ── */
-.home-header { text-align: center; padding: 40px 0 32px; }
-.home-logo { font-size: 48px; margin-bottom: 8px; }
-.home-title { font-size: 2rem; font-weight: 900; color: var(--purple); }
-.home-sub { color: var(--muted); font-size: 1rem; margin-top: 6px; }
-.home-cards { display: grid; gap: 16px; margin-top: 8px; }
-.home-card {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 28px 24px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  box-shadow: var(--shadow);
-  transition: all 0.18s ease;
-  display: flex; align-items: center; gap: 20px;
+/* ═══════════════════════════════ HOME ══════════════════════════════════ */
+.home-hero{
+  background:linear-gradient(135deg,var(--grape) 0%,#2d1b69 100%);
+  border-radius:24px;padding:40px 32px;margin-bottom:24px;
+  color:#fff;position:relative;overflow:hidden
 }
-.home-card:hover { border-color: var(--purple); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.18); }
-.home-card-icon { font-size: 2.5rem; flex-shrink: 0; }
-.home-card-title { font-family: 'Nunito', sans-serif; font-size: 1.3rem; font-weight: 800; }
-.home-card-desc { font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
-.card-purple { border-left: 5px solid var(--purple); }
-.card-teal { border-left: 5px solid var(--teal); }
-.card-pink { border-left: 5px solid var(--pink); }
+.home-hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.home-tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+.home-hero h1{font-size:2rem;font-weight:800;line-height:1.15;margin-bottom:8px}
+.home-hero p{font-size:.95rem;opacity:.8}
 
-/* ── SECTION HEADER ── */
-.section-header {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; padding-bottom: 12px;
-  border-bottom: 2px solid var(--purple-light);
+.module-grid{display:grid;gap:14px}
+.module-card{
+  background:var(--card);border-radius:var(--radius);padding:22px 20px;
+  border:2px solid var(--border);box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:18px;
+  transition:all .18s ease;position:relative;overflow:hidden
 }
-.section-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--purple); }
-.btn-back {
-  background: none; border: 2px solid var(--purple-light);
-  color: var(--purple); border-radius: 10px; padding: 6px 14px;
-  font-size: 0.9rem; font-weight: 700; cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  transition: all 0.15s;
+.module-card:hover{border-color:var(--grape2);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.module-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:4px 0 0 4px}
+.mc-purple::before{background:var(--grape2)}
+.mc-teal::before{background:var(--teal)}
+.mc-coral::before{background:var(--coral)}
+.mc-amber::before{background:var(--amber)}
+.module-icon{font-size:2rem;flex-shrink:0;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:14px}
+.mc-purple .module-icon{background:var(--grape-pale)}
+.mc-teal .module-icon{background:var(--teal-pale)}
+.mc-coral .module-icon{background:var(--coral-pale)}
+.mc-amber .module-icon{background:var(--amber-pale)}
+.module-title{font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:3px}
+.module-desc{font-size:.83rem;color:var(--muted);line-height:1.4}
+.module-badge{
+  margin-left:auto;font-size:.7rem;font-weight:700;padding:4px 10px;
+  border-radius:20px;white-space:nowrap;flex-shrink:0
 }
-.btn-back:hover { background: var(--purple-light); }
+.mc-purple .module-badge{background:var(--grape-pale);color:var(--grape)}
+.mc-teal .module-badge{background:var(--teal-pale);color:var(--teal)}
+.mc-coral .module-badge{background:var(--coral-pale);color:var(--coral)}
+.mc-amber .module-badge{background:var(--amber-pale);color:var(--amber)}
 
-/* ── TOPIC PICKER ── */
-.topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-.topic-btn {
-  background: var(--card); border: 2px solid var(--border);
-  border-radius: 14px; padding: 16px 14px; cursor: pointer;
-  text-align: left; transition: all 0.15s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.topic-btn:hover { border-color: var(--purple); background: var(--bg2); }
-.topic-btn .t-unit { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--purple); margin-bottom: 4px; }
-.topic-btn .t-name { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text); }
-.topic-btn .t-type { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+/* ═══════════════════════════════ SECTION HEADER ═══════════════════════ */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.sec-hdr h2{font-size:1.15rem;font-weight:800;color:var(--grape)}
+.btn-back{background:none;border:2px solid var(--grape-pale);color:var(--grape);border-radius:var(--radius-sm);padding:6px 14px;font-size:.85rem;font-weight:600;transition:all .15s}
+.btn-back:hover{background:var(--grape-pale)}
 
-/* ── QUESTION CARD ── */
-.q-card { background: var(--card); border-radius: 20px; padding: 28px 24px; box-shadow: var(--shadow); }
-.q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.q-badge {
-  font-size: 0.75rem; font-weight: 700; padding: 4px 10px;
-  border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;
+/* ═══════════════════════════════ TOPIC PICKER ══════════════════════════ */
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.topic-btn{
+  background:var(--card);border:2px solid var(--border);border-radius:14px;
+  padding:16px 14px;text-align:left;transition:all .15s
 }
-.badge-voc { background: var(--amber-light); color: var(--amber); }
-.badge-gram { background: var(--purple-light); color: var(--purple2); }
-.q-num { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
-.q-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
-.q-text em { font-style: italic; color: var(--purple2); font-weight: 700; }
+.topic-btn:hover{border-color:var(--grape2);background:var(--grape-pale)}
+.topic-unit{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--grape);margin-bottom:4px}
+.topic-name{font-family:'Sora',sans-serif;font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.topic-type{font-size:.75rem;color:var(--muted)}
 
-/* Options */
-.options { display: grid; gap: 10px; }
-.opt-btn {
-  background: var(--bg); border: 2px solid var(--border);
-  border-radius: 12px; padding: 14px 18px;
-  text-align: left; cursor: pointer; font-size: 1rem;
-  font-family: 'Nunito Sans', sans-serif; font-weight: 600;
-  transition: all 0.15s; color: var(--text);
+/* ═══════════════════════════════ PROGRESS ══════════════════════════════ */
+.prog-wrap{margin-bottom:16px}
+.prog-top{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:6px;font-weight:600}
+.prog-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--grape2),var(--coral));border-radius:4px;transition:width .4s ease}
+.prog-stats{display:flex;gap:16px;margin-bottom:14px}
+.stat-chip{
+  background:var(--card);border:2px solid var(--border);border-radius:var(--radius-sm);
+  padding:8px 14px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:6px
 }
-.opt-btn:hover:not(:disabled) { border-color: var(--purple); background: var(--bg2); }
-.opt-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); }
-.opt-btn.wrong { background: var(--red-light); border-color: var(--red); color: var(--red); }
-.opt-btn.show-correct { background: var(--green-light); border-color: var(--green); color: var(--green); }
-.opt-btn:disabled { cursor: default; }
+.stat-chip.good{border-color:var(--lime);background:var(--lime-pale);color:var(--lime)}
+.stat-chip.bad{border-color:var(--coral);background:var(--coral-pale);color:var(--coral)}
 
-/* Text input */
-.text-input-wrap { display: flex; gap: 10px; margin-top: 4px; }
-.text-input {
-  flex: 1; padding: 12px 16px; border: 2px solid var(--border);
-  border-radius: 12px; font-size: 1rem; font-family: 'Nunito Sans', sans-serif;
-  transition: border 0.15s; outline: none;
-}
-.text-input:focus { border-color: var(--purple); }
-.btn-submit {
-  background: var(--purple); color: white; border: none;
-  border-radius: 12px; padding: 12px 20px; font-weight: 700;
-  cursor: pointer; font-size: 1rem; font-family: 'Nunito', sans-serif;
-  transition: background 0.15s;
-}
-.btn-submit:hover { background: var(--purple2); }
+/* ═══════════════════════════════ QUESTION CARD ═════════════════════════ */
+.q-card{background:var(--card);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow);border:2px solid var(--border)}
+.q-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px}
+.q-badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em}
+.badge-type{background:#f3f0ff;color:var(--grape)}
+.badge-unit{background:#f0f9f8;color:var(--teal)}
+.badge-lvl1{background:#fffbeb;color:var(--amber)}
+.badge-lvl2{background:#fff7ed;color:#c2410c}
+.badge-lvl3{background:#fef2f2;color:#b91c1c}
+.q-hint-btn{background:none;border:1.5px dashed var(--muted);color:var(--muted);border-radius:8px;padding:3px 10px;font-size:.75rem;font-weight:600;transition:all .15s;white-space:nowrap}
+.q-hint-btn:hover{border-color:var(--amber);color:var(--amber)}
+.hint-box{background:var(--amber-pale);border:2px solid #fde68a;border-radius:var(--radius-sm);padding:10px 14px;font-size:.88rem;color:#92400e;margin-bottom:14px;line-height:1.5}
+.q-text{font-size:1.05rem;font-weight:600;line-height:1.55;margin-bottom:18px}
+.q-text b{color:var(--grape2)}
 
-/* Feedback */
-.feedback {
-  margin-top: 16px; border-radius: 12px; padding: 14px 16px;
-  font-size: 0.95rem; line-height: 1.5;
+/* options */
+.opts{display:grid;gap:9px}
+.opt{
+  background:var(--paper);border:2px solid var(--border);border-radius:var(--radius-sm);
+  padding:13px 16px;text-align:left;font-size:.97rem;font-weight:500;
+  transition:all .15s;color:var(--ink);display:flex;align-items:center;gap:10px
 }
-.feedback.correct { background: var(--green-light); border-left: 4px solid var(--green); color: #065f46; }
-.feedback.wrong { background: var(--red-light); border-left: 4px solid var(--red); color: #7f1d1d; }
+.opt:hover:not(:disabled){border-color:var(--grape2);background:var(--grape-pale)}
+.opt:disabled{cursor:default}
+.opt-letter{
+  width:26px;height:26px;border-radius:50%;background:var(--border);
+  font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .15s
+}
+.opt.correct{background:var(--lime-pale);border-color:var(--lime);color:var(--lime)}
+.opt.correct .opt-letter{background:var(--lime);color:#fff}
+.opt.wrong{background:var(--coral-pale);border-color:var(--coral);color:var(--coral)}
+.opt.wrong .opt-letter{background:var(--coral);color:#fff}
 
-/* Action row */
-.action-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-.btn-next {
-  background: var(--purple); color: white; border: none;
-  border-radius: 12px; padding: 12px 24px; font-weight: 800;
-  cursor: pointer; font-size: 1rem; font-family: 'Nunito', sans-serif;
-  transition: background 0.15s; flex: 1;
+/* match exercise */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.match-col h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+.match-item{
+  background:var(--paper);border:2px solid var(--border);border-radius:var(--radius-sm);
+  padding:10px 13px;font-size:.9rem;font-weight:500;text-align:left;
+  transition:all .15s;cursor:pointer
 }
-.btn-next:hover { background: var(--purple2); }
-.btn-change {
-  background: none; border: 2px solid var(--purple-light);
-  color: var(--purple); border-radius: 12px; padding: 12px 20px;
-  font-weight: 700; cursor: pointer; font-size: 0.95rem;
-  font-family: 'Nunito', sans-serif; transition: all 0.15s;
-}
-.btn-change:hover { background: var(--purple-light); }
+.match-item.selected{border-color:var(--grape2);background:var(--grape-pale)}
+.match-item.matched-ok{border-color:var(--lime);background:var(--lime-pale);color:var(--lime);cursor:default}
+.match-item.matched-err{border-color:var(--coral);background:var(--coral-pale);color:var(--coral)}
+.match-item:disabled{cursor:default}
 
-/* Progress bar */
-.progress-wrap { margin-bottom: 16px; }
-.progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
-.progress-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--pink)); border-radius: 4px; transition: width 0.4s ease; }
-
-/* Score screen */
-.score-card { background: var(--card); border-radius: 24px; padding: 40px 28px; text-align: center; box-shadow: var(--shadow); }
-.score-big { font-size: 4rem; font-weight: 900; font-family: 'Nunito', sans-serif; }
-.score-label { font-size: 1rem; color: var(--muted); margin-bottom: 16px; }
-.score-msg { font-size: 1.2rem; font-weight: 700; margin: 16px 0 28px; }
-.score-icon { font-size: 3.5rem; margin-bottom: 8px; }
-.btn-primary {
-  background: var(--purple); color: white; border: none;
-  border-radius: 14px; padding: 14px 28px; font-weight: 800;
-  cursor: pointer; font-size: 1.05rem; font-family: 'Nunito', sans-serif;
-  transition: background 0.15s; display: inline-block; margin: 6px;
+/* fill-in */
+.fill-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.fill-input{
+  border:2px solid var(--grape2);border-radius:var(--radius-sm);padding:10px 14px;
+  font-size:1rem;font-family:'DM Sans',sans-serif;outline:none;min-width:160px;
+  transition:border .15s
 }
-.btn-primary:hover { background: var(--purple2); }
-.btn-secondary {
-  background: none; border: 2px solid var(--purple);
-  color: var(--purple); border-radius: 14px; padding: 14px 28px;
-  font-weight: 800; cursor: pointer; font-size: 1.05rem;
-  font-family: 'Nunito', sans-serif; display: inline-block; margin: 6px;
-  transition: all 0.15s;
+.fill-input:focus{border-color:var(--grape);box-shadow:0 0 0 3px rgba(91,33,182,.12)}
+.fill-input.ok{border-color:var(--lime);background:var(--lime-pale);color:var(--lime)}
+.fill-input.err{border-color:var(--coral);background:var(--coral-pale);color:var(--coral)}
+.btn-check{
+  background:var(--grape2);color:#fff;border:none;border-radius:var(--radius-sm);
+  padding:11px 20px;font-weight:700;font-size:.95rem;transition:background .15s
 }
-.btn-secondary:hover { background: var(--purple-light); }
+.btn-check:hover{background:var(--grape)}
+.btn-check:disabled{background:var(--muted);cursor:default}
 
-/* Result summary */
-.results-list { text-align: left; margin: 20px 0; max-height: 320px; overflow-y: auto; }
-.result-item { padding: 10px 14px; border-radius: 10px; margin-bottom: 8px; font-size: 0.9rem; }
-.result-item.ok { background: var(--green-light); }
-.result-item.ko { background: var(--red-light); }
-.result-item .ri-q { font-weight: 600; margin-bottom: 3px; }
-.result-item .ri-ans { color: var(--muted); font-size: 0.82rem; }
-
-/* Diag attempt badge */
-.attempt-badge {
-  text-align: center; padding: 12px;
-  background: var(--amber-light); border-radius: 12px;
-  color: var(--amber); font-weight: 700; font-size: 0.9rem;
-  margin-bottom: 16px;
+/* categorise */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.cat-zone{
+  background:var(--paper);border:2px dashed var(--border);border-radius:var(--radius-sm);
+  padding:12px;min-height:80px
 }
-.hidden { display: none; }
+.cat-zone h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+.cat-word{
+  display:inline-block;background:var(--card);border:2px solid var(--border);
+  border-radius:8px;padding:5px 12px;font-size:.88rem;font-weight:600;
+  margin:3px;cursor:pointer;transition:all .15s
+}
+.cat-word:hover{border-color:var(--grape2)}
+.cat-word.placed-ok{background:var(--lime-pale);border-color:var(--lime);color:var(--lime);cursor:default}
+.cat-word.placed-err{background:var(--coral-pale);border-color:var(--coral);color:var(--coral)}
+.word-bank{margin-bottom:14px}
+.word-bank h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+
+/* feedback */
+.feedback{margin-top:14px;border-radius:var(--radius-sm);padding:13px 16px;font-size:.9rem;line-height:1.55}
+.feedback.ok{background:var(--lime-pale);border-left:4px solid var(--lime);color:#166534}
+.feedback.err{background:var(--coral-pale);border-left:4px solid var(--coral);color:#7f1d1d}
+
+/* action row */
+.act-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btn-next{
+  background:var(--grape2);color:#fff;border:none;border-radius:var(--radius-sm);
+  padding:13px 24px;font-weight:800;font-size:.97rem;flex:1;transition:background .15s
+}
+.btn-next:hover{background:var(--grape)}
+.btn-sec{
+  background:none;border:2px solid var(--grape-pale);color:var(--grape);
+  border-radius:var(--radius-sm);padding:12px 18px;font-weight:700;font-size:.9rem;
+  transition:all .15s
+}
+.btn-sec:hover{background:var(--grape-pale)}
+
+/* ═══════════════════════════════ SCORE ═════════════════════════════════ */
+.score-card{background:var(--card);border-radius:24px;padding:40px 28px;text-align:center;box-shadow:var(--shadow-lg);border:2px solid var(--border)}
+.score-emoji{font-size:3.5rem;margin-bottom:8px}
+.score-num{font-family:'Sora',sans-serif;font-size:3.8rem;font-weight:900}
+.score-denom{font-size:1.4rem;color:var(--muted);margin-left:4px}
+.score-label{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.score-msg{font-size:1.1rem;font-weight:700;margin:14px 0 26px;line-height:1.4}
+.score-meter{height:12px;background:var(--border);border-radius:6px;margin:16px 0;overflow:hidden}
+.score-meter-fill{height:100%;border-radius:6px;transition:width 1s ease}
+.btn-prim{
+  background:var(--grape2);color:#fff;border:none;border-radius:14px;
+  padding:14px 26px;font-weight:800;font-size:1rem;margin:5px;
+  display:inline-block;transition:background .15s
+}
+.btn-prim:hover{background:var(--grape)}
+.btn-outline{
+  background:none;border:2px solid var(--grape2);color:var(--grape2);
+  border-radius:14px;padding:14px 26px;font-weight:800;font-size:1rem;
+  margin:5px;display:inline-block;transition:all .15s
+}
+.btn-outline:hover{background:var(--grape-pale)}
+.results-list{text-align:left;margin:20px 0;max-height:300px;overflow-y:auto}
+.res-item{padding:9px 13px;border-radius:10px;margin-bottom:6px;font-size:.85rem}
+.res-item.ok{background:var(--lime-pale)}
+.res-item.ko{background:var(--coral-pale)}
+.res-q{font-weight:600;margin-bottom:2px}
+.res-a{color:var(--muted);font-size:.78rem}
+
+/* attempt badge */
+.attempt-banner{background:var(--amber-pale);border:2px solid #fde68a;border-radius:var(--radius-sm);padding:10px 14px;font-size:.85rem;font-weight:600;color:#92400e;margin-bottom:14px;text-align:center}
+
+/* ═══════════════════════════════ UTILITIES ══════════════════════════════ */
+.mt8{margin-top:8px}
+.txt-muted{color:var(--muted)}
 </style>
 </head>
 <body>
 <div id="app"></div>
-
 <script>
-// ════════════════════════════════════════
-//  QUESTION BANKS
-// ════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════════════════════════
 
 const TOPICS = [
-  { id:"u5_voc", unit:5, name:"Story genres & narrative elements", type:"Vocabulary" },
-  { id:"u5_gram", unit:5, name:"Relative clauses", type:"Grammar" },
-  { id:"u6_voc", unit:6, name:"Extreme adjectives & make/do", type:"Vocabulary" },
-  { id:"u6_gram", unit:6, name:"Passive voice & causative", type:"Grammar" },
-  { id:"u7_voc", unit:7, name:"Phrasal verbs & personality", type:"Vocabulary" },
-  { id:"u7_gram", unit:7, name:"Let/make, used to, allowed to", type:"Grammar" },
-  { id:"u8_voc", unit:8, name:"Crime & reporting verbs", type:"Vocabulary" },
-  { id:"u8_gram", unit:8, name:"Reported speech", type:"Grammar" },
-  { id:"u9_voc", unit:9, name:"Mystery & go expressions", type:"Vocabulary" },
-  { id:"u9_gram", unit:9, name:"Modales de deducción", type:"Grammar" },
-  { id:"u10_voc", unit:10, name:"Work, shopping & fluency", type:"Vocabulary" },
-  { id:"u10_gram", unit:10, name:"Future continuous & perfect", type:"Grammar" },
+  {id:"u5_voc",unit:5,name:"Story genres & narrative elements",type:"Vocabulary"},
+  {id:"u5_gram",unit:5,name:"Relative clauses",type:"Grammar"},
+  {id:"u6_voc",unit:6,name:"Extreme adjectives & make/do",type:"Vocabulary"},
+  {id:"u6_gram",unit:6,name:"Passive voice & causative",type:"Grammar"},
+  {id:"u7_voc",unit:7,name:"Phrasal verbs & personality",type:"Vocabulary"},
+  {id:"u7_gram",unit:7,name:"Let/make, used to, allowed to",type:"Grammar"},
+  {id:"u8_voc",unit:8,name:"Crime & reporting verbs",type:"Vocabulary"},
+  {id:"u8_gram",unit:8,name:"Reported speech",type:"Grammar"},
+  {id:"u9_voc",unit:9,name:"Mystery & go expressions",type:"Vocabulary"},
+  {id:"u9_gram",unit:9,name:"Modal deductions",type:"Grammar"},
+  {id:"u10_voc",unit:10,name:"Work, shopping & fluency",type:"Vocabulary"},
+  {id:"u10_gram",unit:10,name:"Future continuous & perfect",type:"Grammar"},
 ];
 
-// Each question: {id, tema, texto, opciones, correcta, explicacion, nivel, tipo:"mc"|"text"}
-// tipo "mc" = multiple choice (opciones array), "text" = free text (correcta is string)
-
-const ALL_QUESTIONS = [
-// ── U5 VOCABULARIO ──────────────────────────────────────────────
-{id:1,tema:"u5_voc",texto:"A book about aliens and spaceships is a...",opciones:["crime novel","science fiction","autobiography"],correcta:"science fiction",explicacion:"Science fiction (ciencia ficción) trata sobre el futuro, el espacio y la tecnología. Una autobiography es la historia de la vida de alguien.",nivel:1},
-{id:2,tema:"u5_voc",texto:"The bad character who causes problems in the story is called a...",opciones:["hero","villain","opening"],correcta:"villain",explicacion:"El villain es el personaje malvado. El hero es el bueno y el opening es el comienzo de la historia.",nivel:1},
-{id:3,tema:"u5_voc",texto:"The location and atmosphere where the story takes place is called the...",opciones:["plot","dialogue","setting"],correcta:"setting",explicacion:"El setting es el lugar y la época donde ocurre la historia. El plot son los hechos y el dialogue son las conversaciones.",nivel:1},
-{id:4,tema:"u5_voc",texto:"The conversations between characters in a novel are called...",opciones:["dialogue","ending","character"],correcta:"dialogue",explicacion:"Dialogue son los diálogos o conversaciones. El ending es el final y character es un personaje.",nivel:1},
-{id:5,tema:"u5_voc",texto:"A book based on someone's real life, written by themselves, is an...",opciones:["historical novel","horror story","autobiography"],correcta:"autobiography",explicacion:"Autobiography es cuando alguien escribe la historia de su propia vida. Una historical novel es una novela de época inventada.",nivel:1},
-{id:6,tema:"u5_voc",texto:"The events that happen in a story form the...",opciones:["character","plot","setting"],correcta:"plot",explicacion:"El plot es la trama, es decir, los eventos que ocurren en la historia. El character es un personaje.",nivel:2},
-{id:7,tema:"u5_voc",texto:"To encourage someone to keep telling a story, you say: '_____, tell me more.'",opciones:["Come on","Go on","Give on"],correcta:"Go on",explicacion:"La expresión correcta es 'Go on, tell me more' (Venga, cuéntame más). 'Come on' significa 'vamos' pero no se usa en esta expresión fija.",nivel:2},
-{id:8,tema:"u5_voc",texto:"Choose the correct phrase to start telling something incredible:",opciones:["You will never believe what happened.","You will never think what happened.","You will not believe what you happened."],correcta:"You will never believe what happened.",explicacion:"La expresión fija es 'You will never believe what happened' (Nunca adivinarás lo que pasó). Las demás versiones tienen errores gramaticales.",nivel:2},
-{id:9,tema:"u5_voc",texto:"In a story where the main character is scared of vampires, the book is a...",opciones:["romantic novel","horror story","fantasy novel"],correcta:"horror story",explicacion:"Una horror story trata de miedo, monstruos y terror. Una romantic novel es una historia de amor.",nivel:1},
-{id:10,tema:"u5_voc",texto:"The hero discovers the crime at the beginning of the book. This happens in the...",opciones:["ending","opening","dialogue"],correcta:"opening",explicacion:"El opening es el comienzo de la historia. El ending es el final. El héroe descubre el crimen al principio, así que es el opening.",nivel:2},
-// ── U5 GRAMÁTICA ────────────────────────────────────────────────
-{id:11,tema:"u5_gram",texto:"Choose the correct relative pronoun: 'The boy _____ broke my phone has to pay for it.'",opciones:["who","which","whose"],correcta:"who",explicacion:"Use 'who' for people (subject of the clause). 'Which' is for things and 'whose' shows possession.",nivel:1},
-{id:12,tema:"u5_gram",texto:"Choose the correct relative pronoun: 'This is the book _____ I borrowed from the library.'",opciones:["who","which","whose"],correcta:"which",explicacion:"Use 'which' (or 'that') for things, not people. A book is not a person, so use 'which'.",nivel:1},
-{id:13,tema:"u5_gram",texto:"Complete: 'The girl _____ bag I found lives on my street.'",opciones:["who","which","whose"],correcta:"whose",explicacion:"Use 'whose' to show possession (the girl's bag). It is equivalent to 'her bag'.",nivel:2},
-{id:14,tema:"u5_gram",texto:"Choose the correct sentence with a place clause:",opciones:["The school which I study is very old.","The school where I study is very old.","The school who I study is very old."],correcta:"The school where I study is very old.",explicacion:"Use 'where' for places (the school = a place). 'Which' is not correct when referring to a location.",nivel:2},
-{id:15,tema:"u5_gram",texto:"Which is the correct NON-DEFINING clause? (with commas)",opciones:["My mum, who is a doctor, works long hours.","My mum who is a doctor works long hours.","My mum which is a doctor works long hours."],correcta:"My mum, who is a doctor, works long hours.",explicacion:"Non-defining clauses go between commas and use 'who' for people. Without commas it would be a defining clause.",nivel:2},
-{id:16,tema:"u5_gram",texto:"'I missed the bus, _____ made me late for school.' Which pronoun completes the sentence?",opciones:["that","which","who"],correcta:"which",explicacion:"When the relative pronoun refers to a whole idea (missing the bus), use 'which', never 'that' or 'who'.",nivel:3},
-{id:17,tema:"u5_gram",texto:"Find the mistake: 'The man, that lives next door, is my uncle.'",opciones:["that → who (non-defining no usa 'that')","that → which (the man no es persona)","No hay error"],correcta:"that → who (non-defining no usa 'that')",explicacion:"In non-defining clauses (with commas), you cannot use 'that'. You must use 'who' for people.",nivel:3},
-{id:18,tema:"u5_gram",texto:"Complete: 'The restaurant _____ we had dinner last year has closed.'",opciones:["where","which","who"],correcta:"where",explicacion:"The restaurant is a place, so use 'where'. You could say 'which we had dinner in' but 'where' is more natural.",nivel:2},
-// ── U6 VOCABULARIO ──────────────────────────────────────────────
-{id:19,tema:"u6_voc",texto:"'The food was absolutely _____ – I ate everything!' Which extreme adjective fits?",opciones:["delicious","very good","big"],correcta:"delicious",explicacion:"With 'absolutely' we use extreme adjectives like 'delicious', 'amazing', 'fantastic'. You can't say 'absolutely very good'.",nivel:1},
-{id:20,tema:"u6_voc",texto:"Which sentence is INCORRECT?",opciones:["She is very hilarious.","She is absolutely hilarious.","She is really funny."],correcta:"She is very hilarious.",explicacion:"'Hilarious' is an extreme adjective. It cannot go with 'very'. Say 'absolutely hilarious' or 'really hilarious'.",nivel:2},
-{id:21,tema:"u6_voc",texto:"'It's -10ºC outside. It's absolutely _____.' ¿Qué adjetivo extremo usas?",opciones:["cold","freezing","cool"],correcta:"freezing",explicacion:"'Freezing' is the extreme adjective of 'cold'. With 'absolutely' we always use extreme adjectives, not ordinary ones.",nivel:1},
-{id:22,tema:"u6_voc",texto:"Complete: 'In Chemistry class today we are going to _____ an experiment.'",opciones:["make","do","have"],correcta:"do",explicacion:"With 'experiment' use the verb 'do': 'do an experiment'. 'Make' goes with expressions like 'make money' or 'make friends'.",nivel:1},
-{id:23,tema:"u6_voc",texto:"'Can you _____ sense of these instructions? They're so confusing!'",opciones:["do","make","take"],correcta:"make",explicacion:"The fixed expression is 'make sense'. 'Do sense' does not exist in English.",nivel:2},
-{id:24,tema:"u6_voc",texto:"'My sister _____ very well in her maths exam. She got a 10!'",opciones:["made","did","got"],correcta:"did",explicacion:"The correct expression is 'do well'. 'Made well' is not a correct expression in English.",nivel:2},
-// ── U6 GRAMÁTICA ────────────────────────────────────────────────
-{id:25,tema:"u6_gram",texto:"Transform into the passive: 'The police arrested the thief.' → '_____ by the police.'",opciones:["The thief was arrested","The thief arrested","The thief is arrested"],correcta:"The thief was arrested",explicacion:"In the past, the passive is: subject + WAS/WERE + past participle. 'Arrest' → 'arrested'. The agent goes with 'by'.",nivel:1},
-{id:26,tema:"u6_gram",texto:"Complete in the present passive: 'English _____ all over the world.'",opciones:["is spoken","is speaking","speaks"],correcta:"is spoken",explicacion:"Present passive: is/are + past participle. 'Speak' → past participle 'spoken'. 'Is speaking' is the active present continuous.",nivel:1},
-{id:27,tema:"u6_gram",texto:"Which sentence uses the causative correctly? 'I went to a hairdresser for a haircut.'",opciones:["I had my hair cut.","I did my hair cut.","I made my hair cut."],correcta:"I had my hair cut.",explicacion:"The causative is HAVE + object + past participle: 'have my hair cut'. It means someone else did it for you.",nivel:2},
-{id:28,tema:"u6_gram",texto:"Complete in the future passive: 'The concert _____ next Saturday.'",opciones:["will be held","will hold","is held"],correcta:"will be held",explicacion:"Future passive: will be + past participle. 'Hold' → past participle 'held'. 'Will hold' is active, not passive.",nivel:2},
-{id:29,tema:"u6_gram",texto:"Choose the correct causative form: 'My phone was broken, so I _____ by a technician.'",opciones:["had it repaired","did it repair","had it repair"],correcta:"had it repaired",explicacion:"Causative: HAVE + object + past participle: 'had it repaired'. The past participle of 'repair' is 'repaired'.",nivel:2},
-{id:30,tema:"u6_gram",texto:"Transform into the present perfect passive: 'They have built a new school.'",opciones:["A new school has been built.","A new school was built.","A new school is being built."],correcta:"A new school has been built.",explicacion:"Present perfect passive: has/have + been + past participle. 'They have built' → 'A new school has been built'.",nivel:3},
-// ── U7 VOCABULARIO ──────────────────────────────────────────────
-{id:31,tema:"u7_voc",texto:"'Stop doing something' in English is the phrasal verb...",opciones:["give up","take up","set off"],correcta:"give up",explicacion:"'Give up' means to stop doing something. 'Take up' is to start a new hobby and 'set off' is to begin a journey.",nivel:1},
-{id:32,tema:"u7_voc",texto:"'Donna is going to _____ salsa dancing. She starts tonight!'",opciones:["give up","take up","end up"],correcta:"take up",explicacion:"'Take up' means to start a new activity or hobby. 'Give up' is to stop – the opposite.",nivel:1},
-{id:33,tema:"u7_voc",texto:"'We got completely lost. We don't know where we're going to _____ up!'",opciones:["end","give","set"],correcta:"end",explicacion:"'End up' means to find yourself somewhere or in a situation, sometimes unexpectedly.",nivel:2},
-{id:34,tema:"u7_voc",texto:"Daniel gives presents to all his friends and is always very kind. He is very...",opciones:["selfish","generous","shy"],correcta:"generous",explicacion:"'Generous' describes someone who gives and shares. 'Selfish' is the opposite.",nivel:1},
-{id:35,tema:"u7_voc",texto:"'A: I think we should take a break. B: I'm _____ you on this one.' ¿Qué palabra completa la respuesta?",opciones:["for","with","at"],correcta:"with",explicacion:"The expression is 'I'm with you on this one' (I agree with you on this). It is a fixed agreement phrase.",nivel:2},
-// ── U7 GRAMÁTICA ────────────────────────────────────────────────
-{id:36,tema:"u7_gram",texto:"'My parents _____ me stay up late on Fridays.' Which verb expresses permission?",opciones:["make","let","force"],correcta:"let",explicacion:"'Let' + person + infinitive (without 'to') expresses permission. 'Make' expresses obligation, not permission.",nivel:1},
-{id:37,tema:"u7_gram",texto:"'The teacher _____ us do 50 exercises!' Which verb expresses obligation?",opciones:["let","made","allowed"],correcta:"made",explicacion:"'Make' + person + infinitive expresses obligation (someone forces you to do something). 'Let' is permission.",nivel:1},
-{id:38,tema:"u7_gram",texto:"Choose the correct option: 'Students _____ use their phones during exams.'",opciones:["aren't allowed to","don't let","aren't let to"],correcta:"aren't allowed to",explicacion:"'Be allowed to' expresses permission or prohibition. 'Aren't allowed to' = not permitted. 'Let' is not used with 'to' this way.",nivel:2},
-{id:39,tema:"u7_gram",texto:"'I am _____ to getting up early. I still find it hard!' Which phrase shows you haven't adapted yet?",opciones:["not used","used","get used"],correcta:"not used",explicacion:"'Not used to + -ing' shows you haven't adapted yet. 'Used to + infinitive' talks about past habits – a different structure.",nivel:2},
-{id:40,tema:"u7_gram",texto:"'I'm slowly _____ used to living in Madrid.' Which verb completes the adaptation phrase?",opciones:["getting","being","making"],correcta:"getting",explicacion:"'Get used to + -ing' describes the process of adapting. 'Be used to' describes the state of being already adapted.",nivel:2},
-{id:41,tema:"u7_gram",texto:"'My parents don't _____ me go to parties on school nights.'",opciones:["let","allow to","make"],correcta:"let",explicacion:"'Let' + person + infinitive without 'to': 'let me go'. With 'allow', you need 'to': 'don't allow me to go'.",nivel:2},
-{id:42,tema:"u7_gram",texto:"Find the mistake: 'They made me to do the homework.'",opciones:["Quitar 'to': They made me do the homework.","Cambiar made por let: They let me to do...","No hay error"],correcta:"Quitar 'to': They made me do the homework.",explicacion:"With 'make' and 'let', the next verb goes WITHOUT 'to'. The correct form is 'made me do', not 'made me to do'.",nivel:3},
-// ── U8 VOCABULARIO ──────────────────────────────────────────────
-{id:43,tema:"u8_voc",texto:"Someone who breaks into a house to steal is a...",opciones:["robber","burglar","pickpocket"],correcta:"burglar",explicacion:"A burglar breaks into houses. A robber steals from banks and a pickpocket steals wallets in the street.",nivel:1},
-{id:44,tema:"u8_voc",texto:"Someone who steals your phone from your pocket on the metro is a...",opciones:["mugger","pickpocket","shoplifter"],correcta:"pickpocket",explicacion:"A pickpocket steals from pockets or bags without you noticing. A mugger attacks you physically and a shoplifter steals from shops.",nivel:1},
-{id:45,tema:"u8_voc",texto:"Someone who hunts wild animals illegally is a...",opciones:["con man","poacher","mugger"],correcta:"poacher",explicacion:"A poacher hunts animals illegally. A con man tricks people and a mugger attacks people.",nivel:2},
-{id:46,tema:"u8_voc",texto:"'Harry _____ his first crime when he was 14.' ¿Qué verbo usas con 'crime'?",opciones:["committed","arrested","caught"],correcta:"committed",explicacion:"The correct collocation is 'commit a crime'. 'Arrest' means to detain someone and 'catch' means to capture.",nivel:1},
-{id:47,tema:"u8_voc",texto:"'Betty _____ me to dress up as a monkey for the party.' ¿Qué reporting verb usas?",opciones:["suggested","persuaded","refused"],correcta:"persuaded",explicacion:"'Persuade someone to do something' means to convince someone. 'Suggest' goes with -ing and 'refuse' means to say no.",nivel:2},
-{id:48,tema:"u8_voc",texto:"'The doctor _____ doing exercise for 20 minutes a day.' ¿Qué reporting verb encaja?",opciones:["recommended","refused","claimed"],correcta:"recommended",explicacion:"'Recommend + -ing' (to recommend doing something). 'Refuse' means to say no and 'claim' means to state something.",nivel:2},
-{id:49,tema:"u8_voc",texto:"'He _____ that he didn't know anything about the theft.' Which verb is used to state something as true?",opciones:["agreed","claimed","refused"],correcta:"claimed",explicacion:"'Claim' means to state or declare something (which may or may not be true). 'Agree' means to accept and 'refuse' means to say no.",nivel:2},
-{id:50,tema:"u8_voc",texto:"'They _____ to help me. They said they were too busy.' ¿Qué verbo indica que dijeron que no?",opciones:["agreed","refused","offered"],correcta:"refused",explicacion:"'Refuse to do something' means to say no. 'Agree' means to accept and 'offer' means to propose help.",nivel:1},
-// ── U8 GRAMÁTICA ────────────────────────────────────────────────
-{id:51,tema:"u8_gram",texto:"Change to reported speech: He said, 'I am tired.' → He said...",opciones:["he was tired.","he is tired.","he were tired."],correcta:"he was tired.",explicacion:"In reported speech, the present simple (am) changes to the past simple (was). 'I am' → 'he was'.",nivel:1},
-{id:52,tema:"u8_gram",texto:"Change to reported speech: She said, 'I will call you tomorrow.' → She said...",opciones:["she would call me the next day.","she will call me tomorrow.","she called me the next day."],correcta:"she would call me the next day.",explicacion:"'Will' changes to 'would' in reported speech. 'Tomorrow' changes to 'the next day'.",nivel:2},
-{id:53,tema:"u8_gram",texto:"Complete: 'She _____ me when the film started.' (indirect question)",opciones:["asked","said","told"],correcta:"asked",explicacion:"Use 'ask' for indirect questions. 'Tell' needs a personal object ('tell me') and 'say' doesn't take one.",nivel:1},
-{id:54,tema:"u8_gram",texto:"Which is the correct reported speech for 'Don't touch my phone!'?",opciones:["She told me not to touch her phone.","She said me don't touch her phone.","She told me to not touch her phone."],correcta:"She told me not to touch her phone.",explicacion:"For negative orders in reported speech, use 'told + not to + infinitive'. 'Said me' is not correct.",nivel:2},
-{id:55,tema:"u8_gram",texto:"'He _____ to go home immediately.' Which reporting verb shows he demanded something?",opciones:["claimed","demanded","suggested"],correcta:"demanded",explicacion:"'Demand to do something' expresses a strong requirement. 'Suggest + -ing' means to suggest and 'claim' means to state.",nivel:2},
-{id:56,tema:"u8_gram",texto:"Change to reported speech: 'Do you like horror films?' she asked me. → She asked me...",opciones:["if I liked horror films.","if I like horror films.","do I like horror films."],correcta:"if I liked horror films.",explicacion:"Yes/no questions in reported speech use 'if/whether'. The verb changes to the past: 'like' → 'liked'. The word order is affirmative.",nivel:2},
-{id:57,tema:"u8_gram",texto:"'He _____ me to study harder.' ¿Qué reporting verb indica que te animó?",opciones:["refused","encouraged","agreed"],correcta:"encouraged",explicacion:"'Encourage someone to do something' means to motivate someone to do it.",nivel:2},
-{id:58,tema:"u8_gram",texto:"Find the mistake: 'She said me that she was happy.'",opciones:["Quitar 'me': She said that she was happy.","Añadir 'to': She said to me...","No hay error"],correcta:"Quitar 'me': She said that she was happy.",explicacion:"'Say' doesn't take a personal object. We say 'said that...' or 'told me that...', but never 'said me'.",nivel:3},
-// ── U9 VOCABULARIO ──────────────────────────────────────────────
-{id:59,tema:"u9_voc",texto:"'The origin of this object is unknown. It's _____.'",opciones:["odd","unexplained","secret"],correcta:"unexplained",explicacion:"'Unexplained' means with no known explanation. 'Odd' means unusual and 'secret' means hidden.",nivel:1},
-{id:60,tema:"u9_voc",texto:"'A being from another planet is called an _____.'",opciones:["alien","odd","mysterious"],correcta:"alien",explicacion:"An 'alien' is a being from another planet. 'Odd' means unusual and 'mysterious' means hard to explain.",nivel:1},
-{id:61,tema:"u9_voc",texto:"'The video _____ – millions of people watched it in one day!'",opciones:["went viral","went crazy","went well"],correcta:"went viral",explicacion:"'Go viral' means to be shared widely online. 'Go crazy' means to get very excited and 'go well' means to succeed.",nivel:1},
-{id:62,tema:"u9_voc",texto:"'The fans _____ when the singer arrived on stage!'",opciones:["went up","went viral","went crazy"],correcta:"went crazy",explicacion:"'Go crazy' means to get extremely excited. 'Go up' means to increase and 'go viral' is for internet content.",nivel:1},
-{id:63,tema:"u9_voc",texto:"'A: John has gone missing. B: That _____ be true. I just saw him!'",opciones:["can't","must","might"],correcta:"can't",explicacion:"'Can't be true' expresses impossibility or disbelief. 'Must be' shows certainty and 'might be' shows possibility.",nivel:2},
-{id:64,tema:"u9_voc",texto:"'The light in the sky was very _____ – nobody could explain what it was.'",opciones:["secret","puzzling","viral"],correcta:"puzzling",explicacion:"'Puzzling' means confusing or hard to understand. 'Secret' means hidden and 'viral' refers to internet content.",nivel:2},
-{id:65,tema:"u9_voc",texto:"'Prices have definitely gone _____. Everything is more expensive now.'",opciones:["viral","up","well"],correcta:"up",explicacion:"'Go up' means to rise or increase (prices, temperature, etc.). 'Go well' means to succeed and 'go viral' means to spread online.",nivel:1},
-// ── U9 GRAMÁTICA ────────────────────────────────────────────────
-{id:66,tema:"u9_gram",texto:"'I can't find my keys. I _____ them at school.' (deduction about the past)",opciones:["must leave","must have left","can't have left"],correcta:"must have left",explicacion:"To make a certain deduction about the past, use 'must have + past participle'. The correct form is 'must have left'.",nivel:1},
-{id:67,tema:"u9_gram",texto:"'He has a Ferrari. He _____ very rich.' (present deduction)",opciones:["must be","can't be","might have been"],correcta:"must be",explicacion:"'Must be' expresses a logical deduction in the present. He has a Ferrari, so he is very likely rich.",nivel:1},
-{id:68,tema:"u9_gram",texto:"'There is no way they got lost with a GPS. They _____ lost.' (past impossibility)",opciones:["must have got","can't have got","might have got"],correcta:"can't have got",explicacion:"'Can't have + participio' expresa imposibilidad en el pasado. Si tenían GPS, es imposible que se perdieran.",nivel:2},
-{id:69,tema:"u9_gram",texto:"'I'm not sure where she is. She _____ gone home early.' (past possibility)",opciones:["must have","can't have","might have"],correcta:"might have",explicacion:"'Might have + past participle' expresses possibility in the past. We are not sure – it is just possible.",nivel:2},
-{id:70,tema:"u9_gram",texto:"'I failed the exam. You _____ more!' (criticism about the past)",opciones:["should have studied","must have studied","might have studied"],correcta:"should have studied",explicacion:"'Should have + past participle' expresses a criticism or regret about something not done in the past.",nivel:2},
-{id:71,tema:"u9_gram",texto:"'I dropped my phone in the pool!' → 'You _____ more careful!' ¿Qué forma de crítica usas?",opciones:["should have been","must have been","shouldn't have been"],correcta:"should have been",explicacion:"'Should have been more careful' means you ought to have taken more care (positive criticism: what you should have done).",nivel:2},
-{id:72,tema:"u9_gram",texto:"'She is at a tennis academy every day.' → 'She _____ play tennis.' ¿Qué deducción haces?",opciones:["must","can't","shouldn't"],correcta:"must",explicacion:"If she goes to a tennis academy every day, she almost certainly plays tennis. 'Must' expresses logical certainty.",nivel:2},
-{id:73,tema:"u9_gram",texto:"Find the mistake: 'They must have went to the party without us.'",opciones:["went → gone: must have gone","must → can't: can't have went","No hay error"],correcta:"went → gone: must have gone",explicacion:"After 'must have', use the past participle (gone), not the past simple (went).",nivel:3},
-// ── U10 VOCABULARIO ─────────────────────────────────────────────
-{id:74,tema:"u10_voc",texto:"The money you earn for your work is called a...",opciones:["salary","qualification","management"],correcta:"salary",explicacion:"A salary is the money you earn for your work. Qualifications are certificates and management means organising a team.",nivel:1},
-{id:75,tema:"u10_voc",texto:"The person you work for is your...",opciones:["employee","employer","manager"],correcta:"employer",explicacion:"The employer is the company or boss that hires you. The employee is the worker.",nivel:1},
-{id:76,tema:"u10_voc",texto:"'I want to return this jacket, it doesn't fit. Can I have a _____?'",opciones:["refund","tip","bargain"],correcta:"refund",explicacion:"A refund is money returned when you take something back. A tip is extra money for good service and a bargain is a great deal.",nivel:1},
-{id:77,tema:"u10_voc",texto:"'These trainers were only €15! They were a real _____!'",opciones:["tip","bargain","refund"],correcta:"bargain",explicacion:"A bargain is something bought very cheaply. A tip is extra money for good service and a refund is money returned.",nivel:1},
-{id:78,tema:"u10_voc",texto:"In England, you normally leave a _____ of 10% for the waiter.",opciones:["bargain","refund","tip"],correcta:"tip",explicacion:"A tip is extra money you leave for a waiter. A bargain is a cheap deal and a refund is money returned.",nivel:1},
-{id:79,tema:"u10_voc",texto:"'A: Is there anything else? B: No, _____ _____ .' ¿Cómo terminas educadamente?",opciones:["that's all","same usual","my fault"],correcta:"that's all",explicacion:"'That's all' is the expression used to say you don't need anything else. It is a common fluency phrase.",nivel:2},
-{id:80,tema:"u10_voc",texto:"'A: Who broke the vase? B: Don't look at me! It's not my _____ .'",opciones:["fault","problem","tip"],correcta:"fault",explicacion:"'My fault' means it is my mistake. The fixed expression to deny responsibility is 'It's not my fault'.",nivel:2},
-{id:81,tema:"u10_voc",texto:"'A: What do you want to drink? B: Orange juice. _____ as _____.'",opciones:["Same / usual","That / all","Same / always"],correcta:"Same / usual",explicacion:"'Same as usual' is a fluency phrase used to ask for the same thing as always.",nivel:2},
-// ── U10 GRAMÁTICA ───────────────────────────────────────────────
-{id:82,tema:"u10_gram",texto:"'At 8pm tonight, I _____ dinner with my family.' (action in progress in the future)",opciones:["will be having","will have","am having"],correcta:"will be having",explicacion:"The future continuous (will be + -ing) describes an action that will be in progress at a future moment.",nivel:1},
-{id:83,tema:"u10_gram",texto:"'By June, she _____ all her exams.' (action completed before a future point)",opciones:["will have finished","will be finishing","finishes"],correcta:"will have finished",explicacion:"The future perfect (will have + past participle) describes an action completed before a future moment.",nivel:2},
-{id:84,tema:"u10_gram",texto:"'Don't call me at 10pm – I _____ (sleep).'",opciones:["will be sleeping","will have slept","am sleeping"],correcta:"will be sleeping",explicacion:"'Will be sleeping' (future continuous) shows the action will be in progress at that future point (10pm).",nivel:1},
-{id:85,tema:"u10_gram",texto:"'By the time you arrive, I _____ the meal.' (action completed before you arrive)",opciones:["will be cooking","will have cooked","am cooking"],correcta:"will have cooked",explicacion:"'Will have cooked' (future perfect) shows the meal will be ready (completed) before you arrive.",nivel:2},
-{id:86,tema:"u10_gram",texto:"Choose the correct option: 'This time next week, we _____ on the beach in Málaga.'",opciones:["will be lying","will have lied","will lie"],correcta:"will be lying",explicacion:"'Will be lying' is the future continuous. It describes what will be happening at a specific future moment.",nivel:2},
-{id:87,tema:"u10_gram",texto:"Find the mistake: 'By 2030, scientists will be cured cancer.'",opciones:["will be cured → will have cured","will be cured → will cure","No hay error"],correcta:"will be cured → will have cured",explicacion:"'By 2030' means before a future point, so use the future perfect: 'will have cured'. 'Will be curing' would be future continuous.",nivel:3},
-{id:88,tema:"u10_gram",texto:"'_____ you still _____ homework at 9pm tonight?' Future continuous question form?",opciones:["Will / be doing","Are / doing","Will / have done"],correcta:"Will / be doing",explicacion:"The future continuous question is: Will + subject + be + -ing. It asks about an action in progress tonight.",nivel:2},
-
-// ── EXTRA PREGUNTAS PARA BANCO EXAMEN FINAL (U8-10 adicionales y U5-7)────────
-{id:89,tema:"u8_gram",texto:"Change to reported speech: 'I can't help you,' he said. → He said...",opciones:["he couldn't help me.","he can't help me.","he could help me."],correcta:"he couldn't help me.",explicacion:"'Can' changes to 'could' in reported speech. Also, 'you' changes to 'me' (the speaker's perspective).",nivel:2},
-{id:90,tema:"u8_gram",texto:"'The lawyer _____ his client to say nothing to the police.' (aconsejar firmemente)",opciones:["suggested","told","advised"],correcta:"advised",explicacion:"'Advise someone to do something' means to recommend a course of action. 'Told' is also possible but 'advised' is more precise.",nivel:3},
-{id:91,tema:"u8_voc",texto:"Someone who takes things from a shop without paying is a...",opciones:["poacher","shoplifter","con man"],correcta:"shoplifter",explicacion:"A shoplifter steals from shops. A poacher hunts illegally and a con man tricks people.",nivel:1},
-{id:92,tema:"u9_gram",texto:"'She's been absent all week. She _____ ill.' (almost certain, present)",opciones:["must be","can't be","might have been"],correcta:"must be",explicacion:"'Must be' expresses a logical deduction about the present. If she has been absent all week, she is almost certainly ill.",nivel:1},
-{id:93,tema:"u9_gram",texto:"'You _____ your bag on the bus! Now we have to go back.' (past negative criticism)",opciones:["shouldn't have left","should have left","must have left"],correcta:"shouldn't have left",explicacion:"'Shouldn't have + past participle' expresses that something you did in the past was a mistake.",nivel:2},
-{id:94,tema:"u9_voc",texto:"'Everyone knows that. It goes _____ saying.'",opciones:["without","on","up"],correcta:"without",explicacion:"'It goes without saying' means something is so obvious it does not need to be stated. It is a fixed expression.",nivel:3},
-{id:95,tema:"u10_gram",texto:"'By this time next year, I _____ school.' (completado en un año)",opciones:["will have finished","will be finishing","am going to finish"],correcta:"will have finished",explicacion:"'Will have finished' (future perfect) because the action will be completed before a future point ('next year').",nivel:2},
-{id:96,tema:"u10_voc",texto:"'That painting is very _____. It could be worth millions.' Which word means 'very valuable'?",opciones:["valuable","worth","bargain"],correcta:"valuable",explicacion:"'Valuable' is the adjective meaning of great value. 'Worth' is used as a preposition: 'it's worth €100'. 'Bargain' means a cheap deal.",nivel:2},
-{id:97,tema:"u5_gram",texto:"'My best friend, _____ mum is a doctor, lives near me.' ¿Qué pronombre va aquí?",opciones:["who","whose","which"],correcta:"whose",explicacion:"'Whose' shows possession. 'Whose mum' = my best friend's mum.",nivel:2},
-{id:98,tema:"u6_gram",texto:"'The president _____ on TV every Friday evening.' (pasiva, acción regular)",opciones:["is seen","sees","was seen"],correcta:"is seen",explicacion:"For a regular action in the passive, use present simple passive: is/are + past participle. 'Sees' is active.",nivel:2},
-{id:99,tema:"u7_gram",texto:"'She lived in Paris for a year, so now she's _____ speaking French.' (already adapted)",opciones:["used to","get used to","using to"],correcta:"used to",explicacion:"'Be used to + -ing' describes the state of being already adapted. It takes 'to' + -ing, not the infinitive.",nivel:3},
-{id:100,tema:"u8_gram",texto:"'The police said they _____ investigating the case.' (reported speech, presente continuo → pasado continuo)",opciones:["were","are","would be"],correcta:"were",explicacion:"The present continuous 'are investigating' changes to past continuous 'were investigating' in reported speech.",nivel:3},
-{id:101,tema:"u9_gram",texto:"'He was at the library all day. He _____ the test.' (imposibilidad, no pudo copiar)",opciones:["can't have cheated on","must have cheated on","might have cheated on"],correcta:"can't have cheated on",explicacion:"'Can't have + past participle' shows something was impossible. If he was in the library, he couldn't have cheated.",nivel:3},
-{id:102,tema:"u10_gram",texto:"'At this time tomorrow, I _____ my English exam.' ¿Future continuous?",opciones:["will be taking","will have taken","am taking"],correcta:"will be taking",explicacion:"'Will be taking' is future continuous, showing the exam will be in progress at that time tomorrow.",nivel:2},
-{id:103,tema:"u6_gram",texto:"'She went to the salon. She _____ by a stylist.' (causativa)",opciones:["had her hair done","made her hair","did her hair"],correcta:"had her hair done",explicacion:"Causative: 'have something done'. The correct form is 'had her hair done' (the stylist did it, not her).",nivel:2},
-{id:104,tema:"u5_voc",texto:"A book set in the 19th century with historical characters is a...",opciones:["science fiction","historical novel","autobiography"],correcta:"historical novel",explicacion:"A historical novel is set in the historical past. An autobiography is about the author's own real life.",nivel:1},
-{id:105,tema:"u7_voc",texto:"'We will _____ off at 7am tomorrow for the excursion.' (comenzar el viaje)",opciones:["set","give","end"],correcta:"set",explicacion:"'Set off' means to start a journey. 'Give up' means to quit and 'end up' means to finish somewhere.",nivel:1},
-{id:106,tema:"u8_voc",texto:"Someone who attacks you in the street to steal your money is a...",opciones:["burglar","mugger","shoplifter"],correcta:"mugger",explicacion:"A mugger physically attacks people in the street. A burglar breaks into houses and a shoplifter steals from shops.",nivel:1},
-{id:107,tema:"u9_voc",texto:"'The atmosphere at the concert was absolutely _____. It felt like magic.'",opciones:["odd","mysterious","secret"],correcta:"mysterious",explicacion:"'Mysterious' describes something magical or unexplained. 'Odd' means unusual and 'secret' means hidden.",nivel:2},
-{id:108,tema:"u10_gram",texto:"'By the time he retires, he _____ for 40 years.' (future perfect)",opciones:["will have worked","will be working","has worked"],correcta:"will have worked",explicacion:"'Will have worked' is the future perfect. By the time he retires, he will have accumulated 40 years of work.",nivel:3},
-{id:109,tema:"u6_voc",texto:"'The show was absolutely _____! I laughed so much!' Extreme adjective for 'funny'?",opciones:["hilarious","amazing","freezing"],correcta:"hilarious",explicacion:"'Hilarious' is the extreme form of 'funny'. 'Amazing' comes from 'good' and 'freezing' comes from 'cold'.",nivel:1},
-{id:110,tema:"u7_gram",texto:"'I _____ to cooking Indian food. Now I love it!' (completed adaptation process)",opciones:["got used","am used","was used"],correcta:"got used",explicacion:"'Got used to + -ing' shows that the process of adapting was successfully completed.",nivel:3},
-];
-
-// ── Diagnostic bank (30 questions, mix of all units, emphasizing U8-10)
-const DIAG_IDS = [43,44,46,51,52,53,59,61,63,66,67,68,70,74,75,76,78,82,83,84,
-                  11,12,19,22,25,31,36,38,47,50];
-
-// ── Final exam bank (100 questions)
-const FINAL_IDS = [
-  // U8 (24 questions ~)
-  43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,89,90,91,100,106,
-  // U9 (21 questions ~)
-  59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,92,93,94,101,107,
-  // U10 (21 questions ~)
-  74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,95,96,102,108,110,
-  // U5-7 (fill to 100, ~38 questions)
-  1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,
-  19,20,21,22,23,24,25,26,27,28,29,30,
-  31,32,33,34,35,36,37,38,39,40,41,42,
-  97,98,99,103,104,105,109
-];
-
-// ════════════════════════════════════════
-//  VOCABULARY EXAM BANK (100+ questions)
-//  Types: mc=multiple choice, odd=odd one out,
-//         match=match definition, fill=gap fill, correct=choose correct word
-// ════════════════════════════════════════
-const VOC_QUESTIONS = [
-
-// ── UNIT 8 – Crime vocabulary (nivel 1) ─────────────────────────────────────
-{vid:1,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who steals money from a bank is a ___.",
- opciones:["robber","burglar","pickpocket"],correcta:"robber",
- explicacion:"Un <b>robber</b> roba en bancos. Un <i>burglar</i> entra en casas y un <i>pickpocket</i> roba carteras en la calle."},
-
-{vid:2,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who breaks into a house to steal is a ___.",
- opciones:["mugger","burglar","con man"],correcta:"burglar",
- explicacion:"Un <b>burglar</b> entra en casas para robar. Un <i>mugger</i> ataca a personas en la calle."},
-
-{vid:3,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who steals your wallet from your pocket in the street is a ___.",
- opciones:["shoplifter","murderer","pickpocket"],correcta:"pickpocket",
- explicacion:"Un <b>pickpocket</b> roba carteras y móviles de bolsillos sin que te des cuenta."},
-
-{vid:4,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who takes things from shops without paying is a ___.",
- opciones:["shoplifter","poacher","robber"],correcta:"shoplifter",
- explicacion:"Un <b>shoplifter</b> roba en tiendas. Un <i>poacher</i> caza animales ilegalmente."},
-
-{vid:5,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who hunts wild animals illegally is a ___.",
- opciones:["con man","poacher","mugger"],correcta:"poacher",
- explicacion:"Un <b>poacher</b> (cazador furtivo) caza animales de forma ilegal."},
-
-{vid:6,unit:8,tipo:"mc",nivel:1,
- texto:"Someone who tricks people to get their money is a ___.",
- opciones:["con man","pickpocket","murderer"],correcta:"con man",
- explicacion:"Un <b>con man</b> engaña a las personas para robarles dinero mediante estafas."},
-
-{vid:7,unit:8,tipo:"correct",nivel:1,
- texto:"The criminal had to pay a ___.",
- opciones:["murder","prisoner","fine"],correcta:"fine",
- explicacion:"La palabra correcta es <b>fine</b> (multa). <i>Murder</i> es asesinato y <i>prisoner</i> es prisionero."},
-
-{vid:8,unit:8,tipo:"correct",nivel:1,
- texto:"Police ___ people when they suspect them of a crime.",
- opciones:["commit","arrest","fine"],correcta:"arrest",
- explicacion:"<b>Arrest</b> significa detener a alguien. <i>Commit</i> significa cometer un crimen."},
-
-{vid:9,unit:8,tipo:"correct",nivel:1,
- texto:"Harry ___ his first crime when he was 14.",
- opciones:["caught","committed","arrested"],correcta:"committed",
- explicacion:"La colocación correcta es <b>commit a crime</b> (cometer un crimen). <i>Caught</i> significa ser atrapado."},
-
-{vid:10,unit:8,tipo:"correct",nivel:2,
- texto:"The robbers ___ into the shop at 2 o'clock in the morning.",
- opciones:["fined","broke","got"],correcta:"broke",
- explicacion:"<b>Break into</b> significa entrar por la fuerza en un lugar. 'Break into the shop' = entrar ilegalmente."},
-
-// ── UNIT 8 – Reporting verbs (nivel 2) ──────────────────────────────────────
-{vid:11,unit:8,tipo:"mc",nivel:1,
- texto:"We ___ to go to the police station.",
- opciones:["agreed","invited","refused"],correcta:"agreed",
- explicacion:"<b>Agree to do something</b> significa aceptar hacer algo. <i>Refuse</i> sería lo contrario."},
-
-{vid:12,unit:8,tipo:"mc",nivel:1,
- texto:"My dad ___ me to take my driving test.",
- opciones:["claimed","encouraged","refused"],correcta:"encouraged",
- explicacion:"<b>Encourage someone to do something</b> significa animar a alguien a hacer algo."},
-
-{vid:13,unit:8,tipo:"mc",nivel:2,
- texto:"Betty ___ me to dress up as a monkey for the party.",
- opciones:["explained","persuaded","refused"],correcta:"persuaded",
- explicacion:"<b>Persuade someone to do something</b> significa convencer a alguien de que haga algo."},
-
-{vid:14,unit:8,tipo:"mc",nivel:1,
- texto:"The doctor ___ doing more exercise.",
- opciones:["recommended","refused","claimed"],correcta:"recommended",
- explicacion:"<b>Recommend + -ing</b> significa recomendar hacer algo. Nota que va seguido de -ing, no de infinitivo."},
-
-{vid:15,unit:8,tipo:"mc",nivel:2,
- texto:"He ___ that he didn't know anything about the crime.",
- opciones:["agreed","invited","claimed"],correcta:"claimed",
- explicacion:"<b>Claim</b> significa afirmar o declarar algo como verdadero (aunque puede ser mentira)."},
-
-{vid:16,unit:8,tipo:"mc",nivel:1,
- texto:"She ___ to help me. She said she was too busy.",
- opciones:["refused","offered","agreed"],correcta:"refused",
- explicacion:"<b>Refuse to do something</b> significa negarse a hacer algo. <i>Offered</i> sería lo contrario."},
-
-{vid:17,unit:8,tipo:"mc",nivel:1,
- texto:"Paul ___ Meryl to dinner.",
- opciones:["claimed","invited","refused"],correcta:"invited",
- explicacion:"<b>Invite someone to something</b> significa invitar a alguien. Ej: invite her to dinner."},
-
-{vid:18,unit:8,tipo:"mc",nivel:2,
- texto:"She ___ going to the museum to do research.",
- opciones:["persuaded","suggested","refused"],correcta:"suggested",
- explicacion:"<b>Suggest + -ing</b> significa sugerir hacer algo. Va seguido de -ing, no de infinitivo."},
-
-{vid:19,unit:8,tipo:"odd",nivel:2,
- texto:"Which word is the ODD ONE OUT? (not a reporting verb)",
- opciones:["agreed","burglar","suggested"],correcta:"burglar",
- explicacion:"<b>Burglar</b> es un tipo de criminal, no un reporting verb. <i>Agreed</i> y <i>suggested</i> son reporting verbs."},
-
-{vid:20,unit:8,tipo:"odd",nivel:2,
- texto:"Which word is the ODD ONE OUT? (not a type of criminal)",
- opciones:["robber","pickpocket","claimed"],correcta:"claimed",
- explicacion:"<b>Claimed</b> es un reporting verb (afirmar). <i>Robber</i> y <i>pickpocket</i> son tipos de criminales."},
-
-// ── UNIT 9 – Mystery adjectives (nivel 1-2) ─────────────────────────────────
-{vid:21,unit:9,tipo:"mc",nivel:1,
- texto:"Don't tell anyone about my ___ diary.",
- opciones:["odd","alien","secret"],correcta:"secret",
- explicacion:"<b>Secret</b> significa secreto, algo que se mantiene oculto. <i>Odd</i> significa extraño."},
-
-{vid:22,unit:9,tipo:"mc",nivel:1,
- texto:"Sophie's brother behaves in a very strange way. He is very ___.",
- opciones:["alien","strange","secret"],correcta:"strange",
- explicacion:"<b>Strange</b> significa extraño o inusual en el comportamiento de una persona."},
-
-{vid:23,unit:9,tipo:"mc",nivel:1,
- texto:"This unusual object is from an ___ planet.",
- opciones:["alien","puzzling","unexplained"],correcta:"alien",
- explicacion:"<b>Alien</b> significa de otro planeta. También se usa como sustantivo para los extraterrestres."},
-
-{vid:24,unit:9,tipo:"mc",nivel:1,
- texto:"The detectives can't solve the mystery. It's very ___.",
- opciones:["secret","puzzling","viral"],correcta:"puzzling",
- explicacion:"<b>Puzzling</b> significa desconcertante, algo muy difícil de entender o resolver."},
-
-{vid:25,unit:9,tipo:"mc",nivel:2,
- texto:"An alien is also known as an ___ being.",
- opciones:["mysterious","extraterrestrial","unexplained"],correcta:"extraterrestrial",
- explicacion:"<b>Extraterrestrial</b> significa de fuera de la Tierra. Es sinónimo formal de <i>alien</i>."},
-
-{vid:26,unit:9,tipo:"mc",nivel:1,
- texto:"When we don't know the origin of something, we say it's ___.",
- opciones:["secret","alien","unexplained"],correcta:"unexplained",
- explicacion:"<b>Unexplained</b> significa sin explicación conocida. Se usa cuando no se sabe el origen de algo."},
-
-{vid:27,unit:9,tipo:"mc",nivel:2,
- texto:"___ is another word for unusual or a bit strange.",
- opciones:["Secret","Viral","Odd"],correcta:"Odd",
- explicacion:"<b>Odd</b> es sinónimo de unusual (inusual) o strange (extraño). Ej: 'That's a bit odd.'"},
-
-// ── UNIT 9 – Go expressions (nivel 1-2) ──────────────────────────────────────
-{vid:28,unit:9,tipo:"mc",nivel:1,
- texto:"That video my friend posted ___ within an hour!",
- opciones:["went up","went viral","went crazy"],correcta:"went viral",
- explicacion:"<b>Go viral</b> significa hacerse viral, es decir, que mucha gente comparte algo en internet."},
-
-{vid:29,unit:9,tipo:"mc",nivel:1,
- texto:"I can't wait for the concert! I'm going to ___ when the singer comes on stage!",
- opciones:["go viral","go up","go crazy"],correcta:"go crazy",
- explicacion:"<b>Go crazy</b> significa ponerse muy emocionado o perder la cabeza de entusiasmo."},
-
-{vid:30,unit:9,tipo:"mc",nivel:1,
- texto:"Prices have definitely ___. Everything costs more than before.",
- opciones:["gone viral","gone up","gone crazy"],correcta:"gone up",
- explicacion:"<b>Go up</b> significa subir o aumentar. Se usa para precios, temperaturas, niveles, etc."},
-
-{vid:31,unit:9,tipo:"mc",nivel:2,
- texto:"He ___ writing until the very end of the exam.",
- opciones:["went up","went on","went viral"],correcta:"went on",
- explicacion:"<b>Go on</b> significa continuar haciendo algo. 'He went on writing' = siguió escribiendo."},
-
-{vid:32,unit:9,tipo:"mc",nivel:2,
- texto:"The organisers should ___ to make the show better than last year.",
- opciones:["go well","go one step further","go viral"],correcta:"go one step further",
- explicacion:"<b>Go one step further</b> significa hacer algo extra, ir más allá de lo normal."},
-
-{vid:33,unit:9,tipo:"mc",nivel:2,
- texto:"I hope the investigation into the UFO sighting ___.",
- opciones:["goes viral","goes without saying","goes well"],correcta:"goes well",
- explicacion:"<b>Go well</b> significa ir bien o salir como se esperaba. Ej: 'I hope it goes well!'"},
-
-{vid:34,unit:9,tipo:"match",nivel:2,
- texto:"'Everyone already knows it.' Which 'go' expression matches this?",
- opciones:["go viral","it goes without saying","go crazy"],correcta:"it goes without saying",
- explicacion:"<b>It goes without saying</b> significa que algo es tan obvio que no hace falta ni mencionarlo."},
-
-{vid:35,unit:9,tipo:"match",nivel:1,
- texto:"'To be shared by millions of people online.' Which 'go' expression is this?",
- opciones:["go well","go on","go viral"],correcta:"go viral",
- explicacion:"<b>Go viral</b> es cuando un vídeo, foto o post es compartido por millones de personas en internet."},
-
-// ── UNIT 9 – Deductions vocabulary (nivel 2-3) ──────────────────────────────
-{vid:36,unit:9,tipo:"mc",nivel:2,
- texto:"'There's no way they got lost with a GPS.' → They ___ lost.",
- opciones:["must have got","can't have got","might have got"],correcta:"can't have got",
- explicacion:"<b>Can't have + participio</b> expresa que algo fue imposible en el pasado."},
-
-{vid:37,unit:9,tipo:"mc",nivel:2,
- texto:"'He has a Ferrari and a yacht.' → He ___ very rich.",
- opciones:["can't be","must be","might have been"],correcta:"must be",
- explicacion:"<b>Must be</b> expresa una deducción lógica en el presente. Es casi seguro que es rico."},
-
-{vid:38,unit:9,tipo:"mc",nivel:3,
- texto:"'I'm not sure where she went.' → She ___ gone home early.",
- opciones:["must have","can't have","might have"],correcta:"might have",
- explicacion:"<b>Might have + participio</b> expresa una posibilidad en el pasado. No estamos seguros."},
-
-{vid:39,unit:9,tipo:"mc",nivel:3,
- texto:"'That story about the alien is impossible!' → Someone ___ invented it.",
- opciones:["can't have","must have","might be"],correcta:"must have",
- explicacion:"<b>Must have + participio</b> expresa una deducción casi segura sobre el pasado."},
-
-{vid:40,unit:9,tipo:"correct",nivel:3,
- texto:"'I dropped my phone in the pool!' → You ___ more careful!",
- opciones:["should have been","must have been","might have been"],correcta:"should have been",
- explicacion:"<b>Should have + participio</b> expresa una crítica: algo que debías haber hecho pero no hiciste."},
-
-// ── UNIT 10 – Work vocabulary (nivel 1) ──────────────────────────────────────
-{vid:41,unit:10,tipo:"mc",nivel:1,
- texto:"The money you earn for your work is called your ___.",
- opciones:["qualification","salary","employer"],correcta:"salary",
- explicacion:"<b>Salary</b> es el salario o sueldo, el dinero que recibes por trabajar."},
-
-{vid:42,unit:10,tipo:"mc",nivel:1,
- texto:"The person or company you work for is your ___.",
- opciones:["employee","employer","management"],correcta:"employer",
- explicacion:"<b>Employer</b> es la empresa o persona que te contrata. <i>Employee</i> eres tú, el trabajador."},
-
-{vid:43,unit:10,tipo:"mc",nivel:1,
- texto:"Doctors and nurses work in the ___ sector.",
- opciones:["finance","management","healthcare"],correcta:"healthcare",
- explicacion:"<b>Healthcare</b> es el sector de la salud. Los médicos y enfermeros trabajan en este sector."},
-
-{vid:44,unit:10,tipo:"mc",nivel:2,
- texto:"You need good ___ to get into a good university.",
- opciones:["salary","qualifications","employers"],correcta:"qualifications",
- explicacion:"<b>Qualifications</b> son los títulos, certificados o diplomas que has obtenido estudiando."},
-
-{vid:45,unit:10,tipo:"mc",nivel:1,
- texto:"If you are good with numbers, you should work in ___.",
- opciones:["healthcare","education","finance"],correcta:"finance",
- explicacion:"<b>Finance</b> es el sector financiero, donde se trabaja con dinero, bancos y cuentas."},
-
-{vid:46,unit:10,tipo:"mc",nivel:2,
- texto:"Richard wants to work in ___. He loves making decisions and leading teams.",
- opciones:["management","education","healthcare"],correcta:"management",
- explicacion:"<b>Management</b> es la gestión o dirección de equipos y empresas."},
-
-{vid:47,unit:10,tipo:"mc",nivel:1,
- texto:"I work in ___. I am a teacher.",
- opciones:["finance","education","healthcare"],correcta:"education",
- explicacion:"<b>Education</b> es el sector de la enseñanza. Los profesores y maestros trabajan aquí."},
-
-// ── UNIT 10 – Shopping / value vocabulary (nivel 1-2) ────────────────────────
-{vid:48,unit:10,tipo:"correct",nivel:1,
- texto:"These trainers were only €15 in the sale! They were a real ___.",
- opciones:["refund","bargain","tip"],correcta:"bargain",
- explicacion:"<b>Bargain</b> es una ganga, algo que compraste por mucho menos de su precio normal."},
-
-{vid:49,unit:10,tipo:"correct",nivel:1,
- texto:"Please give your waiter a ___ when you pay your bill in England.",
- opciones:["refund","reward","tip"],correcta:"tip",
- explicacion:"<b>Tip</b> es la propina que dejas al camarero. En Inglaterra es habitual dejar un 10%."},
-
-{vid:50,unit:10,tipo:"correct",nivel:2,
- texto:"I want to return this jacket – it doesn't fit. Can I have a ___?",
- opciones:["bargain","tip","refund"],correcta:"refund",
- explicacion:"<b>Refund</b> es la devolución del dinero cuando devuelves un producto que no funciona o no te gusta."},
-
-{vid:51,unit:10,tipo:"correct",nivel:2,
- texto:"How much do you think this painting is ___? It could be worth millions.",
- opciones:["value","valuable","worth"],correcta:"valuable",
- explicacion:"<b>Valuable</b> es el adjetivo que significa de mucho valor. <i>Worth</i> se usa como preposición: 'it's worth €100'."},
-
-{vid:52,unit:10,tipo:"correct",nivel:2,
- texto:"The family offered a ___ of €1,000 for information about the stolen painting.",
- opciones:["refund","tip","reward"],correcta:"reward",
- explicacion:"<b>Reward</b> es una recompensa que se ofrece a cambio de información o ayuda."},
-
-{vid:53,unit:10,tipo:"correct",nivel:2,
- texto:"Would you like to buy these shoes? They're on ___ this week only.",
- opciones:["bargain","offer","refund"],correcta:"offer",
- explicacion:"<b>On offer</b> significa en oferta, con un descuento especial. <i>Bargain</i> es una ganga ya comprada."},
-
-{vid:54,unit:10,tipo:"correct",nivel:3,
- texto:"Spend €50 in the shop today and get €5 ___ your next purchase.",
- opciones:["on","off","at"],correcta:"off",
- explicacion:"La expresión es <b>€5 off</b> (5€ de descuento). 'Off' indica una reducción del precio."},
-
-{vid:55,unit:10,tipo:"correct",nivel:2,
- texto:"I lent my cousin €20. He ___ me the money.",
- opciones:["refunds","rewards","owes"],correcta:"owes",
- explicacion:"<b>Owe</b> significa deber dinero a alguien. 'He owes me €20' = me debe 20€. <i>Refund</i> es devolver dinero de una compra."},
-
-// ── UNIT 10 – Fluency phrases (nivel 1-2) ────────────────────────────────────
-{vid:56,unit:10,tipo:"mc",nivel:1,
- texto:"'A: Is there anything else? B: No, ___ ___.' What completes the answer?",
- opciones:["that's all","same usual","my fault"],correcta:"that's all",
- explicacion:"<b>That's all</b> es la expresión para decir que no necesitas nada más. Muy común en tiendas y restaurantes."},
-
-{vid:57,unit:10,tipo:"mc",nivel:1,
- texto:"'A: Who broke the window? B: Don't look at me! It's not my ___.'",
- opciones:["fault","problem","tip"],correcta:"fault",
- explicacion:"<b>My fault</b> significa 'mi culpa'. La expresión fija es 'It's not my fault' (no es culpa mía)."},
-
-{vid:58,unit:10,tipo:"mc",nivel:1,
- texto:"'A: What would you like? B: Lemonade, ___ as ___.'",
- opciones:["same / usual","that's / all","same / always"],correcta:"same / usual",
- explicacion:"<b>Same as usual</b> significa lo de siempre. Se usa para pedir lo mismo que siempre pides."},
-
-{vid:59,unit:10,tipo:"mc",nivel:2,
- texto:"'A: Shall I pay for the drinks? B: No, ___ are ___ me!'",
- opciones:["these / on","that's / all","same / usual"],correcta:"these / on",
- explicacion:"<b>These are on me</b> significa 'yo invito' o 'yo pago'. Es una expresión de fluency muy natural."},
-
-{vid:60,unit:10,tipo:"mc",nivel:2,
- texto:"'A: Someone wrote that horrible note! B: Don't ___ ___ me!'",
- opciones:["look at","blame on","fault for"],correcta:"look at",
- explicacion:"<b>Don't look at me!</b> significa 'no me mires a mí' (no fui yo). Es una expresión informal."},
-
-// ── UNIT 6 – Extreme adjectives (nivel 1-2) ──────────────────────────────────
-{vid:61,unit:6,tipo:"mc",nivel:1,
- texto:"I couldn't stop laughing. The film was ___.",
- opciones:["fascinating","hilarious","freezing"],correcta:"hilarious",
- explicacion:"<b>Hilarious</b> es el adjetivo extremo de 'funny' (muy, muy gracioso). Cuando algo te hace reír muchísimo."},
-
-{vid:62,unit:6,tipo:"mc",nivel:1,
- texto:"It's -5°C outside! It's absolutely ___.",
- opciones:["cold","freezing","tiny"],correcta:"freezing",
- explicacion:"<b>Freezing</b> es el adjetivo extremo de 'cold'. Con 'absolutely' siempre usamos adjetivos extremos."},
-
-{vid:63,unit:6,tipo:"mc",nivel:1,
- texto:"You have an ___ voice. I love listening to you sing.",
- opciones:["awful","freezing","amazing"],correcta:"amazing",
- explicacion:"<b>Amazing</b> es el adjetivo extremo de 'good/great'. Es un gran cumplido para una voz."},
-
-{vid:64,unit:6,tipo:"mc",nivel:1,
- texto:"He got first prize in the competition. He is ___.",
- opciones:["fascinating","delighted","hilarious"],correcta:"delighted",
- explicacion:"<b>Delighted</b> es el adjetivo extremo de 'happy'. Significa muy, muy feliz o encantado."},
-
-{vid:65,unit:6,tipo:"correct",nivel:2,
- texto:"Choose the correct modifier: 'The game was ___ fantastic!'",
- opciones:["very","absolutely","quite"],correcta:"absolutely",
- explicacion:"Con adjetivos extremos como <b>fantastic</b> usamos 'absolutely' o 'really', nunca 'very'."},
-
-{vid:66,unit:6,tipo:"correct",nivel:2,
- texto:"Choose the correct modifier: 'My dad is ___ hilarious.'",
- opciones:["absolutely","very","a bit"],correcta:"absolutely",
- explicacion:"<b>Hilarious</b> es un adjetivo extremo, así que usamos 'absolutely' o 'really', nunca 'very'."},
-
-{vid:67,unit:6,tipo:"correct",nivel:2,
- texto:"Choose the correct modifier: 'The pizza was ___ good.'",
- opciones:["absolutely","really/very","freezing"],correcta:"really/very",
- explicacion:"<b>Good</b> es un adjetivo ordinario, así que usamos 'very' o 'really'. 'Absolutely good' no es correcto."},
-
-{vid:68,unit:6,tipo:"odd",nivel:2,
+// Question types:
+//  mc     = multiple choice (opciones[], correcta)
+//  fill   = fill-in-the-blank (correcta = string, alternativas[] for wrong opts shown)
+//  odd    = odd one out (opciones[], correcta)
+//  match  = match left→right (pairs:[{left,right}], distractors:[])
+//  correct= choose correct word (opciones[2], correcta)
+//  cat    = categorise words (categories:{A:[],B:[]}, words:[])
+//  error  = find/correct the error (opciones[], correcta)
+
+const Q = [
+// ─────────────────────── UNIT 5 VOC ──────────────────────────────
+{id:1,tema:"u5_voc",tipo:"mc",nivel:1,
+ texto:"A book about aliens and spaceships is a ___.",
+ opciones:["crime novel","science fiction","autobiography"],correcta:"science fiction",
+ pista:"Think: what genre deals with space and the future?",
+ explicacion:"<b>Science fiction</b> trata del futuro, el espacio y la tecnología. <i>Autobiography</i> es la historia de la vida real del autor."},
+
+{id:2,tema:"u5_voc",tipo:"mc",nivel:1,
+ texto:"The bad character who creates problems in the story is called the ___.",
+ opciones:["hero","villain","setting"],correcta:"villain",
+ pista:"Opposite of hero.",
+ explicacion:"El <b>villain</b> es el malo. El <i>hero</i> es el bueno y el <i>setting</i> es el lugar donde ocurre la historia."},
+
+{id:3,tema:"u5_voc",tipo:"mc",nivel:1,
+ texto:"The location and time period of a story is called the ___.",
+ opciones:["plot","dialogue","setting"],correcta:"setting",
+ pista:"Where and when does the story take place?",
+ explicacion:"El <b>setting</b> es el lugar y la época. El <i>plot</i> son los eventos y el <i>dialogue</i> son las conversaciones."},
+
+{id:4,tema:"u5_voc",tipo:"mc",nivel:1,
+ texto:"The events that happen in a story form the ___.",
+ opciones:["character","plot","opening"],correcta:"plot",
+ pista:"Think: the sequence of events in a story.",
+ explicacion:"El <b>plot</b> es la trama. El <i>character</i> es un personaje y el <i>opening</i> es el comienzo."},
+
+{id:5,tema:"u5_voc",tipo:"correct",nivel:1,
+ texto:"The beginning of the story, where characters are introduced, is called the ___.",
+ opciones:["ending","opening"],correcta:"opening",
+ pista:"Beginning = ___ing",
+ explicacion:"El <b>opening</b> es el comienzo de la historia. El <i>ending</i> es el final."},
+
+{id:6,tema:"u5_voc",tipo:"mc",nivel:2,
+ texto:"To encourage someone to keep telling a story, you say: '_____, tell me more.'",
+ opciones:["Come on","Go on","Keep on"],correcta:"Go on",
+ pista:"It's a fixed expression: 'Go ___, tell me more.'",
+ explicacion:"La expresión fija es '<b>Go on</b>, tell me more'. 'Come on' significa 'vamos' pero no se usa en esta expresión."},
+
+{id:7,tema:"u5_voc",tipo:"error",nivel:2,
+ texto:"Which sentence is INCORRECT?",
+ opciones:["You will never believe what happened.","You will never believe what happened to me.","You will never think what happened."],correcta:"You will never think what happened.",
+ pista:"We don't 'think' something happened — we 'believe' it.",
+ explicacion:"La expresión correcta usa <b>believe</b>, no <i>think</i>. 'You will never believe what happened (to me).'"},
+
+{id:8,tema:"u5_voc",tipo:"mc",nivel:1,
+ texto:"A book written by a famous person about their own life is an ___.",
+ opciones:["historical novel","horror story","autobiography"],correcta:"autobiography",
+ pista:"Auto = self, bio = life.",
+ explicacion:"<b>Autobiography</b> es cuando alguien escribe la historia de su propia vida."},
+
+{id:9,tema:"u5_voc",tipo:"odd",nivel:2,
+ texto:"Which word is the ODD ONE OUT? (not a narrative element)",
+ opciones:["plot","villain","salary"],correcta:"salary",
+ pista:"Which word belongs to a different topic — jobs, not stories?",
+ explicacion:"<b>Salary</b> es vocabulario de trabajo. <i>Plot</i> y <i>villain</i> son elementos narrativos."},
+
+{id:10,tema:"u5_voc",tipo:"mc",nivel:2,
+ texto:"In a horror story, the mysterious old house is the ___.",
+ opciones:["plot","dialogue","setting"],correcta:"setting",
+ pista:"The old house is the location of the story.",
+ explicacion:"El <b>setting</b> es el lugar donde ocurre la historia. Una casa misteriosa es el setting perfecto para una historia de terror."},
+
+// ─────────────────────── UNIT 5 GRAM ─────────────────────────────
+{id:11,tema:"u5_gram",tipo:"mc",nivel:1,
+ texto:"'The boy _____ broke my phone has to pay for it.'",
+ opciones:["who","which","whose"],correcta:"who",
+ pista:"The boy is a person → use ___",
+ explicacion:"Usamos '<b>who</b>' para personas. 'Which' es para cosas y 'whose' indica posesión."},
+
+{id:12,tema:"u5_gram",tipo:"mc",nivel:1,
+ texto:"'This is the book _____ I borrowed from the library.'",
+ opciones:["who","which","whose"],correcta:"which",
+ pista:"A book is a thing → use ___",
+ explicacion:"Usamos '<b>which</b>' (o 'that') para cosas, no personas."},
+
+{id:13,tema:"u5_gram",tipo:"mc",nivel:2,
+ texto:"'The girl _____ bag I found lives on my street.'",
+ opciones:["who","which","whose"],correcta:"whose",
+ pista:"'_____ bag' = the bag belonging to the girl",
+ explicacion:"Usamos '<b>whose</b>' para indicar posesión (el bolso de la chica = her bag)."},
+
+{id:14,tema:"u5_gram",tipo:"mc",nivel:2,
+ texto:"'The school _____ I study is very old.'",
+ opciones:["which","where","who"],correcta:"where",
+ pista:"A school is a place → use ___",
+ explicacion:"Usamos '<b>where</b>' para lugares. Podríamos decir 'which I study at' pero 'where' es más natural."},
+
+{id:15,tema:"u5_gram",tipo:"error",nivel:2,
+ texto:"Find the mistake: 'The man, that lives next door, is my uncle.'",
+ opciones:["The man, who lives next door, is my uncle.","The man, which lives next door, is my uncle.","No mistake"],correcta:"The man, who lives next door, is my uncle.",
+ pista:"Non-defining clauses (with commas) cannot use 'that'.",
+ explicacion:"En las cláusulas <b>non-defining</b> (con comas) no se puede usar 'that'. Hay que usar '<b>who</b>' para personas."},
+
+{id:16,tema:"u5_gram",tipo:"mc",nivel:3,
+ texto:"'I missed the bus, _____ made me late for school.'",
+ opciones:["that","which","who"],correcta:"which",
+ pista:"The pronoun refers to the whole idea of missing the bus.",
+ explicacion:"Cuando el pronombre relativo se refiere a una idea completa (perder el bus), usamos '<b>which</b>', nunca 'that'."},
+
+{id:17,tema:"u5_gram",tipo:"correct",nivel:2,
+ texto:"'My mum, ___ is a doctor, works long hours.' (non-defining)",
+ opciones:["which","who"],correcta:"who",
+ pista:"My mum is a person → use ___",
+ explicacion:"En cláusulas <b>non-defining</b> usamos '<b>who</b>' para personas, nunca 'which' o 'that'."},
+
+{id:18,tema:"u5_gram",tipo:"mc",nivel:2,
+ texto:"'The restaurant _____ we had dinner last year has closed.'",
+ opciones:["where","which","who"],correcta:"where",
+ pista:"A restaurant is a place.",
+ explicacion:"El restaurante es un lugar, así que usamos '<b>where</b>'."},
+
+// ─────────────────────── UNIT 6 VOC ──────────────────────────────
+{id:19,tema:"u6_voc",tipo:"mc",nivel:1,
+ texto:"'The food was absolutely _____ – I ate everything!'",
+ opciones:["delicious","very good","big"],correcta:"delicious",
+ pista:"With 'absolutely' you need an EXTREME adjective.",
+ explicacion:"Con 'absolutely' usamos adjetivos extremos como '<b>delicious</b>'. No se puede decir 'absolutely very good'."},
+
+{id:20,tema:"u6_voc",tipo:"error",nivel:2,
+ texto:"Which sentence is INCORRECT?",
+ opciones:["She is absolutely hilarious.","She is very hilarious.","She is really funny."],correcta:"She is very hilarious.",
+ pista:"'Hilarious' is an extreme adjective. Which modifier is wrong?",
+ explicacion:"'<b>Hilarious</b>' es extremo. No puede ir con 'very'. Usa 'absolutely hilarious' o 'really hilarious'."},
+
+{id:21,tema:"u6_voc",tipo:"mc",nivel:1,
+ texto:"'It's -5°C outside. It's absolutely _____.'",
+ opciones:["cold","freezing","cool"],correcta:"freezing",
+ pista:"What is the EXTREME version of 'cold'?",
+ explicacion:"'<b>Freezing</b>' es el adjetivo extremo de 'cold'. Con 'absolutely' siempre necesitamos adjetivos extremos."},
+
+{id:22,tema:"u6_voc",tipo:"correct",nivel:1,
+ texto:"'In Chemistry today we are going to ___ an experiment.'",
+ opciones:["make","do"],correcta:"do",
+ pista:"do/make + experiment?",
+ explicacion:"La colocación correcta es '<b>do an experiment</b>'. 'Make' no se usa con 'experiment'."},
+
+{id:23,tema:"u6_voc",tipo:"correct",nivel:1,
+ texto:"'Does that ___ sense?'",
+ opciones:["do","make"],correcta:"make",
+ pista:"It's a fixed expression: ___ sense",
+ explicacion:"La expresión fija es '<b>make sense</b>'. 'Do sense' no existe en inglés."},
+
+{id:24,tema:"u6_voc",tipo:"correct",nivel:1,
+ texto:"'I hope you ___ well in your exams.'",
+ opciones:["make","do"],correcta:"do",
+ pista:"do/make + well?",
+ explicacion:"La expresión correcta es '<b>do well</b>'. 'Made well' no existe."},
+
+{id:25,tema:"u6_voc",tipo:"correct",nivel:2,
+ texto:"'When I grow up, I want to ___ a lot of money.'",
+ opciones:["do","make"],correcta:"make",
+ pista:"do/make + money?",
+ explicacion:"La expresión correcta es '<b>make money</b>'. 'Do money' no existe en inglés."},
+
+{id:26,tema:"u6_voc",tipo:"odd",nivel:2,
  texto:"Which adjective is NOT an extreme adjective?",
  opciones:["hilarious","freezing","cold"],correcta:"cold",
- explicacion:"<b>Cold</b> es un adjetivo ordinario. Su versión extrema es 'freezing'. <i>Hilarious</i> y <i>freezing</i> son extremos."},
+ pista:"Which one could go with 'very'?",
+ explicacion:"'<b>Cold</b>' es ordinario (puede ir con 'very'). Su versión extrema es 'freezing'. <i>Hilarious</i> y <i>freezing</i> son extremos."},
 
-// ── UNIT 6 – Make / Do expressions (nivel 1-2) ───────────────────────────────
-{vid:69,unit:6,tipo:"correct",nivel:1,
- texto:"Today we are going to ___ an experiment.",
- opciones:["make","do","take"],correcta:"do",
- explicacion:"La colocación correcta es <b>do an experiment</b>. Con 'experiment' siempre usamos 'do', nunca 'make'."},
+// ─────────────────────── UNIT 6 GRAM ─────────────────────────────
+{id:27,tema:"u6_gram",tipo:"mc",nivel:1,
+ texto:"Transform: 'The police arrested the thief.' → Passive: '_____ by the police.'",
+ opciones:["The thief was arrested","The thief is arrested","The thief arrested"],correcta:"The thief was arrested",
+ pista:"Past passive: subject + WAS/WERE + past participle",
+ explicacion:"Pasiva de pasado: sujeto + <b>WAS/WERE + participio</b>. 'Arrest' → 'arrested'."},
 
-{vid:70,unit:6,tipo:"correct",nivel:1,
- texto:"It's like a type of yoghurt. Does that ___ sense?",
- opciones:["do","take","make"],correcta:"make",
- explicacion:"La expresión fija es <b>make sense</b> (tener sentido). 'Do sense' no existe en inglés."},
+{id:28,tema:"u6_gram",tipo:"mc",nivel:1,
+ texto:"'English _____ all over the world.' (present passive)",
+ opciones:["is spoken","is speaking","speaks"],correcta:"is spoken",
+ pista:"Present passive: is/are + past participle",
+ explicacion:"Pasiva de presente: <b>is/are + participio</b>. 'Speak' → participio 'spoken'."},
 
-{vid:71,unit:6,tipo:"correct",nivel:1,
- texto:"I hope you ___ well in your exams today.",
- opciones:["make","take","do"],correcta:"do",
- explicacion:"La expresión correcta es <b>do well</b> (hacerlo bien, salir bien en algo)."},
+{id:29,tema:"u6_gram",tipo:"mc",nivel:2,
+ texto:"Causative: 'I went to a hairdresser.' → 'I _____.'",
+ opciones:["had my hair cut","did my hair cut","made my hair cut"],correcta:"had my hair cut",
+ pista:"Causative = HAVE + object + past participle",
+ explicacion:"La causativa es <b>HAVE + objeto + participio</b>: 'have my hair cut'. Otra persona lo hizo por ti."},
 
-{vid:72,unit:6,tipo:"correct",nivel:1,
- texto:"Who ___ the housework in your family?",
- opciones:["makes","takes","does"],correcta:"does",
- explicacion:"La expresión correcta es <b>do the housework</b> (hacer las tareas de casa)."},
+{id:30,tema:"u6_gram",tipo:"mc",nivel:2,
+ texto:"'The concert _____ next Saturday.' (future passive)",
+ opciones:["will be held","will hold","is held"],correcta:"will be held",
+ pista:"Future passive: will be + past participle",
+ explicacion:"Pasiva de futuro: <b>will be + participio</b>. 'Hold' → participio 'held'."},
 
-{vid:73,unit:6,tipo:"correct",nivel:2,
- texto:"When I grow up, I want to ___ a lot of money.",
- opciones:["do","take","make"],correcta:"make",
- explicacion:"La expresión correcta es <b>make money</b> (ganar dinero). 'Do money' no existe en inglés."},
+{id:31,tema:"u6_gram",tipo:"error",nivel:3,
+ texto:"Find the mistake: 'By 2030, scientists will be cured cancer.'",
+ opciones:["will have cured cancer","will cure cancer","No mistake"],correcta:"will have cured cancer",
+ pista:"'By 2030' → action completed before a future point → future ___",
+ explicacion:"'By 2030' indica antes de un punto futuro → <b>future perfect</b>: 'will have cured'. 'Will be curing' sería future continuous."},
 
-{vid:74,unit:6,tipo:"correct",nivel:2,
- texto:"Please ___ your way to the auditorium. The concert starts in 5 minutes.",
- opciones:["do","take","make"],correcta:"make",
- explicacion:"La expresión es <b>make your way</b> (dirigirse a un lugar). 'Do your way' es incorrecto."},
+{id:32,tema:"u6_gram",tipo:"mc",nivel:3,
+ texto:"'They have built a new school.' → Present perfect passive:",
+ opciones:["A new school has been built.","A new school was built.","A new school is built."],correcta:"A new school has been built.",
+ pista:"Pres. perf. passive: has/have + been + past participle",
+ explicacion:"Present perfect pasivo: <b>has/have + been + participio</b>."},
 
-// ── UNIT 7 – Phrasal verbs (nivel 1-2) ───────────────────────────────────────
-{vid:75,unit:7,tipo:"match",nivel:1,
- texto:"'To discover information' → which phrasal verb matches?",
- opciones:["give up","find out","end up"],correcta:"find out",
- explicacion:"<b>Find out</b> significa descubrir información o enterarse de algo."},
+// ─────────────────────── UNIT 7 VOC ──────────────────────────────
+{id:33,tema:"u7_voc",tipo:"mc",nivel:1,
+ texto:"'Stop doing something' → which phrasal verb?",
+ opciones:["give up","take up","set off"],correcta:"give up",
+ pista:"Think of giving something away — giving it up.",
+ explicacion:"'<b>Give up</b>' = dejar de hacer algo. 'Take up' = empezar algo nuevo y 'set off' = comenzar un viaje."},
 
-{vid:76,unit:7,tipo:"match",nivel:1,
- texto:"'To stop doing something' → which phrasal verb matches?",
- opciones:["give up","carry on","set off"],correcta:"give up",
- explicacion:"<b>Give up</b> significa dejar de hacer algo o rendirse. Lo contrario de 'carry on'."},
-
-{vid:77,unit:7,tipo:"match",nivel:1,
- texto:"'To start a new hobby' → which phrasal verb matches?",
- opciones:["end up","take up","turn down"],correcta:"take up",
- explicacion:"<b>Take up</b> significa empezar una nueva actividad o hobby. Ej: 'She took up golf.'"},
-
-{vid:78,unit:7,tipo:"match",nivel:2,
- texto:"'To refuse or say no to an offer' → which phrasal verb matches?",
- opciones:["show up","turn down","set off"],correcta:"turn down",
- explicacion:"<b>Turn down</b> significa rechazar una oferta o invitación. Ej: 'He turned down the job.'"},
-
-{vid:79,unit:7,tipo:"correct",nivel:1,
- texto:"___ practising and you will be a great gymnast!",
- opciones:["End up","Give up","Carry on"],correcta:"Carry on",
- explicacion:"<b>Carry on</b> significa continuar haciendo algo. Es sinónimo de 'keep on'. 'Give up' sería lo contrario."},
-
-{vid:80,unit:7,tipo:"correct",nivel:1,
- texto:"I would like to ___ a new sport. Maybe golf or tennis.",
+{id:34,tema:"u7_voc",tipo:"mc",nivel:1,
+ texto:"'I am going to _____ salsa dancing. I start next week!'",
  opciones:["give up","take up","end up"],correcta:"take up",
- explicacion:"<b>Take up</b> significa empezar una nueva actividad. 'Give up' sería dejarlo, lo contrario."},
+ pista:"She's starting a new hobby.",
+ explicacion:"'<b>Take up</b>' = empezar una nueva actividad o hobby. 'Give up' es dejarlo — lo contrario."},
 
-{vid:81,unit:7,tipo:"correct",nivel:2,
- texto:"After travelling for two days, we ___ in the wrong town!",
+{id:35,tema:"u7_voc",tipo:"mc",nivel:2,
+ texto:"'After travelling for two days, we _____ in the wrong town!'",
  opciones:["set off","showed up","ended up"],correcta:"ended up",
- explicacion:"<b>End up</b> significa terminar en un lugar o situación, a menudo sin haberlo planeado."},
+ pista:"They were in a final (unexpected) destination.",
+ explicacion:"'<b>End up</b>' = terminar en un lugar o situación, a menudo sin haberlo planeado."},
 
-{vid:82,unit:7,tipo:"correct",nivel:2,
- texto:"What time did Helen ___ to the party?",
+{id:36,tema:"u7_voc",tipo:"mc",nivel:2,
+ texto:"'What time did Helen _____ to the party?'",
  opciones:["set off","show up","carry on"],correcta:"show up",
- explicacion:"<b>Show up</b> significa aparecer o llegar a un lugar. 'Set off' es partir, no llegar."},
+ pista:"She arrived (perhaps late or unexpectedly).",
+ explicacion:"'<b>Show up</b>' = aparecer o llegar. 'Set off' es partir, lo opuesto."},
 
-// ── UNIT 7 – Personality adjectives (nivel 1-2) ──────────────────────────────
-{vid:83,unit:7,tipo:"odd",nivel:1,
- texto:"Which word is the ODD ONE OUT? (not a positive personality adjective)",
+{id:37,tema:"u7_voc",tipo:"odd",nivel:1,
+ texto:"Which is the ODD ONE OUT? (not a positive personality adjective)",
  opciones:["warm","friendly","cold"],correcta:"cold",
- explicacion:"<b>Cold</b> (frío, distante) es negativo. <i>Warm</i> (cálido) y <i>friendly</i> (amigable) son positivos."},
+ pista:"Which one describes someone unfriendly or distant?",
+ explicacion:"'<b>Cold</b>' (frío, distante) es negativo. <i>Warm</i> (cálido) y <i>friendly</i> son positivos."},
 
-{vid:84,unit:7,tipo:"odd",nivel:1,
- texto:"Which word is the ODD ONE OUT? (the one positive word among negatives)",
+{id:38,tema:"u7_voc",tipo:"odd",nivel:1,
+ texto:"Which is the ODD ONE OUT? (the positive word among negatives)",
  opciones:["unfriendly","generous","rude"],correcta:"generous",
- explicacion:"<b>Generous</b> (generoso) es una cualidad positiva. <i>Unfriendly</i> y <i>rude</i> son negativos."},
+ pista:"Which word describes a good quality?",
+ explicacion:"'<b>Generous</b>' (generoso) es positivo. <i>Unfriendly</i> y <i>rude</i> (maleducado) son negativos."},
 
-{vid:85,unit:7,tipo:"mc",nivel:1,
+{id:39,tema:"u7_voc",tipo:"mc",nivel:1,
  texto:"Daniel gives presents to everyone. He is very ___.",
  opciones:["selfish","generous","rude"],correcta:"generous",
- explicacion:"<b>Generous</b> describe a alguien que le gusta dar y compartir. <i>Selfish</i> es lo contrario (egoísta)."},
+ pista:"Opposite of selfish.",
+ explicacion:"'<b>Generous</b>' = alguien que da y comparte. '<i>Selfish</i>' es lo contrario (egoísta)."},
 
-{vid:86,unit:7,tipo:"mc",nivel:1,
- texto:"She never says please or thank you. She is very ___.",
- opciones:["polite","thoughtful","rude"],correcta:"rude",
- explicacion:"<b>Rude</b> significa maleducado. Lo contrario es <i>polite</i> (educado)."},
-
-{vid:87,unit:7,tipo:"mc",nivel:2,
- texto:"Jo only ever thinks about herself. She is very ___.",
- opciones:["selfish","generous","lively"],correcta:"selfish",
- explicacion:"<b>Selfish</b> significa egoísta, alguien que solo piensa en sí mismo. Lo contrario es <i>generous</i>."},
-
-// ── UNIT 7 – 'All' phrases (nivel 2) ─────────────────────────────────────────
-{vid:88,unit:7,tipo:"mc",nivel:2,
- texto:"He plays video games ___. He never takes a break!",
+{id:40,tema:"u7_voc",tipo:"mc",nivel:2,
+ texto:"'He plays video games ___. He never takes a break!'",
  opciones:["after all","all the time","first of all"],correcta:"all the time",
- explicacion:"<b>All the time</b> significa siempre o constantemente. 'After all' significa al fin y al cabo."},
+ pista:"It means 'constantly' or 'always'.",
+ explicacion:"'<b>All the time</b>' = siempre o constantemente."},
 
-{vid:89,unit:7,tipo:"mc",nivel:2,
- texto:"Welcome to my presentation! ___, let me introduce myself.",
+{id:41,tema:"u7_voc",tipo:"mc",nivel:2,
+ texto:"'Welcome to my presentation! _____, let me introduce myself.'",
  opciones:["After all","All the same","First of all"],correcta:"First of all",
- explicacion:"<b>First of all</b> significa en primer lugar. Se usa para presentar el primer punto de algo."},
+ pista:"You're about to make your first point.",
+ explicacion:"'<b>First of all</b>' = en primer lugar. Se usa para introducir el primer punto."},
 
-{vid:90,unit:7,tipo:"mc",nivel:2,
- texto:"I love sports. ___, my mum is a professional tennis player.",
+{id:42,tema:"u7_voc",tipo:"mc",nivel:2,
+ texto:"'I love sports. _____, my mum is a professional tennis player.'",
  opciones:["First of all","After all","All the same"],correcta:"After all",
- explicacion:"<b>After all</b> significa al fin y al cabo o teniendo en cuenta las circunstancias."},
+ pista:"It explains WHY the previous statement makes sense.",
+ explicacion:"'<b>After all</b>' = al fin y al cabo, teniendo en cuenta las circunstancias."},
 
-// ── MIXED UNIT 8-10 LEVEL 3 (harder questions) ───────────────────────────────
-{vid:91,unit:8,tipo:"correct",nivel:3,
- texto:"Choose the correct word: 'She ___ to explain what had happened.'",
- opciones:["refused","suggested","invited"],correcta:"refused",
- explicacion:"<b>Refused to + infinitive</b> significa negarse a hacer algo. 'Suggested' va con -ing, no con infinitivo."},
+// ─────────────────────── UNIT 7 GRAM ─────────────────────────────
+{id:43,tema:"u7_gram",tipo:"mc",nivel:1,
+ texto:"'My parents _____ me stay up late on Fridays.' (permission)",
+ opciones:["make","let","force"],correcta:"let",
+ pista:"Permission → let/allow. Obligation → make.",
+ explicacion:"'<b>Let</b>' + persona + infinitivo (sin 'to') = permiso. 'Make' = obligación."},
 
-{vid:92,unit:8,tipo:"odd",nivel:3,
- texto:"Which is the ODD ONE OUT? (not used to express that someone said no)",
- opciones:["refused","turned down","encouraged"],correcta:"encouraged",
- explicacion:"<b>Encouraged</b> significa animar a alguien – lo contrario a decir que no. <i>Refused</i> y <i>turned down</i> expresan negación."},
+{id:44,tema:"u7_gram",tipo:"mc",nivel:1,
+ texto:"'The teacher _____ us do 50 exercises!' (obligation)",
+ opciones:["let","made","allowed"],correcta:"made",
+ pista:"Someone FORCED you to do it.",
+ explicacion:"'<b>Make</b>' + persona + infinitivo = obligación (alguien te obliga)."},
 
-{vid:93,unit:9,tipo:"correct",nivel:3,
- texto:"'She hasn't been at school all week.' → She ___ be ill.",
- opciones:["can't","must","might"],correcta:"must",
- explicacion:"<b>Must</b> expresa una deducción casi segura en el presente. Si falta toda la semana, casi seguro está enferma."},
+{id:45,tema:"u7_gram",tipo:"mc",nivel:2,
+ texto:"'Students _____ use their phones during exams.'",
+ opciones:["aren't allowed to","don't let","aren't let to"],correcta:"aren't allowed to",
+ pista:"Passive form of permission: be allowed to",
+ explicacion:"'<b>Be allowed to</b>' = tener/no tener permiso. 'Let' no se usa con 'to' así."},
 
-{vid:94,unit:9,tipo:"correct",nivel:3,
- texto:"'You ___ your bag on the bus! Now we have to go back.' (It was a mistake)",
- opciones:["shouldn't have left","must have left","can't have left"],correcta:"shouldn't have left",
- explicacion:"<b>Shouldn't have + participio</b> expresa que algo que hiciste en el pasado fue un error."},
+{id:46,tema:"u7_gram",tipo:"error",nivel:2,
+ texto:"Find the mistake: 'They made me to do the homework.'",
+ opciones:["They made me do the homework.","They made me doing the homework.","No mistake"],correcta:"They made me do the homework.",
+ pista:"After make/let, the verb is ALWAYS bare infinitive (no 'to').",
+ explicacion:"Con '<b>make</b>' y '<b>let</b>' el verbo siguiente va SIN 'to': 'made me do', no 'made me to do'."},
 
-{vid:95,unit:10,tipo:"correct",nivel:3,
- texto:"'Don't buy that phone! It isn't good ___ for money.'",
- opciones:["valuable","value","worth"],correcta:"value",
- explicacion:"La expresión es <b>good value for money</b> (buena relación calidad-precio). 'Valuable' es un adjetivo, no encaja aquí."},
+{id:47,tema:"u7_gram",tipo:"mc",nivel:2,
+ texto:"'I am _____ to getting up early. I still find it hard!'",
+ opciones:["not used","used","getting used"],correcta:"not used",
+ pista:"She HASN'T adapted yet.",
+ explicacion:"'<b>Not used to + -ing</b>' = todavía no te has adaptado. 'Getting used to' = proceso en progreso."},
 
-{vid:96,unit:10,tipo:"correct",nivel:3,
- texto:"'How much do you think this necklace is ___?'",
- opciones:["valuable","value","worth"],correcta:"worth",
- explicacion:"<b>Worth</b> se usa como preposición: 'It's worth €200'. <i>Valuable</i> es el adjetivo: 'It's a valuable necklace'."},
+{id:48,tema:"u7_gram",tipo:"mc",nivel:2,
+ texto:"'I'm slowly _____ used to living in Madrid.'",
+ opciones:["getting","being","making"],correcta:"getting",
+ pista:"Process of adapting → GET used to",
+ explicacion:"'<b>Get used to + -ing</b>' = proceso de adaptarse a algo nuevo. 'Be used to' = ya adaptado."},
 
-{vid:97,unit:8,tipo:"mc",nivel:3,
- texto:"Which reporting verb completes this? 'He ___ me to study harder for the test.'",
- opciones:["suggested","encouraged","claimed"],correcta:"encouraged",
- explicacion:"<b>Encourage someone to do something</b> significa animarles a hacerlo. 'Suggested' iría con -ing."},
+{id:49,tema:"u7_gram",tipo:"error",nivel:3,
+ texto:"Find the mistake: 'I'm not used to live in a small apartment.'",
+ opciones:["I'm not used to living in a small apartment.","I'm not used to lived in a small apartment.","No mistake"],correcta:"I'm not used to living in a small apartment.",
+ pista:"After 'used to' (adaptation), the verb ends in -ing.",
+ explicacion:"'Used to' de adaptación siempre va seguido de <b>-ing</b>: 'used to living'. El 'to' aquí es preposición, no infinitivo."},
 
-{vid:98,unit:9,tipo:"mc",nivel:3,
- texto:"'I'm not sure why she is late.' → She ___ got stuck in traffic.",
- opciones:["must have","can't have","should have"],correcta:"must have",
- explicacion:"<b>Must have + participio</b> se usa cuando hacemos una deducción bastante segura sobre el pasado."},
+// ─────────────────────── UNIT 8 VOC ──────────────────────────────
+{id:50,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who steals money from a bank is a ___.",
+ opciones:["robber","burglar","pickpocket"],correcta:"robber",
+ pista:"They target BANKS.",
+ explicacion:"Un <b>robber</b> roba en bancos. Un <i>burglar</i> entra en casas y un <i>pickpocket</i> roba carteras."},
 
-{vid:99,unit:10,tipo:"mc",nivel:3,
- texto:"Which word CANNOT follow 'on' to mean 'being offered at a lower price'?",
- opciones:["offer","bargain","sale"],correcta:"bargain",
- explicacion:"Decimos <b>on offer</b> y <b>on sale</b>, pero no 'on bargain'. <i>Bargain</i> es una ganga, no una oferta activa."},
+{id:51,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who breaks into a house to steal is a ___.",
+ opciones:["mugger","burglar","con man"],correcta:"burglar",
+ pista:"They 'break into' HOUSES.",
+ explicacion:"Un <b>burglar</b> entra en casas. Un <i>mugger</i> ataca a personas en la calle."},
 
-{vid:100,unit:8,tipo:"correct",nivel:3,
- texto:"'The teacher ___ doing extra reading to improve our vocabulary.'",
+{id:52,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who steals your wallet from your pocket without you noticing is a ___.",
+ opciones:["shoplifter","murderer","pickpocket"],correcta:"pickpocket",
+ pista:"They steal from your POCKET.",
+ explicacion:"Un <b>pickpocket</b> roba de bolsillos sin que te des cuenta."},
+
+{id:53,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who takes things from shops without paying is a ___.",
+ opciones:["shoplifter","poacher","robber"],correcta:"shoplifter",
+ pista:"They steal from SHOPS.",
+ explicacion:"Un <b>shoplifter</b> roba en tiendas. Un <i>poacher</i> caza ilegalmente."},
+
+{id:54,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who hunts wild animals illegally is a ___.",
+ opciones:["con man","poacher","mugger"],correcta:"poacher",
+ pista:"They hunt animals illegally → ___ching",
+ explicacion:"Un <b>poacher</b> (cazador furtivo) caza animales de forma ilegal."},
+
+{id:55,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"Someone who attacks you in the street to steal your money is a ___.",
+ opciones:["burglar","mugger","shoplifter"],correcta:"mugger",
+ pista:"They MUG you — attack you physically.",
+ explicacion:"Un <b>mugger</b> ataca físicamente en la calle."},
+
+{id:56,tema:"u8_voc",tipo:"correct",nivel:1,
+ texto:"'The criminal had to pay a ___.' (penalty in money)",
+ opciones:["murder","fine"],correcta:"fine",
+ pista:"A money penalty = a ___",
+ explicacion:"<b>Fine</b> = multa (penalización económica). <i>Murder</i> es asesinato."},
+
+{id:57,tema:"u8_voc",tipo:"correct",nivel:1,
+ texto:"'Harry ___ his first crime when he was 14.'",
+ opciones:["caught","committed"],correcta:"committed",
+ pista:"You ___ a crime (not catch it).",
+ explicacion:"La colocación correcta es '<b>commit a crime</b>'. 'Caught' = ser atrapado/a."},
+
+{id:58,tema:"u8_voc",tipo:"mc",nivel:2,
+ texto:"'Betty _____ me to dress up as a clown for the party.'",
+ opciones:["suggested","persuaded","refused"],correcta:"persuaded",
+ pista:"She convinced you to do something you might not have wanted to.",
+ explicacion:"'<b>Persuade someone to do</b>' = convencer. 'Suggest' va con -ing."},
+
+{id:59,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"'The doctor _____ doing 20 minutes of exercise a day.'",
+ opciones:["recommended","refused","claimed"],correcta:"recommended",
+ pista:"The doctor gave advice → ___mended doing",
+ explicacion:"'<b>Recommend + -ing</b>' = recomendar. Va seguido de -ing, nunca de infinitivo."},
+
+{id:60,tema:"u8_voc",tipo:"mc",nivel:2,
+ texto:"'He _____ that he didn't know anything about the theft.'",
+ opciones:["agreed","claimed","refused"],correcta:"claimed",
+ pista:"He stated it as true — it might or might not be.",
+ explicacion:"'<b>Claim</b>' = afirmar algo como verdadero (puede ser mentira)."},
+
+{id:61,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"'She _____ to help me. She said she was too busy.'",
+ opciones:["refused","offered","agreed"],correcta:"refused",
+ pista:"She said NO.",
+ explicacion:"'<b>Refuse to do</b>' = negarse. 'Agreed' = aceptar — lo opuesto."},
+
+{id:62,tema:"u8_voc",tipo:"mc",nivel:1,
+ texto:"'Paul _____ Meryl to dinner.'",
+ opciones:["claimed","invited","refused"],correcta:"invited",
+ pista:"He asked her to come somewhere with him.",
+ explicacion:"'<b>Invite someone to somewhere</b>' = invitar."},
+
+{id:63,tema:"u8_voc",tipo:"mc",nivel:2,
+ texto:"'She _____ going to the museum to do research.'",
  opciones:["refused","suggested","persuaded"],correcta:"suggested",
- explicacion:"<b>Suggest + -ing</b> (sugerir hacer algo). 'Refused' es negarse y 'persuaded' necesita un objeto: 'persuaded us to'."},
+ pista:"Suggest + ___ing (not infinitive).",
+ explicacion:"'<b>Suggest + -ing</b>' = sugerir. Va seguido de -ing, no de infinitivo."},
 
-{vid:101,unit:10,tipo:"odd",nivel:2,
- texto:"Which word is the ODD ONE OUT? (not related to jobs/work sectors)",
- opciones:["healthcare","finance","bargain"],correcta:"bargain",
- explicacion:"<b>Bargain</b> es una ganga (vocabulario de compras). <i>Healthcare</i> y <i>finance</i> son sectores laborales."},
+{id:64,tema:"u8_voc",tipo:"odd",nivel:2,
+ texto:"ODD ONE OUT: not a type of criminal",
+ opciones:["robber","pickpocket","claimed"],correcta:"claimed",
+ pista:"Which one is a verb, not a person?",
+ explicacion:"'<b>Claimed</b>' es un reporting verb. <i>Robber</i> y <i>pickpocket</i> son tipos de criminales."},
 
-{vid:102,unit:6,tipo:"odd",nivel:2,
- texto:"Which is the ODD ONE OUT? (not an extreme adjective)",
- opciones:["hilarious","freezing","good"],correcta:"good",
- explicacion:"<b>Good</b> es un adjetivo ordinario. Su versión extrema sería 'amazing' o 'fantastic'. <i>Hilarious</i> y <i>freezing</i> son extremos."},
+{id:65,tema:"u8_voc",tipo:"odd",nivel:2,
+ texto:"ODD ONE OUT: not a reporting verb",
+ opciones:["agreed","burglar","suggested"],correcta:"burglar",
+ pista:"Which one is a noun — a type of person?",
+ explicacion:"'<b>Burglar</b>' es un criminal. <i>Agreed</i> y <i>suggested</i> son reporting verbs."},
 
-{vid:103,unit:9,tipo:"odd",nivel:2,
- texto:"Which word is the ODD ONE OUT? (not a mystery adjective)",
+// ─────────────────────── UNIT 8 GRAM ─────────────────────────────
+{id:66,tema:"u8_gram",tipo:"mc",nivel:1,
+ texto:"He said, 'I am tired.' → Reported: He said ___",
+ opciones:["he was tired.","he is tired.","he were tired."],correcta:"he was tired.",
+ pista:"Present simple → past simple in reported speech.",
+ explicacion:"En reported speech: presente simple (am) → pasado simple (was). '<b>I am</b>' → '<b>he was</b>'."},
+
+{id:67,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"She said, 'I will call you tomorrow.' → Reported: She said ___",
+ opciones:["she would call me the next day.","she will call me tomorrow.","she called me the next day."],correcta:"she would call me the next day.",
+ pista:"will → ___ in reported speech. tomorrow → ___",
+ explicacion:"'<b>Will</b>' → '<b>would</b>' en reported speech. 'Tomorrow' → 'the next day'."},
+
+{id:68,tema:"u8_gram",tipo:"mc",nivel:1,
+ texto:"'She _____ me when the film started.' (indirect question)",
+ opciones:["asked","said","told"],correcta:"asked",
+ pista:"It's a question → use ask, not say/tell.",
+ explicacion:"Usamos '<b>ask</b>' para preguntas indirectas. 'Tell' necesita objeto y 'say' no lleva objeto."},
+
+{id:69,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"'Don't touch my phone!' → Reported: She told me ___",
+ opciones:["not to touch her phone.","to not touch her phone.","don't touch her phone."],correcta:"not to touch her phone.",
+ pista:"Negative order: told + not to + infinitive",
+ explicacion:"Órdenes negativas en reported speech: '<b>told + not to + infinitivo</b>'."},
+
+{id:70,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"'He _____ to go home immediately.' (he demanded it)",
+ opciones:["claimed","demanded","suggested"],correcta:"demanded",
+ pista:"A STRONG requirement → demand to",
+ explicacion:"'<b>Demand to</b>' = exigir algo. 'Suggest + -ing' y 'claim' son diferentes."},
+
+{id:71,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"'Do you like horror films?' → She asked me ___",
+ opciones:["if I liked horror films.","if I like horror films.","do I like horror films."],correcta:"if I liked horror films.",
+ pista:"Yes/no questions → if/whether + past tense",
+ explicacion:"Preguntas sí/no en reported speech: '<b>if/whether</b>' + pasado. 'Like' → 'liked'."},
+
+{id:72,tema:"u8_gram",tipo:"error",nivel:2,
+ texto:"Find the mistake: 'She said me that she was happy.'",
+ opciones:["She said that she was happy.","She said to me that she was happy.","No mistake"],correcta:"She said that she was happy.",
+ pista:"'Say' doesn't take a personal object directly.",
+ explicacion:"'<b>Say</b>' no lleva objeto de persona. Decimos 'said that...' o 'told me that...', nunca 'said me'."},
+
+{id:73,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"'I can't help you.' → He said ___",
+ opciones:["he couldn't help me.","he can't help me.","he could help me."],correcta:"he couldn't help me.",
+ pista:"can → ___ in reported speech",
+ explicacion:"'<b>Can</b>' → '<b>could</b>' en reported speech. 'You' → 'me'."},
+
+{id:74,tema:"u8_gram",tipo:"mc",nivel:3,
+ texto:"'He _____ me to study harder.' (he motivated me)",
+ opciones:["suggested","encouraged","claimed"],correcta:"encouraged",
+ pista:"He motivated you → encourage someone to do",
+ explicacion:"'<b>Encourage someone to do</b>' = animar a alguien."},
+
+{id:75,tema:"u8_gram",tipo:"mc",nivel:3,
+ texto:"'They were investigating the case.' → Police said they ___",
+ opciones:["were investigating","are investigating","would investigate"],correcta:"were investigating",
+ pista:"Present continuous → past continuous in reported speech",
+ explicacion:"Present continuous ('are investigating') → pasado continuo '<b>were investigating</b>' en reported speech."},
+
+// ─────────────────────── UNIT 9 VOC ──────────────────────────────
+{id:76,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'The origin of this object is unknown. It's _____.'",
+ opciones:["odd","unexplained","secret"],correcta:"unexplained",
+ pista:"No explanation exists for it.",
+ explicacion:"'<b>Unexplained</b>' = sin explicación conocida."},
+
+{id:77,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'A being from another planet is called an _____.'",
+ opciones:["alien","odd","mysterious"],correcta:"alien",
+ pista:"Another planet → alien / ___terrestrial",
+ explicacion:"Un '<b>alien</b>' es un ser de otro planeta."},
+
+{id:78,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'That video my friend posted _____ within an hour!'",
+ opciones:["went up","went viral","went crazy"],correcta:"went viral",
+ pista:"Shared by millions online → go ___",
+ explicacion:"'<b>Go viral</b>' = hacerse viral en internet."},
+
+{id:79,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'The fans _____ when the singer came on stage!'",
+ opciones:["went up","went viral","went crazy"],correcta:"went crazy",
+ pista:"They were extremely excited.",
+ explicacion:"'<b>Go crazy</b>' = ponerse muy emocionado o perder la cabeza de entusiasmo."},
+
+{id:80,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'Prices have definitely _____. Everything costs more!'",
+ opciones:["gone viral","gone up","gone crazy"],correcta:"gone up",
+ pista:"Prices INCREASED.",
+ explicacion:"'<b>Go up</b>' = subir o aumentar."},
+
+{id:81,tema:"u9_voc",tipo:"mc",nivel:2,
+ texto:"'He _____ writing until the very end of the exam.'",
+ opciones:["went up","went on","went viral"],correcta:"went on",
+ pista:"He continued → go ___",
+ explicacion:"'<b>Go on</b>' = continuar haciendo algo."},
+
+{id:82,tema:"u9_voc",tipo:"mc",nivel:2,
+ texto:"'The organisers should _____ to make the show better.'",
+ opciones:["go well","go one step further","go viral"],correcta:"go one step further",
+ pista:"Do something EXTRA.",
+ explicacion:"'<b>Go one step further</b>' = hacer algo extra, ir más allá."},
+
+{id:83,tema:"u9_voc",tipo:"mc",nivel:2,
+ texto:"'Everyone already knows it.' Which 'go' expression means this?",
+ opciones:["go viral","it goes without saying","go crazy"],correcta:"it goes without saying",
+ pista:"It's so obvious you don't need to say it.",
+ explicacion:"'<b>It goes without saying</b>' = algo tan obvio que no hace falta mencionarlo."},
+
+{id:84,tema:"u9_voc",tipo:"mc",nivel:1,
+ texto:"'The detectives can't solve the mystery. It's very _____.'",
+ opciones:["secret","puzzling","viral"],correcta:"puzzling",
+ pista:"Very hard to understand or explain.",
+ explicacion:"'<b>Puzzling</b>' = desconcertante, muy difícil de entender."},
+
+{id:85,tema:"u9_voc",tipo:"mc",nivel:2,
+ texto:"'An alien is also known as an _____ being.'",
+ opciones:["mysterious","extraterrestrial","unexplained"],correcta:"extraterrestrial",
+ pista:"Extra = outside, terrestrial = Earth",
+ explicacion:"'<b>Extraterrestrial</b>' = de fuera de la Tierra. Sinónimo formal de alien."},
+
+{id:86,tema:"u9_voc",tipo:"odd",nivel:2,
+ texto:"ODD ONE OUT: not a mystery adjective",
  opciones:["mysterious","puzzling","generous"],correcta:"generous",
- explicacion:"<b>Generous</b> es un adjetivo de personalidad (generoso). <i>Mysterious</i> y <i>puzzling</i> describen misterios."},
+ pista:"Which word is a personality adjective, not a mystery word?",
+ explicacion:"'<b>Generous</b>' es un adjetivo de personalidad. <i>Mysterious</i> y <i>puzzling</i> describen misterios."},
 
-{vid:104,unit:7,tipo:"odd",nivel:2,
- texto:"Which phrasal verb means 'to start', not 'to stop or finish'?",
- opciones:["give up","take up","end up"],correcta:"take up",
- explicacion:"<b>Take up</b> es empezar un hobby nuevo. <i>Give up</i> es dejar algo y <i>end up</i> es terminar en un sitio."},
+// ─────────────────────── UNIT 9 GRAM ─────────────────────────────
+{id:87,tema:"u9_gram",tipo:"mc",nivel:1,
+ texto:"'I can't find my keys. I _____ them at school.'",
+ opciones:["must leave","must have left","can't have left"],correcta:"must have left",
+ pista:"Almost certain deduction about the PAST → must have + past participle",
+ explicacion:"Para deducciones seguras sobre el pasado: '<b>must have + participio</b>'."},
 
-{vid:105,unit:8,tipo:"match",nivel:2,
- texto:"'To invite someone somewhere' → which reporting verb?",
- opciones:["claim","invite","refuse"],correcta:"invite",
- explicacion:"<b>Invite someone to somewhere</b> significa invitar a alguien. Ej: 'He invited her to the cinema.'"},
+{id:88,tema:"u9_gram",tipo:"mc",nivel:1,
+ texto:"'He has a Ferrari. He _____ very rich.'",
+ opciones:["must be","can't be","might have been"],correcta:"must be",
+ pista:"Almost certain deduction in the PRESENT.",
+ explicacion:"'<b>Must be</b>' = deducción lógica en el presente. Tiene un Ferrari → casi seguro es rico."},
 
-// ── Extra U8-10 variety questions ─────────────────────────────────────────────
-{vid:106,unit:8,tipo:"mc",nivel:2,
- texto:"'The police ___ a man last night and took him to the station.'",
- opciones:["fined","committed","arrested"],correcta:"arrested",
- explicacion:"<b>Arrest</b> significa detener o arrestar a alguien. La policía 'arrests' a sospechosos."},
+{id:89,tema:"u9_gram",tipo:"mc",nivel:2,
+ texto:"'There is no way they got lost with a GPS. They _____ lost.'",
+ opciones:["must have got","can't have got","might have got"],correcta:"can't have got",
+ pista:"IMPOSSIBLE in the past → can't have + past participle",
+ explicacion:"'<b>Can't have + participio</b>' = imposibilidad en el pasado."},
 
-{vid:107,unit:9,tipo:"mc",nivel:1,
- texto:"The magician's disappearance is very ___. Nobody can explain it.",
- opciones:["viral","mysterious","secret"],correcta:"mysterious",
- explicacion:"<b>Mysterious</b> describe algo que es difícil de entender o explicar, como la desaparición de un mago."},
+{id:90,tema:"u9_gram",tipo:"mc",nivel:2,
+ texto:"'I'm not sure where she is. She _____ gone home early.'",
+ opciones:["must have","can't have","might have"],correcta:"might have",
+ pista:"Just a possibility — you're not sure.",
+ explicacion:"'<b>Might have + participio</b>' = posibilidad en el pasado."},
 
-{vid:108,unit:10,tipo:"mc",nivel:1,
- texto:"'A: Shall I get the popcorn? B: No, ___ ___ me!' (I'm paying)",
- opciones:["that's all","these are on","same as usual"],correcta:"these are on",
- explicacion:"<b>These are on me</b> significa 'yo invito'. Es una expresión muy natural para ofrecer pagar algo."},
+{id:91,tema:"u9_gram",tipo:"mc",nivel:2,
+ texto:"'I failed the exam. You _____ more!'",
+ opciones:["should have studied","must have studied","might have studied"],correcta:"should have studied",
+ pista:"Criticism about something NOT done in the past.",
+ explicacion:"'<b>Should have + participio</b>' = crítica sobre algo que no se hizo."},
 
-{vid:109,unit:6,tipo:"mc",nivel:2,
- texto:"'The science exhibition was ___. I learned so many things!'",
- opciones:["hilarious","freezing","fascinating"],correcta:"fascinating",
- explicacion:"<b>Fascinating</b> es el adjetivo extremo de 'interesting'. Se usa cuando algo te parece muy interesante."},
+{id:92,tema:"u9_gram",tipo:"mc",nivel:2,
+ texto:"'I dropped my phone in the pool!' → 'You _____ more careful!'",
+ opciones:["should have been","must have been","shouldn't have been"],correcta:"should have been",
+ pista:"You should have DONE something (but didn't).",
+ explicacion:"'<b>Should have been more careful</b>' = debiste haber tenido más cuidado."},
 
-{vid:110,unit:7,tipo:"mc",nivel:2,
- texto:"My brother gets on my nerves sometimes, but I love him ___.",
- opciones:["first of all","all the time","all the same"],correcta:"all the same",
- explicacion:"<b>All the same</b> significa de todas formas o a pesar de todo. Introduce una idea contraria a la anterior."},
+{id:93,tema:"u9_gram",tipo:"mc",nivel:2,
+ texto:"'She's been absent all week. She _____ ill.'",
+ opciones:["must be","can't be","might be"],correcta:"must be",
+ pista:"Very likely conclusion from the evidence.",
+ explicacion:"'<b>Must be</b>' = deducción casi segura. Si falta toda la semana, casi seguro está enferma."},
 
+{id:94,tema:"u9_gram",tipo:"mc",nivel:3,
+ texto:"'You _____ your bag on the bus!' (It was a mistake.)",
+ opciones:["shouldn't have left","should have left","must have left"],correcta:"shouldn't have left",
+ pista:"It was a mistake to DO it → shouldn't have",
+ explicacion:"'<b>Shouldn't have + participio</b>' = algo que hiciste fue un error."},
+
+{id:95,tema:"u9_gram",tipo:"error",nivel:3,
+ texto:"Find the mistake: 'They must have went to the party.'",
+ opciones:["They must have gone to the party.","They must went to the party.","No mistake"],correcta:"They must have gone to the party.",
+ pista:"After 'must have' → past participle, not past simple.",
+ explicacion:"Después de 'must have' usamos el <b>participio pasado</b> (gone), no el pasado simple (went)."},
+
+// ─────────────────────── UNIT 10 VOC ─────────────────────────────
+{id:96,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"The money you earn for your work is called your ___.",
+ opciones:["salary","qualification","management"],correcta:"salary",
+ pista:"Your monthly/annual payment.",
+ explicacion:"<b>Salary</b> = el salario o sueldo."},
+
+{id:97,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"The person or company you work for is your ___.",
+ opciones:["employee","employer","manager"],correcta:"employer",
+ pista:"They EMPLOY you → employ + er",
+ explicacion:"<b>Employer</b> = la empresa/persona que te contrata. <i>Employee</i> eres tú."},
+
+{id:98,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"Doctors and nurses work in the ___.",
+ opciones:["finance sector","education sector","healthcare sector"],correcta:"healthcare sector",
+ pista:"health + care",
+ explicacion:"<b>Healthcare</b> = el sector de la salud."},
+
+{id:99,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"You need good _____ to get into university.",
+ opciones:["salary","qualifications","employers"],correcta:"qualifications",
+ pista:"Degrees, certificates, diplomas...",
+ explicacion:"<b>Qualifications</b> = títulos, certificados y diplomas."},
+
+{id:100,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"If you are good with numbers, you should work in ___.",
+ opciones:["healthcare","education","finance"],correcta:"finance",
+ pista:"Banks, money, accounting...",
+ explicacion:"<b>Finance</b> = el sector financiero."},
+
+{id:101,tema:"u10_voc",tipo:"correct",nivel:1,
+ texto:"'These trainers were only €15! They were a real ___.'",
+ opciones:["refund","bargain"],correcta:"bargain",
+ pista:"Something bought very cheaply = a ___gain",
+ explicacion:"<b>Bargain</b> = una ganga."},
+
+{id:102,tema:"u10_voc",tipo:"correct",nivel:1,
+ texto:"'Please give your waiter a ___.'",
+ opciones:["refund","tip"],correcta:"tip",
+ pista:"Extra money for good service.",
+ explicacion:"<b>Tip</b> = propina."},
+
+{id:103,tema:"u10_voc",tipo:"correct",nivel:1,
+ texto:"'I want to return this phone. Can I have a ___?'",
+ opciones:["bargain","refund"],correcta:"refund",
+ pista:"Money returned when you take something back.",
+ explicacion:"<b>Refund</b> = devolución del dinero."},
+
+{id:104,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"'That painting is very _____. It could be worth millions.'",
+ opciones:["valuable","value","worth"],correcta:"valuable",
+ pista:"An ADJECTIVE meaning 'of great value'.",
+ explicacion:"'<b>Valuable</b>' = adjetivo de gran valor. 'Worth' es preposición: 'it's worth €100'."},
+
+{id:105,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"'The family offered a _____ for information about the crime.'",
+ opciones:["refund","tip","reward"],correcta:"reward",
+ pista:"Money offered in exchange for information.",
+ explicacion:"<b>Reward</b> = recompensa ofrecida a cambio de información."},
+
+{id:106,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"'Would you like to buy these shoes? They're on _____ this week!'",
+ opciones:["bargain","offer","refund"],correcta:"offer",
+ pista:"'On ___' = at a reduced price in a shop.",
+ explicacion:"'<b>On offer</b>' = en oferta. <i>Bargain</i> es la ganga ya comprada."},
+
+{id:107,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"'A: Is there anything else? B: No, _____ _____ .'",
+ opciones:["that's all","same usual","my fault"],correcta:"that's all",
+ pista:"Used to say you don't need anything else.",
+ explicacion:"'<b>That's all</b>' = eso es todo."},
+
+{id:108,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"'A: Who broke the window? B: It's not my _____ !'",
+ opciones:["fault","problem","tip"],correcta:"fault",
+ pista:"'It's not my ___' = it's not my responsibility",
+ explicacion:"'<b>My fault</b>' = mi culpa."},
+
+{id:109,tema:"u10_voc",tipo:"mc",nivel:1,
+ texto:"'A: What would you like? B: Lemonade, _____ as _____.'",
+ opciones:["same / usual","that's / all","same / always"],correcta:"same / usual",
+ pista:"Fixed expression: the same as always.",
+ explicacion:"'<b>Same as usual</b>' = lo de siempre."},
+
+{id:110,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"'A: Shall I pay for the drinks? B: No, _____ are _____ me!'",
+ opciones:["these / on","that's / all","same / usual"],correcta:"these / on",
+ pista:"'These are ___ me' = I'm paying.",
+ explicacion:"'<b>These are on me</b>' = yo invito."},
+
+{id:111,tema:"u10_voc",tipo:"odd",nivel:2,
+ texto:"ODD ONE OUT: not related to jobs/work sectors",
+ opciones:["healthcare","finance","bargain"],correcta:"bargain",
+ pista:"Which word belongs to shopping vocabulary?",
+ explicacion:"'<b>Bargain</b>' = vocabulario de compras. <i>Healthcare</i> y <i>finance</i> son sectores laborales."},
+
+// ─────────────────────── UNIT 10 GRAM ────────────────────────────
+{id:112,tema:"u10_gram",tipo:"mc",nivel:1,
+ texto:"'At 8pm tonight, I _____ dinner with my family.'",
+ opciones:["will be having","will have","am having"],correcta:"will be having",
+ pista:"Action IN PROGRESS at a future moment → future ___",
+ explicacion:"<b>Future continuous</b> (will be + -ing) = acción en progreso en un momento futuro."},
+
+{id:113,tema:"u10_gram",tipo:"mc",nivel:2,
+ texto:"'By June, she _____ all her exams.'",
+ opciones:["will have finished","will be finishing","finishes"],correcta:"will have finished",
+ pista:"COMPLETED before a future point → future ___",
+ explicacion:"<b>Future perfect</b> (will have + participio) = completado antes de un momento futuro."},
+
+{id:114,tema:"u10_gram",tipo:"mc",nivel:1,
+ texto:"'Don't call me at 10pm – I _____ (sleep).'",
+ opciones:["will be sleeping","will have slept","am sleeping"],correcta:"will be sleeping",
+ pista:"At 10pm the action will be IN PROGRESS.",
+ explicacion:"'<b>Will be sleeping</b>' = future continuous: en progreso a esa hora."},
+
+{id:115,tema:"u10_gram",tipo:"mc",nivel:2,
+ texto:"'By the time you arrive, I _____ the meal.'",
+ opciones:["will be cooking","will have cooked","am cooking"],correcta:"will have cooked",
+ pista:"The meal will be DONE before you arrive.",
+ explicacion:"'<b>Will have cooked</b>' = future perfect: completado antes de tu llegada."},
+
+{id:116,tema:"u10_gram",tipo:"mc",nivel:2,
+ texto:"'This time next week, we _____ on the beach in Málaga.'",
+ opciones:["will be lying","will have lied","will lie"],correcta:"will be lying",
+ pista:"At that specific future moment, the action is in progress.",
+ explicacion:"'<b>Will be lying</b>' = future continuous."},
+
+{id:117,tema:"u10_gram",tipo:"mc",nivel:2,
+ texto:"'_____ you still _____ homework at 9pm tonight?'",
+ opciones:["Will / be doing","Are / doing","Will / have done"],correcta:"Will / be doing",
+ pista:"Future continuous question: Will + subject + be + -ing?",
+ explicacion:"Pregunta en future continuous: <b>Will + sujeto + be + -ing</b>."},
+
+{id:118,tema:"u10_gram",tipo:"error",nivel:3,
+ texto:"Find the mistake: 'By 2030, scientists will be curing cancer.'",
+ opciones:["will have cured cancer","will cure cancer","No mistake"],correcta:"will have cured cancer",
+ pista:"'By 2030' = before a future point → which tense?",
+ explicacion:"'By 2030' → <b>future perfect</b>: 'will have cured'. 'Will be curing' es continuous (acción en progreso)."},
+
+{id:119,tema:"u10_gram",tipo:"mc",nivel:3,
+ texto:"'By the time he retires, he _____ for 40 years.'",
+ opciones:["will have worked","will be working","has worked"],correcta:"will have worked",
+ pista:"By the time he retires → completed BEFORE that moment.",
+ explicacion:"<b>Future perfect</b>: 'will have worked' = para cuando se jubile, habrá trabajado 40 años."},
+
+{id:120,tema:"u10_gram",tipo:"mc",nivel:3,
+ texto:"'I _____ used to cooking Indian food. Now I love it!'",
+ opciones:["got used","am used","was used"],correcta:"got used",
+ pista:"The process of adapting is COMPLETED → got used to",
+ explicacion:"'<b>Got used to + -ing</b>' = el proceso de adaptación se completó con éxito."},
+
+// ─────────── EXTRA UNIT 8 (for exam pool) ────────────────────────
+{id:121,tema:"u8_gram",tipo:"mc",nivel:2,
+ texto:"'He agreed: OK, I'll do it.' → Reported: She agreed ___",
+ opciones:["to do it.","doing it.","she would do it."],correcta:"to do it.",
+ pista:"Agree + to + infinitive",
+ explicacion:"'<b>Agree to do something</b>' = aceptar hacer algo."},
+
+{id:122,tema:"u8_gram",tipo:"mc",nivel:3,
+ texto:"'You should go out more.' → He encouraged me ___",
+ opciones:["to go out more.","going out more.","that I go out more."],correcta:"to go out more.",
+ pista:"Encourage someone + to + infinitive",
+ explicacion:"'<b>Encourage someone to do</b>' = animar. Siempre va con 'to + infinitivo'."},
+
+{id:123,tema:"u8_voc",tipo:"mc",nivel:2,
+ texto:"'We ___ to go to the police station.'",
+ opciones:["agreed","invited","refused"],correcta:"agreed",
+ pista:"They said yes → agree to do",
+ explicacion:"'<b>Agree to do</b>' = aceptar hacer algo."},
+
+// ─────────── EXTRA UNIT 9 (for exam pool) ─────────────────────────
+{id:124,tema:"u9_gram",tipo:"mc",nivel:3,
+ texto:"'He was at the library all day. He _____ the test.' (impossible)",
+ opciones:["can't have cheated on","must have cheated on","might have cheated on"],correcta:"can't have cheated on",
+ pista:"He was in the library → copying was IMPOSSIBLE.",
+ explicacion:"'<b>Can't have + participio</b>' = imposibilidad en el pasado."},
+
+{id:125,tema:"u9_voc",tipo:"mc",nivel:3,
+ texto:"'Everyone knows people need sleep. It _____ saying.'",
+ opciones:["goes without","goes well","goes viral"],correcta:"goes without",
+ pista:"Fixed expression: it ___ without saying",
+ explicacion:"'<b>It goes without saying</b>' = algo tan obvio que no hace falta decirlo."},
+
+// ─────────── EXTRA UNIT 10 (for exam pool) ──────────────────────────
+{id:126,tema:"u10_voc",tipo:"correct",nivel:2,
+ texto:"'Spend €50 and get €5 _____ your next purchase.'",
+ opciones:["on","off"],correcta:"off",
+ pista:"€5 discount = €5 ___",
+ explicacion:"<b>€5 off</b> = 5€ de descuento. 'Off' indica reducción de precio."},
+
+{id:127,tema:"u10_voc",tipo:"correct",nivel:2,
+ texto:"'How much do you think this ring is _____?'",
+ opciones:["valuable","worth"],correcta:"worth",
+ pista:"'Is ___' asks about the monetary value.",
+ explicacion:"'<b>Worth</b>' se usa como preposición: 'it's worth €100'. <i>Valuable</i> es adjetivo: 'a valuable ring'."},
+
+{id:128,tema:"u10_voc",tipo:"correct",nivel:3,
+ texto:"'Don't buy that! It isn't good _____ for money.'",
+ opciones:["value","worth"],correcta:"value",
+ pista:"Fixed expression: good ___ for money",
+ explicacion:"La expresión es '<b>good value for money</b>' (buena relación calidad-precio)."},
+
+{id:129,tema:"u10_gram",tipo:"mc",nivel:2,
+ texto:"'At this time tomorrow, I _____ my English exam.'",
+ opciones:["will be taking","will have taken","am taking"],correcta:"will be taking",
+ pista:"At that specific future time the action is IN PROGRESS.",
+ explicacion:"'<b>Will be taking</b>' = future continuous: el examen estará en progreso mañana a esa hora."},
+
+{id:130,tema:"u10_voc",tipo:"mc",nivel:2,
+ texto:"'She works in management. She is an _____ of a large company.'",
+ opciones:["employer","employee","salary"],correcta:"employee",
+ pista:"She WORKS FOR the company → employ + ee",
+ explicacion:"<b>Employee</b> = la persona que trabaja para una empresa."},
 ];
 
-const VOCAB_EXAM_IDS = VOC_QUESTIONS.map(q => q.vid);
+// ══════════════════════════════════════════════════════════════════
+//  EXAM POOLS
+// ══════════════════════════════════════════════════════════════════
+// Diagnostic: 30 unique questions from all units
+const DIAG_IDS = [50,51,52,53,66,67,68,76,77,78,87,88,89,91,96,97,98,100,101,107,112,113,114,
+                  11,12,19,22,27,33,43];
 
+// Final exam: 130+ pool (70% U8-10)
+const FINAL_IDS = [
+  // U8
+  50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,121,122,123,
+  // U9
+  76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,124,125,
+  // U10
+  96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,126,127,128,129,130,
+  // U5-7
+  1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,
+  19,20,21,22,23,24,25,26,27,28,29,30,31,32,
+  33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49
+];
 
-// ════════════════════════════════════════
-//  APP STATE
-// ════════════════════════════════════════
-let state = {
-  screen: "home", // home | practice | diag | final | score
-  practiceTopicId: null,
-  practiceQueue: [],
-  practiceIndex: 0,
-  practiceAnswered: false,
-  practiceUserAnswer: null,
+// Vocab exam: only vocabulary questions
+const VOC_IDS = Q.filter(q=>q.tema.endsWith('_voc')).map(q=>q.id);
 
-  diagAttempt: 0,
-  diagQuestions: [],
-  diagIndex: 0,
-  diagAnswered: false,
-  diagCorrect: 0,
-  diagPrevIds: [],
-
-  finalQuestions: [],
-  finalIndex: 0,
-  finalAnswered: false,
-  finalCorrect: 0,
-  finalResults: [],
-  finalPrevIds: [],
-  finalUserAnswer: null,
-
-  vocabExamQuestions: [],
-  vocabExamIndex: 0,
-  vocabExamAnswered: false,
-  vocabExamCorrect: 0,
-  vocabExamResults: [],
-  vocabExamPrevIds: [],
-  vocabExamUserAnswer: null,
+// ══════════════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════════════
+let S = {
+  screen:'home',
+  // practice
+  ptopic:null,pqueue:[],pidx:0,pans:false,pusr:null,
+  // diag
+  dattempt:0,dqs:[],didx:0,dans:false,dcorrect:0,dprev:[],dusr:null,
+  // final
+  fqs:[],fidx:0,fans:false,fcorrect:0,fresults:[],fprev:[],fusr:null,
+  // vocab
+  vqs:[],vidx:0,vans:false,vcorrect:0,vresults:[],vprev:[],vusr:null,
+  // hint
+  showHint:false,
 };
 
-// ════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════
 //  HELPERS
-// ════════════════════════════════════════
-function getQ(id) { return ALL_QUESTIONS.find(q => q.id === id); }
-function shuffle(arr) {
-  const a = [...arr];
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-  return a;
-}
-function pickN(pool, n, exclude=[]) {
-  const available = pool.filter(id => !exclude.includes(id));
-  return shuffle(available).slice(0, n);
-}
-function shuffleOptions(q) {
-  if(!q.opciones) return q;
-  const opts = shuffle([...q.opciones]);
-  return { ...q, opciones: opts };
+// ══════════════════════════════════════════════════════════════════
+const getQ = id => Q.find(q=>q.id===id);
+const shuffle = a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+const pickN = (pool,n,excl=[])=>shuffle(pool.filter(id=>!excl.includes(id))).slice(0,n);
+const shuffleOpts = q=>q.opciones?{...q,opciones:shuffle([...q.opciones])}:q;
+const lvlBadge = n=>['','badge-lvl1','badge-lvl2','badge-lvl3'][n]||'badge-lvl1';
+const lvlLabel = n=>['','⚡ Basic','⚡⚡ Standard','⚡⚡⚡ Extension'][n]||'';
+const typeLabel = t=>({mc:'Multiple choice',fill:'Fill in',odd:'Odd one out',match:'Match',correct:'Choose correct',cat:'Categorise',error:'Spot the error'}[t]||t);
+
+// ══════════════════════════════════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════════════════════════════════
+function render(){
+  const app=document.getElementById('app');
+  const map={home:rHome,topicPicker:rTopics,practice:rPractice,diag:rDiag,diagScore:rDiagScore,final:rFinal,finalScore:rFinalScore,vocab:rVocab,vocabScore:rVocabScore};
+  app.innerHTML=(map[S.screen]||rHome)();
+  document.querySelectorAll('[data-a]').forEach(el=>el.addEventListener('click',dispatch));
+  document.querySelectorAll('[data-submit]').forEach(el=>el.addEventListener('click',handleFill));
+  document.querySelectorAll('.fill-input').forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter')handleFill(e);}));
 }
 
-// ════════════════════════════════════════
-//  RENDER ENGINE
-// ════════════════════════════════════════
-function render() {
-  const app = document.getElementById('app');
-  switch(state.screen) {
-    case 'home': app.innerHTML = renderHome(); break;
-    case 'topicPicker': app.innerHTML = renderTopicPicker(); break;
-    case 'practice': app.innerHTML = renderPractice(); break;
-    case 'diag': app.innerHTML = renderDiag(); break;
-    case 'diagScore': app.innerHTML = renderDiagScore(); break;
-    case 'final': app.innerHTML = renderFinal(); break;
-    case 'finalScore': app.innerHTML = renderFinalScore(); break;
-    case 'vocabExam': app.innerHTML = renderVocabExam(); break;
-    case 'vocabScore': app.innerHTML = renderVocabScore(); break;
+// ── HOME ────────────────────────────────────────────────────────
+function rHome(){
+  return `
+  <div class="home-hero">
+    <div class="home-tag">Thinking Space B1+ · Units 5–10</div>
+    <h1>English Practice<br>2nd ESO</h1>
+    <p>Grammar · Vocabulary · Exams</p>
+  </div>
+  <div class="module-grid">
+    <div class="module-card mc-purple" data-a="topicPicker">
+      <div class="module-icon">📚</div>
+      <div>
+        <div class="module-title">Practise by topic</div>
+        <div class="module-desc">Choose a topic and practise with instant feedback, hints and unlimited questions.</div>
+      </div>
+      <span class="module-badge">12 topics</span>
+    </div>
+    <div class="module-card mc-teal" data-a="startDiag">
+      <div class="module-icon">🔍</div>
+      <div>
+        <div class="module-title">Diagnostic test</div>
+        <div class="module-desc">15 questions across all units. Score 10+ to unlock the final exam.</div>
+      </div>
+      <span class="module-badge">15 Qs</span>
+    </div>
+    <div class="module-card mc-coral" data-a="startFinal">
+      <div class="module-icon">🏆</div>
+      <div>
+        <div class="module-title">Final exam</div>
+        <div class="module-desc">50 questions (70% Units 8–10). Increasing difficulty. Full review at the end.</div>
+      </div>
+      <span class="module-badge">50 Qs</span>
+    </div>
+    <div class="module-card mc-amber" data-a="startVocab">
+      <div class="module-icon">📝</div>
+      <div>
+        <div class="module-title">Vocabulary exam</div>
+        <div class="module-desc">50 vocab questions (70% Units 8–10). Multiple types: odd one out, correct word, matching & more.</div>
+      </div>
+      <span class="module-badge">50 Qs</span>
+    </div>
+  </div>`;
+}
+
+// ── TOPIC PICKER ─────────────────────────────────────────────────
+function rTopics(){
+  return `
+  <div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>📚 Practise by topic</h2></div>
+  <div class="topics-grid">
+    ${TOPICS.map(t=>`
+    <div class="topic-btn" data-a="startPractice" data-tid="${t.id}">
+      <div class="topic-unit">Unit ${t.unit}</div>
+      <div class="topic-name">${t.name}</div>
+      <div class="topic-type">${t.type==='Vocabulary'?'📖 Vocabulary':'✏️ Grammar'}</div>
+    </div>`).join('')}
+  </div>`;
+}
+
+// ── SHARED QUESTION RENDERER ──────────────────────────────────────
+function rQuestion(q,answered,userAns,actionKey,nextLabel,progressHTML,headerHTML,statsHTML){
+  const qsh=shuffleOpts(q);
+  const hint = S.showHint && q.pista
+    ? `<div class="hint-box">💡 Hint: ${q.pista}</div>` : '';
+
+  let body='';
+  if(q.tipo==='mc'||q.tipo==='odd'||q.tipo==='error'){
+    const letters=['A','B','C','D'];
+    body=`<div class="opts">${qsh.opciones.map((o,i)=>{
+      let cls='opt';
+      if(answered){if(o===q.correcta)cls+=' correct';else if(o===userAns&&o!==q.correcta)cls+=' wrong';}
+      return `<button class="${cls}" data-a="${actionKey}" data-opt="${o}" ${answered?'disabled':''}>
+        <span class="opt-letter">${letters[i]}</span>${o}</button>`;
+    }).join('')}</div>`;
+  } else if(q.tipo==='correct'){
+    const letters=['A','B'];
+    body=`<div class="opts">${q.opciones.map((o,i)=>{
+      let cls='opt';
+      if(answered){if(o===q.correcta)cls+=' correct';else if(o===userAns&&o!==q.correcta)cls+=' wrong';}
+      return `<button class="${cls}" data-a="${actionKey}" data-opt="${o}" ${answered?'disabled':''}>
+        <span class="opt-letter">${letters[i]}</span>${o}</button>`;
+    }).join('')}</div>`;
   }
-  attachEvents();
-}
 
-
-// ── VOCAB EXAM ──────────────────────────
-function renderVocabExam() {
-  const vq = state.vocabExamQuestions[state.vocabExamIndex];
-  const n = state.vocabExamIndex + 1;
-  const total = state.vocabExamQuestions.length;
-  const pct = Math.round((n-1)/total*100);
-  const lvlLabel = ['','⚡ Level 1','⚡⚡ Level 2','⚡⚡⚡ Level 3'][vq.nivel] || '';
-
-  const typeLabel = {mc:'Multiple choice',odd:'Odd one out',match:'Match the definition',correct:'Choose the correct word',fill:'Fill in the gap'}[vq.tipo] || '';
-  const typeBadge = `<span class="q-badge badge-voc">${typeLabel}</span>`;
-
-  // shuffle options per question (stable per index)
-  const opts = [...vq.opciones];
-
-  let optionsHTML = '';
-  opts.forEach(opt => {
-    let cls = 'opt-btn';
-    if(state.vocabExamAnswered) {
-      if(opt === vq.correcta) cls += ' correct';
-      else if(opt === state.vocabExamUserAnswer && opt !== vq.correcta) cls += ' wrong';
-    }
-    optionsHTML += `<button class="${cls}" data-action="vocabAnswer" data-opt="${opt}" ${state.vocabExamAnswered?'disabled':''}>${opt}</button>`;
-  });
-
-  let feedbackHTML = '';
-  if(state.vocabExamAnswered) {
-    const ok = state.vocabExamUserAnswer === vq.correcta;
-    feedbackHTML = ok
-      ? `<div class="feedback correct">✅ Correct! <b>${vq.correcta}</b> is the right answer.</div>`
-      : `<div class="feedback wrong">❌ The correct answer is <b>${vq.correcta}</b>. ${vq.explicacion}</div>`;
+  let fb='';
+  if(answered){
+    const ok=userAns===q.correcta;
+    fb=ok
+      ? `<div class="feedback ok">✅ Correct! <b>${q.correcta}</b> is the right answer.</div>`
+      : `<div class="feedback err">❌ The correct answer is <b>${q.correcta}</b>. ${q.explicacion}</div>`;
   }
 
-  let actionHTML = state.vocabExamAnswered
-    ? `<div class="action-row"><button class="btn-next" data-action="vocabNext">${n<total?'Next →':'See final score'}</button></div>`
+  const hintBtn = !answered && q.pista
+    ? `<button class="q-hint-btn" data-a="toggleHint">💡 Hint</button>` : '';
+
+  const action = answered
+    ? `<div class="act-row"><button class="btn-next" data-a="${nextLabel}">${nextLabel==='practiceNext'?'Next question →':nextLabel==='diagNext'?'Next →':nextLabel==='finalNext'?'Next →':'Next →'}</button>${nextLabel==='practiceNext'?`<button class="btn-sec" data-a="topicPicker">Change topic</button>`:''}</div>`
     : '';
 
   return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>📝 Vocabulary Exam</h2>
-  </div>
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Question ${n} of ${total} · ${lvlLabel}</span><span>${state.vocabExamCorrect} correct</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-  </div>
+  ${headerHTML}
+  ${progressHTML}
+  ${statsHTML||''}
   <div class="q-card">
-    <div class="q-meta">${typeBadge}<span class="q-num">Unit ${vq.unit} · Vocabulary</span></div>
-    <div class="q-text">${vq.texto}</div>
-    <div class="options">${optionsHTML}</div>
-    ${feedbackHTML}
-    ${actionHTML}
-  </div>`;
-}
-
-// ── VOCAB SCORE ─────────────────────────
-function renderVocabScore() {
-  const s = state.vocabExamCorrect;
-  let icon, msg, color;
-  if(s <= 10) { icon='😓'; msg='Keep practising – you can do it! Review the vocabulary topics.'; color='var(--red)'; }
-  else if(s <= 20) { icon='🙂'; msg='Good, but there is room for improvement. Check the words you got wrong.'; color='var(--amber)'; }
-  else { icon='🌟'; msg='Excellent! You have mastered the vocabulary!'; color='var(--green)'; }
-
-  const resultsHTML = state.vocabExamResults.map(r => `
-    <div class="result-item ${r.ok?'ok':'ko'}">
-      <div class="ri-q">${r.ok?'✅':'❌'} ${r.q}</div>
-      ${!r.ok ? `<div class="ri-ans">Correct answer: <b>${r.correcta}</b></div>` : ''}
-    </div>`).join('');
-
-  return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>📝 Vocabulary Result</h2>
-  </div>
-  <div class="score-card">
-    <div class="score-icon">${icon}</div>
-    <div class="score-big" style="color:${color}">${s}/30</div>
-    <div class="score-label">correct answers in the vocabulary exam</div>
-    <div class="score-msg">${msg}</div>
-    <button class="btn-primary" data-action="retryVocab">Retake exam 🔄</button>
-    <button class="btn-secondary" data-action="gotoPractice">Practise by topic</button>
-    <button class="btn-secondary" data-action="home">Home</button>
-    <div class="results-list">${resultsHTML}</div>
-  </div>`;
-}
-// ── HOME ────────────────────────────────
-function renderHome() {
-  return `
-  <div class="home-header">
-    <div class="home-logo">🎓</div>
-    <h1 class="home-title">English Practice</h1>
-    <p class="home-sub">2nd ESO · Thinking Space B1+ · Units 5–10</p>
-  </div>
-  <div class="home-cards">
-    <div class="home-card card-purple" data-action="gotoPractice">
-      <div class="home-card-icon">📚</div>
-      <div>
-        <div class="home-card-title">Practise by topic</div>
-        <div class="home-card-desc">Choose a topic and practise with instant feedback. Unlimited questions.</div>
+    <div class="q-top">
+      <div class="q-badges">
+        <span class="badge badge-type">${typeLabel(q.tipo)}</span>
+        <span class="badge badge-unit">Unit ${q.tema.replace('u','').replace('_voc','').replace('_gram','')}</span>
+        <span class="badge ${lvlBadge(q.nivel)}">${lvlLabel(q.nivel)}</span>
       </div>
+      ${hintBtn}
     </div>
-    <div class="home-card card-teal" data-action="gotoDiag">
-      <div class="home-card-icon">🔍</div>
-      <div>
-        <div class="home-card-title">Diagnostic test</div>
-        <div class="home-card-desc">10 mixed questions. You need 7/10 to move on to the final exam.</div>
-      </div>
-    </div>
-    <div class="home-card card-pink" data-action="gotoFinal">
-      <div class="home-card-icon">🏆</div>
-      <div>
-        <div class="home-card-title">Final exam</div>
-        <div class="home-card-desc">30 questions (70% Units 8–10). See your score at the end.</div>
-      </div>
-    </div>
-    <div class="home-card" style="border-left:5px solid #0d9488" data-action="gotoVocabExam">
-      <div class="home-card-icon">📝</div>
-      <div>
-        <div class="home-card-title">Vocabulary exam</div>
-        <div class="home-card-desc">30 vocabulary questions (70% Units 8–10). Different types: multiple choice, odd one out, match & more.</div>
-      </div>
-    </div>
-  </div>`;
-}
-
-// ── TOPIC PICKER ───────────────────────
-function renderTopicPicker() {
-  const byUnit = {};
-  TOPICS.forEach(t => {
-    if(!byUnit[t.unit]) byUnit[t.unit] = [];
-    byUnit[t.unit].push(t);
-  });
-  let html = `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>📚 Practise by topic</h2>
-  </div>
-  <div class="topics-grid">`;
-  TOPICS.forEach(t => {
-    html += `
-    <div class="topic-btn" data-action="startPractice" data-topic="${t.id}">
-      <div class="t-unit">Unidad ${t.unit}</div>
-      <div class="t-name">${t.name}</div>
-      <div class="t-type">${t.type === 'Vocabulario' ? '📖 Vocabulary' : '✏️ Grammar'}</div>
-    </div>`;
-  });
-  html += `</div>`;
-  return html;
-}
-
-// ── PRACTICE ────────────────────────────
-function renderPractice() {
-  const q = shuffleOptions(state.practiceQueue[state.practiceIndex % state.practiceQueue.length]);
-  const topic = TOPICS.find(t => t.id === state.practiceTopicId);
-  const badge = topic.type === 'Vocabulario' ? '<span class="q-badge badge-voc">Vocabulary</span>' : '<span class="q-badge badge-gram">Grammar</span>';
-
-  let optionsHTML = '';
-  if(q.opciones) {
-    q.opciones.forEach(opt => {
-      let cls = 'opt-btn';
-      if(state.practiceAnswered) {
-        if(opt === q.correcta) cls += ' correct';
-        else if(opt === state.practiceUserAnswer && opt !== q.correcta) cls += ' wrong';
-      }
-      optionsHTML += `<button class="opt-btn ${state.practiceAnswered?'':''} ${state.practiceAnswered && opt===q.correcta?'correct':''} ${state.practiceAnswered && opt===state.practiceUserAnswer && opt!==q.correcta?'wrong':''}" data-action="practiceAnswer" data-opt="${opt}" ${state.practiceAnswered?'disabled':''}>${opt}</button>`;
-    });
-  }
-
-  let feedbackHTML = '';
-  if(state.practiceAnswered) {
-    const ok = state.practiceUserAnswer === q.correcta;
-    feedbackHTML = ok
-      ? `<div class="feedback correct">✅ Correct! "${q.correcta}" is the correct answer.</div>`
-      : `<div class="feedback wrong">❌ ${q.explicacion}</div>`;
-  }
-
-  let actionHTML = '';
-  if(state.practiceAnswered) {
-    actionHTML = `<div class="action-row">
-      <button class="btn-next" data-action="practiceNext">Next question →</button>
-      <button class="btn-change" data-action="gotoPractice">Change topic</button>
-    </div>`;
-  }
-
-  return `
-  <div class="section-header">
-    <button class="btn-back" data-action="gotoPractice">← Topics</button>
-    <h2>Unidad ${topic.unit} · ${topic.name}</h2>
-  </div>
-  <div class="q-card">
-    <div class="q-meta">${badge}<span class="q-num">Question ${(state.practiceIndex % state.practiceQueue.length)+1}/${state.practiceQueue.length}</span></div>
+    ${hint}
     <div class="q-text">${q.texto}</div>
-    <div class="options">${optionsHTML}</div>
-    ${feedbackHTML}
-    ${actionHTML}
+    ${body}
+    ${fb}
+    ${action}
   </div>`;
 }
 
-// ── DIAGNOSTIC ──────────────────────────
-function renderDiag() {
-  const q = shuffleOptions(state.diagQuestions[state.diagIndex]);
-  const n = state.diagIndex + 1;
-  const total = state.diagQuestions.length;
-  const pct = Math.round((n-1)/total*100);
-
-  let optionsHTML = '';
-  q.opciones.forEach(opt => {
-    let cls = 'opt-btn';
-    if(state.diagAnswered) {
-      if(opt === q.correcta) cls += ' correct';
-      else if(opt === state.diagUserAnswer && opt !== q.correcta) cls += ' wrong';
-    }
-    optionsHTML += `<button class="${cls}" data-action="diagAnswer" data-opt="${opt}" ${state.diagAnswered?'disabled':''}>${opt}</button>`;
-  });
-
-  let feedbackHTML = '';
-  if(state.diagAnswered) {
-    const ok = state.diagUserAnswer === q.correcta;
-    feedbackHTML = ok
-      ? `<div class="feedback correct">✅ Correct!/div>`
-      : `<div class="feedback wrong">❌ ${q.explicacion}</div>`;
-  }
-
-  let actionHTML = state.diagAnswered
-    ? `<div class="action-row"><button class="btn-next" data-action="diagNext">${n<total?'Next →':'See result'}</button></div>`
-    : '';
-
-  const attemptMsg = state.diagAttempt > 0
-    ? `<div class="attempt-badge">Attempt ${state.diagAttempt+1} – No pressure, take your time!</div>` : '';
-
-  return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>🔍 Diagnostic Test</h2>
-  </div>
-  ${attemptMsg}
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Question ${n} of ${total}</span><span>${pct}%</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-  </div>
-  <div class="q-card">
-    <div class="q-meta"><span class="q-num">Diagnostic</span></div>
-    <div class="q-text">${q.texto}</div>
-    <div class="options">${optionsHTML}</div>
-    ${feedbackHTML}
-    ${actionHTML}
-  </div>`;
+// ── PRACTICE ─────────────────────────────────────────────────────
+function rPractice(){
+  const q=S.pqueue[S.pidx%S.pqueue.length];
+  const t=TOPICS.find(t=>t.id===S.ptopic);
+  const num=(S.pidx%S.pqueue.length)+1;
+  const hdr=`<div class="sec-hdr"><button class="btn-back" data-a="topicPicker">← Topics</button><h2>Unit ${t.unit} · ${t.name}</h2></div>`;
+  const prog=`<div class="prog-wrap"><div class="prog-top"><span>Question ${num} of ${S.pqueue.length}</span><span>${t.type}</span></div></div>`;
+  return rQuestion(q,S.pans,S.pusr,'practiceAnswer','practiceNext',prog,hdr,'');
 }
 
-// ── DIAG SCORE ──────────────────────────
-function renderDiagScore() {
-  const passed = state.diagCorrect >= 7;
-  const icon = passed ? '🎉' : '💪';
-  const color = passed ? 'var(--green)' : 'var(--amber)';
-  let msg = passed
-    ? 'Great job! You've passed the diagnostic test. Ready for the final exam?'
-    : 'You need a bit more practice. Don't worry, let's try again with different questions.';
+// ── DIAGNOSTIC ───────────────────────────────────────────────────
+function rDiag(){
+  const q=S.dqs[S.didx];
+  const n=S.didx+1,total=S.dqs.length,pct=Math.round((n-1)/total*100);
+  const attempt=S.dattempt>0?`<div class="attempt-banner">Attempt ${S.dattempt+1} – No pressure! You've got this 💪</div>`:'';
+  const hdr=`${attempt}<div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>🔍 Diagnostic Test</h2></div>`;
+  const prog=`<div class="prog-wrap"><div class="prog-top"><span>Question ${n} of ${total}</span><span>${pct}%</span></div><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div></div>`;
+  const stats=`<div class="prog-stats"><div class="stat-chip good">✅ ${S.dcorrect} correct</div><div class="stat-chip bad">❌ ${S.didx-S.dcorrect} wrong</div></div>`;
+  return rQuestion(q,S.dans,S.dusr,'diagAnswer','diagNext',prog,hdr,stats);
+}
 
-  let actions = passed
-    ? `<button class="btn-primary" data-action="gotoFinal">Go to Final Exam 🏆</button>
-       <button class="btn-secondary" data-action="home">Back to home</button>`
-    : `<button class="btn-primary" data-action="retryDiag">New diagnostic →</button>
-       <button class="btn-secondary" data-action="gotoPractice">Practise by topic</button>`;
-
+// ── DIAG SCORE ────────────────────────────────────────────────────
+function rDiagScore(){
+  const s=S.dcorrect,t=S.dqs.length,pct=Math.round(s/t*100);
+  const passed=s>=10;
+  const [emoji,msg,col]=passed
+    ?['🎉','Great job! You\'ve passed the diagnostic test. Ready for the final exam?','var(--lime)']
+    :['💪','You need a bit more practice. Don\'t worry — try again with different questions.','var(--amber)'];
+  const actions=passed
+    ?`<button class="btn-prim" data-a="startFinal">Go to Final Exam 🏆</button><button class="btn-outline" data-a="home">Home</button>`
+    :`<button class="btn-prim" data-a="retryDiag">New diagnostic →</button><button class="btn-outline" data-a="topicPicker">Practise by topic</button>`;
   return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>🔍 Diagnostic Result</h2>
-  </div>
+  <div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>🔍 Diagnostic Result</h2></div>
   <div class="score-card">
-    <div class="score-icon">${icon}</div>
-    <div class="score-big" style="color:${color}">${state.diagCorrect}/10</div>
-    <div class="score-label">correct · Attempt ${state.diagAttempt+1}</div>
+    <div class="score-emoji">${emoji}</div>
+    <div><span class="score-num" style="color:${col}">${s}</span><span class="score-denom">/${t}</span></div>
+    <div class="score-label">Attempt ${S.dattempt+1} · ${pct}%</div>
+    <div class="score-meter"><div class="score-meter-fill" style="width:${pct}%;background:${col}"></div></div>
     <div class="score-msg">${msg}</div>
     ${actions}
   </div>`;
 }
 
-// ── FINAL EXAM ──────────────────────────
-function renderFinal() {
-  const q = state.finalQuestions[state.finalIndex];
-  const qSh = shuffleOptions(q);
-  const n = state.finalIndex + 1;
-  const total = state.finalQuestions.length;
-  const pct = Math.round((n-1)/total*100);
-  const lvlLabel = ['','⚡ Easy','⚡⚡ Medium','⚡⚡⚡ Challenging'][q.nivel] || '';
-
-  let optionsHTML = '';
-  qSh.opciones.forEach(opt => {
-    let cls = 'opt-btn';
-    if(state.finalAnswered) {
-      if(opt === q.correcta) cls += ' correct';
-      else if(opt === state.finalUserAnswer && opt !== q.correcta) cls += ' wrong';
-    }
-    optionsHTML += `<button class="${cls}" data-action="finalAnswer" data-opt="${opt}" ${state.finalAnswered?'disabled':''}>${opt}</button>`;
-  });
-
-  let feedbackHTML = '';
-  if(state.finalAnswered) {
-    const ok = state.finalUserAnswer === q.correcta;
-    feedbackHTML = ok
-      ? `<div class="feedback correct">✅ Correct!/div>`
-      : `<div class="feedback wrong">❌ ${q.explicacion}</div>`;
-  }
-
-  let actionHTML = state.finalAnswered
-    ? `<div class="action-row"><button class="btn-next" data-action="finalNext">${n<total?'Next →':'See final score'}</button></div>`
-    : '';
-
-  return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>🏆 Final Exam</h2>
-  </div>
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Question ${n} of ${total} · ${lvlLabel}</span><span>${state.finalCorrect} correct</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-  </div>
-  <div class="q-card">
-    <div class="q-meta"><span class="q-num">Final Exam</span></div>
-    <div class="q-text">${q.texto}</div>
-    <div class="options">${optionsHTML}</div>
-    ${feedbackHTML}
-    ${actionHTML}
-  </div>`;
+// ── FINAL EXAM ────────────────────────────────────────────────────
+function rFinal(){
+  const q=S.fqs[S.fidx];
+  const n=S.fidx+1,total=S.fqs.length,pct=Math.round((n-1)/total*100);
+  const hdr=`<div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>🏆 Final Exam</h2></div>`;
+  const prog=`<div class="prog-wrap"><div class="prog-top"><span>Question ${n} of ${total}</span><span>${pct}%</span></div><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div></div>`;
+  const stats=`<div class="prog-stats"><div class="stat-chip good">✅ ${S.fcorrect} correct</div><div class="stat-chip bad">❌ ${S.fidx-S.fcorrect} wrong</div></div>`;
+  const nextLabel=S.fidx<total-1?'finalNext':'finalEnd';
+  return rQuestion(q,S.fans,S.fusr,'finalAnswer',nextLabel,prog,hdr,stats);
 }
 
-// ── FINAL SCORE ─────────────────────────
-function renderFinalScore() {
-  const s = state.finalCorrect;
-  let icon, msg, color;
-  if(s <= 10) { icon='😓'; msg='Keep practising – you can do it!'; color='var(--red)'; }
-  else if(s <= 20) { icon='🙂'; msg='Good, but review the topics where you made mistakes.'; color='var(--amber)'; }
-  else { icon='🌟'; msg='Excellent! You\'ve mastered the grammar and vocabulary.'; color='var(--green)'; }
-
-  const resultsHTML = state.finalResults.map(r => `
-    <div class="result-item ${r.ok?'ok':'ko'}">
-      <div class="ri-q">${r.ok?'✅':'❌'} ${r.q}</div>
-      ${!r.ok ? `<div class="ri-ans">Correct: <b>${r.correcta}</b></div>` : ''}
-    </div>`).join('');
-
+// ── FINAL SCORE ───────────────────────────────────────────────────
+function rFinalScore(){
+  const s=S.fcorrect,t=S.fqs.length,pct=Math.round(s/t*100);
+  let emoji,msg,col;
+  if(pct<40){emoji='😓';msg='Keep practising – review the topics where you made mistakes.';col='var(--coral)';}
+  else if(pct<70){emoji='🙂';msg='Good, but there is room for improvement. Check the words you got wrong.';col='var(--amber)';}
+  else if(pct<90){emoji='😊';msg='Well done! You\'re getting there. Keep it up!';col='var(--teal)';}
+  else{emoji='🌟';msg='Excellent! You\'ve mastered the grammar and vocabulary!';col='var(--lime)';}
+  const results=S.fresults.map(r=>`<div class="res-item ${r.ok?'ok':'ko'}"><div class="res-q">${r.ok?'✅':'❌'} ${r.q}</div>${!r.ok?`<div class="res-a">✔ Correct: ${r.c}</div>`:''}</div>`).join('');
   return `
-  <div class="section-header">
-    <button class="btn-back" data-action="home">← Home</button>
-    <h2>🏆 Final Result</h2>
-  </div>
+  <div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>🏆 Final Exam Result</h2></div>
   <div class="score-card">
-    <div class="score-icon">${icon}</div>
-    <div class="score-big" style="color:${color}">${s}/30</div>
-    <div class="score-label">correct answers in the final exam</div>
+    <div class="score-emoji">${emoji}</div>
+    <div><span class="score-num" style="color:${col}">${s}</span><span class="score-denom">/${t}</span></div>
+    <div class="score-label">${pct}% correct</div>
+    <div class="score-meter"><div class="score-meter-fill" style="width:${pct}%;background:${col}"></div></div>
     <div class="score-msg">${msg}</div>
-    <button class="btn-primary" data-action="retryFinal">Retake exam 🔄</button>
-    <button class="btn-secondary" data-action="gotoPractice">Practise by topic</button>
-    <button class="btn-secondary" data-action="home">Home</button>
-    <div class="results-list">${resultsHTML}</div>
+    <button class="btn-prim" data-a="retryFinal">Retake exam 🔄</button>
+    <button class="btn-outline" data-a="topicPicker">Practise by topic</button>
+    <button class="btn-outline" data-a="home">Home</button>
+    <div class="results-list">${results}</div>
   </div>`;
 }
 
-// ════════════════════════════════════════
-//  EVENTS
-// ════════════════════════════════════════
-function attachEvents() {
-  document.querySelectorAll('[data-action]').forEach(el => {
-    el.addEventListener('click', handleAction);
-  });
+// ── VOCAB EXAM ────────────────────────────────────────────────────
+function rVocab(){
+  const q=S.vqs[S.vidx];
+  const n=S.vidx+1,total=S.vqs.length,pct=Math.round((n-1)/total*100);
+  const hdr=`<div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>📝 Vocabulary Exam</h2></div>`;
+  const prog=`<div class="prog-wrap"><div class="prog-top"><span>Question ${n} of ${total}</span><span>${pct}%</span></div><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div></div>`;
+  const stats=`<div class="prog-stats"><div class="stat-chip good">✅ ${S.vcorrect} correct</div><div class="stat-chip bad">❌ ${S.vidx-S.vcorrect} wrong</div></div>`;
+  const nextLabel=S.vidx<total-1?'vocabNext':'vocabEnd';
+  return rQuestion(q,S.vans,S.vusr,'vocabAnswer',nextLabel,prog,hdr,stats);
 }
 
-function handleAction(e) {
-  const action = e.currentTarget.dataset.action;
-  switch(action) {
-    case 'home': state.screen='home'; render(); break;
-    case 'gotoPractice': state.screen='topicPicker'; render(); break;
+// ── VOCAB SCORE ───────────────────────────────────────────────────
+function rVocabScore(){
+  const s=S.vcorrect,t=S.vqs.length,pct=Math.round(s/t*100);
+  let emoji,msg,col;
+  if(pct<40){emoji='😓';msg='Keep practising the vocabulary!';col='var(--coral)';}
+  else if(pct<70){emoji='🙂';msg='Good, but review the words you got wrong.';col='var(--amber)';}
+  else{emoji='🌟';msg='Excellent vocabulary knowledge!';col='var(--lime)';}
+  const results=S.vresults.map(r=>`<div class="res-item ${r.ok?'ok':'ko'}"><div class="res-q">${r.ok?'✅':'❌'} ${r.q}</div>${!r.ok?`<div class="res-a">✔ Correct: ${r.c}</div>`:''}</div>`).join('');
+  return `
+  <div class="sec-hdr"><button class="btn-back" data-a="home">← Home</button><h2>📝 Vocabulary Result</h2></div>
+  <div class="score-card">
+    <div class="score-emoji">${emoji}</div>
+    <div><span class="score-num" style="color:${col}">${s}</span><span class="score-denom">/${t}</span></div>
+    <div class="score-label">${pct}% correct</div>
+    <div class="score-meter"><div class="score-meter-fill" style="width:${pct}%;background:${col}"></div></div>
+    <div class="score-msg">${msg}</div>
+    <button class="btn-prim" data-a="retryVocab">Retake 🔄</button>
+    <button class="btn-outline" data-a="home">Home</button>
+    <div class="results-list">${results}</div>
+  </div>`;
+}
 
-    case 'startPractice': {
-      const topicId = e.currentTarget.dataset.topic;
-      state.practiceTopicId = topicId;
-      const pool = ALL_QUESTIONS.filter(q => q.tema === topicId);
-      state.practiceQueue = shuffle(pool);
-      state.practiceIndex = 0;
-      state.practiceAnswered = false;
-      state.practiceUserAnswer = null;
-      state.screen = 'practice';
-      render(); break;
-    }
-    case 'practiceAnswer': {
-      if(state.practiceAnswered) return;
-      state.practiceUserAnswer = e.currentTarget.dataset.opt;
-      const q = state.practiceQueue[state.practiceIndex % state.practiceQueue.length];
-      state.practiceAnswered = true;
-      render(); break;
-    }
-    case 'practiceNext': {
-      state.practiceIndex++;
-      if(state.practiceIndex >= state.practiceQueue.length) {
-        state.practiceQueue = shuffle(state.practiceQueue);
-        state.practiceIndex = 0;
-      }
-      state.practiceAnswered = false;
-      state.practiceUserAnswer = null;
-      render(); break;
-    }
+// ══════════════════════════════════════════════════════════════════
+//  DISPATCHER
+// ══════════════════════════════════════════════════════════════════
+function dispatch(e){
+  const a=e.currentTarget.dataset.a;
+  S.showHint=false;
+  switch(a){
+    case 'home': S.screen='home'; break;
+    case 'topicPicker': S.screen='topicPicker'; break;
+    case 'toggleHint': S.showHint=!S.showHint; render(); return;
 
-    case 'gotoDiag': startDiag(); break;
-    case 'diagAnswer': {
-      if(state.diagAnswered) return;
-      state.diagUserAnswer = e.currentTarget.dataset.opt;
-      const q = state.diagQuestions[state.diagIndex];
-      if(state.diagUserAnswer === q.correcta) state.diagCorrect++;
-      state.diagAnswered = true;
-      render(); break;
+    case 'startPractice':{
+      S.ptopic=e.currentTarget.dataset.tid;
+      S.pqueue=shuffle(Q.filter(q=>q.tema===S.ptopic));
+      S.pidx=0;S.pans=false;S.pusr=null;S.screen='practice'; break;
     }
-    case 'diagNext': {
-      state.diagIndex++;
-      state.diagAnswered = false;
-      state.diagUserAnswer = null;
-      if(state.diagIndex >= state.diagQuestions.length) {
-        state.screen = 'diagScore';
-      }
-      render(); break;
+    case 'practiceAnswer':{
+      if(S.pans)return;
+      S.pusr=e.currentTarget.dataset.opt;S.pans=true; break;
     }
-    case 'retryDiag': {
-      state.diagAttempt++;
-      startDiag(); break;
+    case 'practiceNext':{
+      S.pidx++;if(S.pidx>=S.pqueue.length){S.pqueue=shuffle(S.pqueue);S.pidx=0;}
+      S.pans=false;S.pusr=null; break;
     }
 
-    case 'gotoFinal': startFinal(); break;
-    case 'finalAnswer': {
-      if(state.finalAnswered) return;
-      state.finalUserAnswer = e.currentTarget.dataset.opt;
-      const q = state.finalQuestions[state.finalIndex];
-      const ok = state.finalUserAnswer === q.correcta;
-      if(ok) state.finalCorrect++;
-      state.finalResults.push({ q: q.texto.substring(0,60)+'...', ok, correcta: q.correcta });
-      state.finalAnswered = true;
-      render(); break;
+    case 'startDiag': startDiag(); return;
+    case 'diagAnswer':{
+      if(S.dans)return;
+      S.dusr=e.currentTarget.dataset.opt;
+      if(S.dusr===S.dqs[S.didx].correcta)S.dcorrect++;
+      S.dans=true; break;
     }
-    case 'finalNext': {
-      state.finalIndex++;
-      state.finalAnswered = false;
-      state.finalUserAnswer = null;
-      if(state.finalIndex >= state.finalQuestions.length) {
-        state.screen = 'finalScore';
-      }
-      render(); break;
+    case 'diagNext':{
+      S.didx++;S.dans=false;S.dusr=null;
+      if(S.didx>=S.dqs.length)S.screen='diagScore'; break;
     }
-    case 'retryFinal': {
-      state.finalPrevIds = state.finalQuestions.map(q=>q.id);
-      startFinal(); break;
-    }
+    case 'retryDiag':{S.dattempt++;startDiag();return;}
 
-    case 'gotoVocabExam': startVocabExam(); break;
-    case 'vocabAnswer': {
-      if(state.vocabExamAnswered) return;
-      state.vocabExamUserAnswer = e.currentTarget.dataset.opt;
-      const vq = state.vocabExamQuestions[state.vocabExamIndex];
-      const ok = state.vocabExamUserAnswer === vq.correcta;
-      if(ok) state.vocabExamCorrect++;
-      state.vocabExamResults.push({ q: vq.texto.substring(0,60)+'...', ok, correcta: vq.correcta });
-      state.vocabExamAnswered = true;
-      render(); break;
+    case 'startFinal': startFinal(); return;
+    case 'finalAnswer':{
+      if(S.fans)return;
+      S.fusr=e.currentTarget.dataset.opt;
+      const q=S.fqs[S.fidx];const ok=S.fusr===q.correcta;
+      if(ok)S.fcorrect++;
+      S.fresults.push({q:q.texto.substring(0,55)+'…',ok,c:q.correcta});
+      S.fans=true; break;
     }
-    case 'vocabNext': {
-      state.vocabExamIndex++;
-      state.vocabExamAnswered = false;
-      state.vocabExamUserAnswer = null;
-      if(state.vocabExamIndex >= state.vocabExamQuestions.length) {
-        state.screen = 'vocabScore';
-      }
-      render(); break;
+    case 'finalNext':{S.fidx++;S.fans=false;S.fusr=null; break;}
+    case 'finalEnd': S.screen='finalScore'; break;
+    case 'retryFinal':{S.fprev=S.fqs.map(q=>q.id);startFinal();return;}
+
+    case 'startVocab': startVocab(); return;
+    case 'vocabAnswer':{
+      if(S.vans)return;
+      S.vusr=e.currentTarget.dataset.opt;
+      const q=S.vqs[S.vidx];const ok=S.vusr===q.correcta;
+      if(ok)S.vcorrect++;
+      S.vresults.push({q:q.texto.substring(0,55)+'…',ok,c:q.correcta});
+      S.vans=true; break;
     }
-    case 'retryVocab': {
-      state.vocabExamPrevIds = state.vocabExamQuestions.map(q=>q.vid);
-      startVocabExam(); break;
-    }
+    case 'vocabNext':{S.vidx++;S.vans=false;S.vusr=null; break;}
+    case 'vocabEnd': S.screen='vocabScore'; break;
+    case 'retryVocab':{S.vprev=S.vqs.map(q=>q.id);startVocab();return;}
   }
+  render();
 }
 
-// ════════════════════════════════════════
+function handleFill(e){
+  const inp=document.querySelector('.fill-input');
+  if(!inp)return;
+  const val=inp.value.trim().toLowerCase();
+  // Find active question
+  const screens={diag:S.dqs[S.didx],final:S.fqs[S.fidx],vocab:S.vqs[S.vidx],practice:S.pqueue[S.pidx%S.pqueue.length]};
+  const q=screens[S.screen];
+  if(!q||S.dans||S.fans||S.vans||S.pans)return;
+  const ok=val===q.correcta.toLowerCase();
+  inp.classList.add(ok?'ok':'err');
+  const fakeEvt={currentTarget:{dataset:{opt:q.correcta,a:S.screen+'Answer'}}};
+  // mark answered
+  if(S.screen==='diag'){S.dusr=q.correcta;if(ok)S.dcorrect++;S.dans=true;}
+  else if(S.screen==='final'){S.fusr=q.correcta;if(ok)S.fcorrect++;S.fresults.push({q:q.texto.substring(0,55)+'…',ok,c:q.correcta});S.fans=true;}
+  else if(S.screen==='vocab'){S.vusr=q.correcta;if(ok)S.vcorrect++;S.vresults.push({q:q.texto.substring(0,55)+'…',ok,c:q.correcta});S.vans=true;}
+  else{S.pusr=q.correcta;S.pans=true;}
+  render();
+}
+
+// ══════════════════════════════════════════════════════════════════
 //  STARTERS
-// ════════════════════════════════════════
-function startDiag() {
-  const ids = pickN(DIAG_IDS, 10, state.diagPrevIds);
-  state.diagPrevIds = [...state.diagPrevIds, ...ids].slice(-20);
-  state.diagQuestions = ids.map(id => getQ(id)).filter(Boolean);
-  state.diagIndex = 0;
-  state.diagCorrect = 0;
-  state.diagAnswered = false;
-  state.diagUserAnswer = null;
-  state.screen = 'diag';
-  render();
+// ══════════════════════════════════════════════════════════════════
+function startDiag(){
+  const ids=pickN(DIAG_IDS,15,S.dprev);
+  S.dprev=[...S.dprev,...ids].slice(-30);
+  S.dqs=ids.map(getQ).filter(Boolean);
+  S.didx=0;S.dcorrect=0;S.dans=false;S.dusr=null;S.screen='diag';render();
 }
 
-function startFinal() {
-  // 70% U8-10 = 21 questions, 30% U5-7 = 9 questions
-  const u810ids = FINAL_IDS.filter(id => {
-    const q = getQ(id);
-    return q && ['u8_voc','u8_gram','u9_voc','u9_gram','u10_voc','u10_gram'].includes(q.tema);
-  });
-  const u57ids = FINAL_IDS.filter(id => {
-    const q = getQ(id);
-    return q && ['u5_voc','u5_gram','u6_voc','u6_gram','u7_voc','u7_gram'].includes(q.tema);
-  });
-
-  const picked810 = pickN(u810ids, 21, state.finalPrevIds);
-  const picked57 = pickN(u57ids, 9, state.finalPrevIds);
-  const allPicked = shuffle([...picked810, ...picked57]);
-
-  state.finalQuestions = allPicked.map(id => getQ(id)).filter(Boolean);
-  // Sort by nivel (1,2,3) for increasing difficulty
-  state.finalQuestions.sort((a,b) => (a.nivel||1) - (b.nivel||1));
-
-  state.finalIndex = 0;
-  state.finalCorrect = 0;
-  state.finalAnswered = false;
-  state.finalUserAnswer = null;
-  state.finalResults = [];
-  state.screen = 'final';
-  render();
+function startFinal(){
+  const u810=FINAL_IDS.filter(id=>{const q=getQ(id);return q&&['u8_voc','u8_gram','u9_voc','u9_gram','u10_voc','u10_gram'].includes(q.tema);});
+  const u57=FINAL_IDS.filter(id=>{const q=getQ(id);return q&&['u5_voc','u5_gram','u6_voc','u6_gram','u7_voc','u7_gram'].includes(q.tema);});
+  let p810=pickN(u810,35,S.fprev);let p57=pickN(u57,15,S.fprev);
+  if(p810.length<35)p810=shuffle(u810).slice(0,35);
+  if(p57.length<15)p57=shuffle(u57).slice(0,15);
+  const all=shuffle([...p810,...p57]).map(getQ).filter(Boolean);
+  all.sort((a,b)=>(a.nivel||1)-(b.nivel||1));
+  S.fqs=all;S.fidx=0;S.fcorrect=0;S.fans=false;S.fusr=null;S.fresults=[];S.screen='final';render();
 }
 
-
-function startVocabExam() {
-  // 70% from U8-10 = 21 questions, 30% from U6-7 = 9 questions
-  const u810 = VOC_QUESTIONS.filter(q => [8,9,10].includes(q.unit));
-  const u67  = VOC_QUESTIONS.filter(q => [6,7].includes(q.unit));
-
-  function pickVocab(pool, n, exclude) {
-    const avail = pool.filter(q => !exclude.includes(q.vid));
-    const shuffled = shuffle([...avail]);
-    // Sort by nivel for difficulty progression, then pick
-    return shuffled.slice(0, n);
-  }
-
-  const prevIds = state.vocabExamPrevIds || [];
-  let picked810 = pickVocab(u810, 21, prevIds);
-  let picked67  = pickVocab(u67, 9, prevIds);
-
-  // If not enough after exclusion, fill from full pool
-  if(picked810.length < 21) picked810 = shuffle([...u810]).slice(0,21);
-  if(picked67.length < 9)   picked67  = shuffle([...u67]).slice(0,9);
-
-  const all = shuffle([...picked810, ...picked67]);
-  // Sort ascending by nivel for difficulty progression
-  all.sort((a,b) => (a.nivel||1)-(b.nivel||1));
-
-  state.vocabExamQuestions = all;
-  state.vocabExamIndex = 0;
-  state.vocabExamCorrect = 0;
-  state.vocabExamAnswered = false;
-  state.vocabExamUserAnswer = null;
-  state.vocabExamResults = [];
-  state.screen = 'vocabExam';
-  render();
+function startVocab(){
+  const voc=Q.filter(q=>q.tema.endsWith('_voc'));
+  const u810=voc.filter(q=>[8,9,10].includes(parseInt(q.tema[1]+''+q.tema[2]||q.tema[1])));
+  const u57=voc.filter(q=>[5,6,7].includes(parseInt(q.tema[1])));
+  let p810=shuffle(u810.filter(q=>!S.vprev.includes(q.id))).slice(0,35);
+  let p57=shuffle(u57.filter(q=>!S.vprev.includes(q.id))).slice(0,15);
+  if(p810.length<35)p810=shuffle(u810).slice(0,35);
+  if(p57.length<15)p57=shuffle(u57).slice(0,15);
+  const all=shuffle([...p810,...p57]);
+  all.sort((a,b)=>(a.nivel||1)-(b.nivel||1));
+  S.vqs=all;S.vidx=0;S.vcorrect=0;S.vans=false;S.vusr=null;S.vresults=[];S.screen='vocab';render();
 }
 
-// ════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════
 render();
 </script>
 </body>
 </html>
-
-
-Setting up the exam modules...
