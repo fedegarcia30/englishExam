@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #0b1f13;
+}
+
+#game-root {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+}
+
+#game-root canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+.aim-overlay {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  cursor: grab;
+}
+
+.power-meter {
+  position: absolute;
+  right: 20px;
+  bottom: 90px;
+  width: 22px;
+  height: 160px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.power-meter-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #ffe08a, #e85d3c);
+  transition: height 0.05s linear;
+}
+
+.hud-top {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.hud-badge {
+  background: rgba(10, 20, 12, 0.55);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 6px 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 74px;
+}
+
+.hud-label {
+  font-size: 11px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hud-value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hud-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.85;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hud-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hud-modal-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  text-align: center;
+  min-width: 240px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hud-modal-card h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.hud-modal-score {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0e9f8c;
+  margin: 4px 0;
+}
+
+.hud-modal-diff {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.hud-modal-card button {
+  margin-top: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #0e9f8c;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .hud-badge {
+    min-width: 64px;
+    padding: 5px 8px;
+  }
+  .hud-value {
+    font-size: 14px;
+  }
+}
